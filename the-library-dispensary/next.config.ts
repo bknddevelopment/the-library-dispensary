@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  basePath: '/the-library-dispensary',
+  assetPrefix: '/the-library-dispensary',
+  images: {
+    unoptimized: true
+  }
 };
 
 export default nextConfig;
