@@ -9,8 +9,8 @@ export default function FirstVisit() {
       icon: IdCard,
       number: "1",
       title: "Bring Your ID",
-      description: "You&apos;ll need a valid government-issued ID. Must be 21+ for recreational or have a valid medical card.",
-      tips: ["Driver's license or passport accepted", "Medical patients bring your card"]
+      description: "You&apos;ll need a valid government-issued ID. Must be 21+ to enter.",
+      tips: ["Driver's license or passport accepted", "We verify all IDs for compliance"]
     },
     {
       icon: MessageCircle,
@@ -37,7 +37,14 @@ export default function FirstVisit() {
 
   const whatToBring = [
     "Valid government-issued ID (21+)",
-    "Medical marijuana card (if applicable)",
+    "Cash or debit card",
+    "Questions for our budtenders",
+    "An open mind to learn"
+    }
+  ];
+
+  const whatToBring = [
+    "Valid government-issued ID (21+)",
     "Cash or debit card",
     "Questions for our budtenders",
     "An open mind to learn"

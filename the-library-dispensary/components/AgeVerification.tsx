@@ -177,7 +177,7 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
 
           <div className="mt-6 p-4 bg-library-teal/10 border border-library-teal/20 rounded">
             <p className="text-xs text-library-teal leading-relaxed">
-              <strong>Legal Notice:</strong> This website is intended for adults 21 years of age and older or qualified patients. 
+              <strong>Legal Notice:</strong> This website is intended for adults 21 years of age and older. 
               Cannabis products have not been analyzed or approved by the FDA. 
               There is limited information on the side effects of using cannabis products.
             </p>

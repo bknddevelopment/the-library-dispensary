@@ -15,9 +15,9 @@ export default function Services() {
     },
     {
       icon: Heart,
-      title: "Medical Cannabis",
-      description: "Compassionate care for registered medical marijuana patients",
-      features: ["Personalized consultations", "Medical-grade products", "Patient discounts"],
+      title: "Premium Products",
+      description: "Carefully curated selection of high-quality cannabis products",
+      features: ["Lab-tested for purity", "Premium brands", "Member rewards"],
       bgColor: "bg-library-teal/10",
       iconColor: "text-library-teal"
     },
@@ -65,7 +65,7 @@ export default function Services() {
           <div className="w-24 h-1 bg-library-gold mx-auto mb-8"></div>
           <p className="text-lg text-library-black/80 max-w-3xl mx-auto">
             When we open, we&apos;ll provide comprehensive services to meet your cannabis needs 
-            with professionalism and care - for both medical patients and recreational consumers.
+            with professionalism and care for all recreational consumers.
           </p>
         </motion.div>
 

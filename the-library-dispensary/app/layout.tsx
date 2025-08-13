@@ -15,8 +15,8 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "The Library | Premier Cannabis Dispensary in West Orange, NJ",
-  description: "The Library is West Orange's premier cannabis dispensary offering recreational and medical marijuana products. Visit us for quality cannabis, expert guidance, and exceptional service.",
-  keywords: "cannabis dispensary, West Orange NJ, marijuana dispensary, recreational cannabis, medical marijuana, The Library dispensary",
+  description: "The Library is West Orange's premier recreational cannabis dispensary. Visit us for quality cannabis, expert guidance, and exceptional service.",
+  keywords: "cannabis dispensary, West Orange NJ, marijuana dispensary, recreational cannabis, The Library dispensary",
   authors: [{ name: "The Library" }],
   creator: "The Library",
   publisher: "The Library",

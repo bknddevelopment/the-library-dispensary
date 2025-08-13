@@ -173,9 +173,9 @@ export default function Education() {
           className="mt-12 p-6 bg-library-burgundy/5 border border-library-burgundy/20 rounded-lg"
         >
           <p className="text-sm text-library-burgundy text-center">
-            <strong>Educational Disclaimer:</strong> This information is for educational purposes only and is not intended 
-            as medical advice. Cannabis affects everyone differently. Always consult with a healthcare 
-            professional regarding medical conditions and start with low doses when trying new products.
+            <strong>Educational Disclaimer:</strong> This information is for educational purposes only. 
+            Cannabis affects everyone differently. Start with low doses when trying new products 
+            and consume responsibly.
           </p>
         </motion.div>
       </div>

@@ -128,7 +128,7 @@ export default function Footer() {
             <div className="flex items-start gap-2">
               <AlertCircle className="w-5 h-5 text-library-gold flex-shrink-0 mt-0.5" />
               <div className="text-xs text-library-white/80 leading-relaxed">
-                <strong className="text-library-gold">LEGAL DISCLAIMER:</strong> For use only by adults 21 years of age and older or qualified patients. 
+                <strong className="text-library-gold">LEGAL DISCLAIMER:</strong> For use only by adults 21 years of age and older. 
                 Keep out of reach of children and pets. In case of accidental ingestion, contact the poison control hotline 1-800-222-1222 
                 or 911. This product has not been analyzed or approved by the FDA. There is limited information on the side effects of using 
                 this product, and there may be associated health risks.
