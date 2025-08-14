@@ -18,7 +18,7 @@ export default function About() {
     {
       icon: Heart,
       title: "Community First",
-      description: "Committed to serving West Orange with care and integrity"
+      description: "Committed to serving New Jersey with care and integrity"
     },
     {
       icon: Shield,
@@ -84,7 +84,7 @@ export default function About() {
           >
             <h3 className="text-2xl font-serif text-library-brown mb-6">Our Mission</h3>
             <blockquote className="text-lg italic text-library-teal mb-6">
-              &ldquo;To provide West Orange with a premier cannabis experience that combines education, 
+              &ldquo;To provide New Jersey with a premier cannabis experience that combines education, 
               quality products, and exceptional service in an atmosphere of sophistication and comfort.&rdquo;
             </blockquote>
             <div className="flex items-center gap-3">

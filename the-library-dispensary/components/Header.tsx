@@ -71,7 +71,7 @@ export default function Header() {
                 alt="The Library Logo"
                 width={200}
                 height={80}
-                className="h-16 w-auto"
+                className="h-16 w-auto object-contain"
                 priority
               />
             </Link>

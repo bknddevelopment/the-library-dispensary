@@ -60,6 +60,10 @@ export const metadata: Metadata = {
   verification: {
     google: "verification-token",
   },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/the-library-logo.png",
+  },
 };
 
 export default function RootLayout({

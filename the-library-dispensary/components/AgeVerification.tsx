@@ -90,7 +90,7 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
               alt="The Library Dispensary"
               width={150}
               height={60}
-              className="object-contain"
+              className="object-contain brightness-0 invert"
             />
           </div>
           <h1 className="text-2xl font-serif text-center mb-2">Age Verification Required</h1>
