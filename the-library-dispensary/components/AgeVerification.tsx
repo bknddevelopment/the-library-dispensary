@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Calendar, AlertCircle, Shield } from "lucide-react";
+import { Calendar, AlertCircle } from "lucide-react";
 import Image from "next/image";
 
 interface AgeVerificationProps {
@@ -86,7 +86,7 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
         <div className="bg-library-brown text-library-white p-6">
           <div className="flex items-center justify-center mb-4">
             <Image
-              src="/the-library-dispensary/the-library-logo.png"
+              src="/the-library-logo.png"
               alt="The Library Dispensary"
               width={150}
               height={60}

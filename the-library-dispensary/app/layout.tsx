@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import AgeVerificationProvider from "@/components/AgeVerificationProvider";
 
 const inter = Inter({ 
-  subsets: ["latin"],
-  display: 'swap',
-});
-
-const playfair = Playfair_Display({
   subsets: ["latin"],
   display: 'swap',
 });

@@ -40,14 +40,6 @@ export default function FirstVisit() {
     "Cash or debit card",
     "Questions for our budtenders",
     "An open mind to learn"
-    }
-  ];
-
-  const whatToBring = [
-    "Valid government-issued ID (21+)",
-    "Cash or debit card",
-    "Questions for our budtenders",
-    "An open mind to learn"
   ];
 
   return (
