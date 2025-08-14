@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Phone, Mail, MapPin, AlertCircle, Shield } from "lucide-react";
+import { getAssetPath } from "@/lib/utils";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,7 +17,7 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/the-library-logo.png"
+                src={getAssetPath("/the-library-logo.png")}
                 alt="The Library Logo"
                 width={180}
                 height={72}

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, MapPin, Phone, Instagram } from "lucide-react";
+import { getAssetPath } from "@/lib/utils";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,7 +68,7 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image
-                src="/the-library-logo.png"
+                src={getAssetPath("/the-library-logo.png")}
                 alt="The Library Logo"
                 width={200}
                 height={80}
