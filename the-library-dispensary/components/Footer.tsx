@@ -19,7 +19,7 @@ export default function Footer() {
               <img
                 src={getAssetPath("/the-library-logo.png")}
                 alt="The Library Logo"
-                className="h-14 w-auto brightness-0 invert"
+                className="h-14 w-auto"
               />
             </div>
             <p className="text-library-white/80 text-sm mb-4">
