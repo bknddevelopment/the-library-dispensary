@@ -6,6 +6,6 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getAssetPath(path: string): string {
-  const basePath = process.env.NODE_ENV === 'production' ? '/the-library-dispensary' : '';
-  return `${basePath}${path}`;
+  // No basePath needed for custom domain
+  return path;
 }
