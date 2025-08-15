@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import { Instagram, Phone, Mail, MapPin, AlertCircle, Shield } from "lucide-react";
 import { getAssetPath } from "@/lib/utils";
 
@@ -16,11 +16,9 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <Image
+              <img
                 src={getAssetPath("/the-library-logo.png")}
                 alt="The Library Logo"
-                width={180}
-                height={72}
                 className="h-14 w-auto brightness-0 invert"
               />
             </div>

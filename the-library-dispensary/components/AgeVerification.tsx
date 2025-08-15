@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Calendar, AlertCircle } from "lucide-react";
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import { getAssetPath } from "@/lib/utils";
 
 interface AgeVerificationProps {
@@ -86,12 +86,10 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
         {/* Header */}
         <div className="bg-library-brown text-library-white p-6">
           <div className="flex items-center justify-center mb-4">
-            <Image
+            <img
               src={getAssetPath("/the-library-logo.png")}
               alt="The Library Dispensary"
-              width={150}
-              height={60}
-              className="object-contain brightness-0 invert"
+              className="h-15 w-auto object-contain brightness-0 invert"
             />
           </div>
           <h1 className="text-2xl font-serif text-center mb-2">Age Verification Required</h1>
