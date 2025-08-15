@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && touch out/.nojekyll"
+    "export": "next build && touch out/.nojekyll && cp public/CNAME out/CNAME"
   },
   "dependencies": {
     "autoprefixer": "^10.4.21",

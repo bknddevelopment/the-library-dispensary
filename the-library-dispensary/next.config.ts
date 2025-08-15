@@ -1,16 +1,13 @@
 import type { NextConfig } from "next";
 
-// Check if we're in production (GitHub Pages) or development
-const isProd = process.env.NODE_ENV === 'production';
-
 const nextConfig: NextConfig = {
   output: 'export',
-  // Only use basePath and assetPrefix in production
-  basePath: isProd ? '/the-library-dispensary' : '',
-  assetPrefix: isProd ? '/the-library-dispensary' : '',
+  // No basePath or assetPrefix needed for custom domain
   images: {
     unoptimized: true
-  }
+  },
+  // Ensure trailing slashes for better compatibility
+  trailingSlash: true
 };
 
 export default nextConfig;
