@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/the-library-logo.png",
         width: 1200,
         height: 630,
         alt: "The Library Cannabis Dispensary",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Library | Cannabis Dispensary",
     description: "West Orange's premier cannabis dispensary",
-    images: ["/og-image.jpg"],
+    images: ["/the-library-logo.png"],
   },
   robots: {
     index: true,
@@ -64,6 +64,7 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
     apple: "/the-library-logo.png",
   },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
