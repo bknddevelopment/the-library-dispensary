@@ -63,11 +63,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <button
+                <a
+                  href="https://thelibrary.app.n8n.cloud/form/2de56228-8522-485f-af34-36b282fe359d"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-library-white/80 hover:text-library-gold transition-colors text-sm text-left"
                 >
-                  Coming Soon
-                </button>
+                  Join Our Mailing List
+                </a>
               </li>
             </ul>
           </div>
@@ -108,7 +111,7 @@ export default function Footer() {
           <div>
             <h4 className="text-library-gold font-semibold mb-4">Opening Soon</h4>
             <div className="text-sm text-library-white/80">
-              <p className="font-bold text-library-gold mb-1">Grand Opening 2025</p>
+              <p className="font-bold text-library-gold mb-1">Grand Opening Week of Sept 15, 2025</p>
               <p>Hours to be announced</p>
             </div>
             <div className="mt-4 p-3 bg-library-gold/20 rounded">

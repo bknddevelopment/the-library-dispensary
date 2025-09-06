@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, PartyPopper } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -22,31 +22,41 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="text-library-white"
           >
-            <div className="flex items-center gap-2 mb-6">
-              <BookOpen className="w-5 h-5 text-library-gold" />
-              <span className="text-library-gold font-medium">Opening Soon in West Orange</span>
-            </div>
+            <motion.div 
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+              className="flex items-center gap-2 mb-6"
+            >
+              <PartyPopper className="w-5 h-5 text-library-gold" />
+              <span className="text-library-gold font-bold uppercase tracking-wider">Grand Opening Week of September 15th</span>
+              <PartyPopper className="w-5 h-5 text-library-gold" />
+            </motion.div>
 
             <h1 className="text-4xl lg:text-6xl font-serif mb-6 leading-tight">
-              Welcome to
-              <span className="block text-library-gold mt-2">The Library</span>
+              Join Us for Our
+              <span className="block text-library-gold mt-2">Grand Opening Celebration!</span>
             </h1>
 
             <p className="text-lg lg:text-xl mb-8 text-library-white/90 leading-relaxed">
-              Where knowledge meets quality. Soon you&apos;ll discover a curated selection of premium cannabis products 
-              in an environment designed for education, comfort, and exceptional service.
+              The Library is opening its doors to the West Orange community! Join us for a week of 
+              celebration, discovery, and connection as we introduce a new chapter in premium cannabis retail.
+              Everyone is welcome to be part of our story.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <motion.button
+              <motion.a
+                href="https://thelibrary.app.n8n.cloud/form/2de56228-8522-485f-af34-36b282fe359d"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center justify-center gap-2 bg-library-gold text-library-white px-8 py-4 rounded-full font-semibold hover:bg-library-gold/90 transition-colors"
               >
-                <Sparkles className="w-5 h-5" />
-                Opening Soon
+                <Calendar className="w-5 h-5" />
+                Join Our Mailing List
                 <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              </motion.a>
 
               <motion.a
                 href="#first-visit"
@@ -54,7 +64,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center justify-center gap-2 border-2 border-library-white text-library-white px-8 py-4 rounded-full font-semibold hover:bg-library-white hover:text-library-brown transition-all"
               >
-                What to Expect
+                Learn About Opening Week
                 <ArrowRight className="w-4 h-4" />
               </motion.a>
             </div>
@@ -65,8 +75,8 @@ export default function Hero() {
                 <div className="text-sm text-library-white/80">Age Required</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-library-gold mb-1">2025</div>
-                <div className="text-sm text-library-white/80">Grand Opening</div>
+                <div className="text-3xl font-bold text-library-gold mb-1">Week of Sept 15</div>
+                <div className="text-sm text-library-white/80">Opening Week</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-library-gold mb-1">NJ</div>

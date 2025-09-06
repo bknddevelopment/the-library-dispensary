@@ -88,7 +88,7 @@ export default function Location() {
                 <h3 className="text-xl font-serif text-library-brown">Opening Soon</h3>
               </div>
               <div className="text-center py-8">
-                <p className="text-2xl font-bold text-library-gold mb-2">Grand Opening 2025</p>
+                <p className="text-2xl font-bold text-library-gold mb-2">Grand Opening Week of Sept 15, 2025</p>
                 <p className="text-library-black/70">Stay tuned for our official hours</p>
               </div>
             </div>

@@ -166,14 +166,17 @@ export default function FirstVisit() {
           </h3>
           <p className="text-library-white/90 mb-6">
             Our team is excited to welcome you to The Library when we open. 
-            Be the first to know about our grand opening date and exclusive launch offers.
+            Be the first to know about our grand opening date, special events, and store updates.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
+            <a
+              href="https://thelibrary.app.n8n.cloud/form/2de56228-8522-485f-af34-36b282fe359d"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-library-gold text-library-white px-6 py-3 rounded-full font-semibold hover:bg-library-gold/90 transition-colors"
             >
-              Get Notified
-            </button>
+              Join Our Community
+            </a>
             <a
               href="tel:973-731-1199"
               className="inline-flex items-center justify-center bg-library-white text-library-brown px-6 py-3 rounded-full font-semibold hover:bg-library-white/90 transition-colors"

@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 /* eslint-disable @next/next/no-img-element */
-import { Menu, X, MapPin, Phone, Instagram } from "lucide-react";
+import { Menu, X, MapPin, Phone, Instagram, Calendar, PartyPopper } from "lucide-react";
 import { getAssetPath } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,6 +30,28 @@ export default function Header() {
 
   return (
     <>
+      {/* Grand Opening Announcement Banner */}
+      <motion.div 
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: "auto", opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="bg-gradient-to-r from-library-gold via-library-gold/90 to-library-gold text-library-white overflow-hidden"
+      >
+        <div className="py-3 px-4">
+          <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-center">
+            <PartyPopper className="w-5 h-5 animate-pulse" />
+            <span className="text-sm md:text-base font-semibold">
+              GRAND OPENING - WEEK OF SEPTEMBER 15TH, 2025
+            </span>
+            <Calendar className="w-5 h-5" />
+            <span className="hidden md:inline text-sm">
+              | Join us for a week of celebration and community!
+            </span>
+            <PartyPopper className="w-5 h-5 animate-pulse" />
+          </div>
+        </div>
+      </motion.div>
+
       {/* Top Bar */}
       <div className="bg-library-brown text-library-white py-2 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm">
@@ -85,11 +108,14 @@ export default function Header() {
                   {item.label}
                 </a>
               ))}
-              <button
+              <a
+                href="https://thelibrary.app.n8n.cloud/form/2de56228-8522-485f-af34-36b282fe359d"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-library-gold text-library-white px-6 py-2 rounded-full hover:bg-library-gold/90 transition-colors font-semibold"
               >
-                Coming Soon
-              </button>
+                Get Store Updates
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -117,11 +143,14 @@ export default function Header() {
                   {item.label}
                 </a>
               ))}
-              <button
+              <a
+                href="https://thelibrary.app.n8n.cloud/form/2de56228-8522-485f-af34-36b282fe359d"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full bg-library-gold text-library-white px-6 py-3 rounded-full hover:bg-library-gold/90 transition-colors font-semibold text-center"
               >
-                Coming Soon
-              </button>
+                Get Store Updates
+              </a>
             </div>
           </div>
         )}

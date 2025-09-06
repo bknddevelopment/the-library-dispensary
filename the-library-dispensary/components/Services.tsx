@@ -138,11 +138,14 @@ export default function Services() {
           <p className="text-library-black/70 mb-6">
             Be the first to know when The Library opens!
           </p>
-          <button
+          <a
+            href="https://thelibrary.app.n8n.cloud/form/2de56228-8522-485f-af34-36b282fe359d"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-library-gold text-library-white px-8 py-3 rounded-full font-semibold hover:bg-library-gold/90 transition-colors"
           >
-            Sign Up for Updates
-          </button>
+            Stay Connected
+          </a>
         </motion.div>
       </div>
     </section>
