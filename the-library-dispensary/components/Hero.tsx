@@ -1,118 +1,271 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { BookOpen, Sparkles, ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Sparkles, ArrowRight, Feather } from "lucide-react";
+import PremiumBackground from "./PremiumBackground";
+import { useRef } from "react";
 
 export default function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+
   return (
-    <section className="relative min-h-[600px] bg-gradient-to-br from-library-brown via-library-brown/95 to-library-brown/90 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,.1) 2px, rgba(255,255,255,.1) 4px)`,
-        }}></div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-library-white"
+    <section ref={containerRef} className="relative min-h-screen overflow-hidden">
+      <PremiumBackground variant="map" enableParallax enableKenBurns>
+        <div className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            style={{ y, opacity, scale }}
+            className="relative z-10 max-w-7xl mx-auto w-full"
           >
-            <div className="flex items-center gap-2 mb-6">
-              <BookOpen className="w-5 h-5 text-library-gold" />
-              <span className="text-library-gold font-medium">Opening Soon in West Orange</span>
-            </div>
-
-            <h1 className="text-4xl lg:text-6xl font-serif mb-6 leading-tight">
-              Welcome to
-              <span className="block text-library-gold mt-2">The Library</span>
-            </h1>
-
-            <p className="text-lg lg:text-xl mb-8 text-library-white/90 leading-relaxed">
-              Where knowledge meets quality. Soon you&apos;ll discover a curated selection of premium cannabis products 
-              in an environment designed for education, comfort, and exceptional service.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 bg-library-gold text-library-white px-8 py-4 rounded-full font-semibold hover:bg-library-gold/90 transition-colors"
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left Content */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
               >
-                <Sparkles className="w-5 h-5" />
-                Opening Soon
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
+                {/* Ornamental Header */}
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                  className="flex items-center gap-3 mb-8"
+                >
+                  <div className="h-px bg-gradient-to-r from-transparent via-library-gold to-transparent flex-1" />
+                  <div className="flex items-center gap-2 glass-gold px-4 py-2 rounded-full" style={{ backgroundColor: 'rgba(212, 165, 116, 0.2)', backdropFilter: 'blur(10px)', border: '1px solid rgba(212, 165, 116, 0.3)' }}>
+                    <Feather className="w-5 h-5 text-library-gold animate-float" />
+                    <span className="text-library-gold-light font-display text-sm tracking-widest uppercase">
+                      Est. 2025
+                    </span>
+                  </div>
+                  <div className="h-px bg-gradient-to-r from-transparent via-library-gold to-transparent flex-1" />
+                </motion.div>
 
-              <motion.a
-                href="#first-visit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 border-2 border-library-white text-library-white px-8 py-4 rounded-full font-semibold hover:bg-library-white hover:text-library-brown transition-all"
+                {/* Main Title */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 1 }}
+                  className="text-5xl lg:text-7xl font-display mb-6 leading-tight"
+                >
+                  <span className="text-library-cream block" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7), 0px 0px 20px rgba(0,0,0,0.5)' }}>Welcome to</span>
+                  <span className="text-gold-foil text-6xl lg:text-8xl mt-3 block font-bold gpu-accelerated" style={{ textShadow: '3px 3px 10px rgba(0,0,0,0.8), 0px 0px 30px rgba(0,0,0,0.6), 0px 0px 60px rgba(212, 165, 116, 0.3)' }}>
+                    The Library
+                  </span>
+                  <span className="text-library-gold-light text-2xl lg:text-3xl mt-2 block font-serif italic">
+                    Cannabis Dispensary
+                  </span>
+                </motion.h1>
+
+                {/* Description */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7, duration: 1 }}
+                  className="mb-10"
+                >
+                  <p className="text-lg lg:text-xl text-library-cream leading-relaxed mb-4 font-normal" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.8), 0px 0px 15px rgba(0,0,0,0.6)' }}>
+                    Step into West Orange&apos;s most distinguished cannabis dispensary, where 
+                    knowledge meets quality in an atmosphere of timeless elegance.
+                  </p>
+                  <p className="text-base lg:text-lg text-library-cream/90 leading-relaxed italic" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.8), 0px 0px 10px rgba(0,0,0,0.5)' }}>
+                    Every visit is a journey through curated excellence, guided by expertise 
+                    and wrapped in the comfort of a grand library.
+                  </p>
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9, duration: 0.8 }}
+                  className="flex flex-col sm:flex-row gap-4 mb-12"
+                >
+                  <motion.a
+                    href="https://thelibrary.app.n8n.cloud/form/2de56228-8522-485f-af34-36b282fe359d"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(212, 165, 116, 0.6)" }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-library-gold via-library-gold-light to-library-gold animate-shimmer bg-[length:200%_100%]" />
+                    <span className="relative flex items-center gap-2 text-library-brown-darkest font-semibold tracking-wide">
+                      <Sparkles className="w-5 h-5" />
+                      Join Early Access
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-library-gold-light whitespace-nowrap opacity-75">
+                      Limited Spots - Sept 15 Opening
+                    </span>
+                  </motion.a>
+
+                  <motion.a
+                    href="/about"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group glass px-8 py-4 rounded-full font-semibold border border-library-gold/30 hover:border-library-gold/60 transition-all"
+                  >
+                    <span className="flex items-center gap-2 text-library-cream">
+                      Explore Our Story
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </motion.a>
+                </motion.div>
+
+                {/* Stats */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.1, duration: 1 }}
+                  className="grid grid-cols-3 gap-6"
+                >
+                  {[
+                    { value: "21+", label: "Age Required", icon: "📚" },
+                    { value: "2025", label: "Grand Opening", icon: "✨" },
+                    { value: "NJ", label: "Licensed", icon: "📜" }
+                  ].map((stat, index) => (
+                    <motion.div
+                      key={stat.label}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
+                      className="glass-dark p-4 rounded-lg text-center hover:shadow-gold transition-all border border-library-gold/20" style={{ backgroundColor: 'rgba(44, 31, 22, 0.8)', backdropFilter: 'blur(10px)' }}
+                      whileHover={{ y: -5, scale: 1.05 }}
+                    >
+                      <div className="text-3xl mb-2">{stat.icon}</div>
+                      <div className="text-2xl font-display text-gold-foil mb-1">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs text-library-cream/70 uppercase tracking-wider">
+                        {stat.label}
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
+
+              {/* Right Visual - Floating Books */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="relative hidden lg:block"
               >
-                What to Expect
-                <ArrowRight className="w-4 h-4" />
-              </motion.a>
-            </div>
+                <div className="relative perspective-1000">
+                  {/* Central glowing orb */}
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.1, 1],
+                      opacity: [0.3, 0.5, 0.3]
+                    }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-library-gold/20 rounded-full filter blur-3xl"
+                  />
 
-            <div className="mt-12 grid grid-cols-3 gap-6">
-              <div>
-                <div className="text-3xl font-bold text-library-gold mb-1">21+</div>
-                <div className="text-sm text-library-white/80">Age Required</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-library-gold mb-1">2025</div>
-                <div className="text-sm text-library-white/80">Grand Opening</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-library-gold mb-1">NJ</div>
-                <div className="text-sm text-library-white/80">Licensed</div>
-              </div>
+                  {/* Floating book spines */}
+                  {[
+                    { title: "Cannabis\nEducation", color: "bg-library-emerald", delay: 0, rotation: -5 },
+                    { title: "Product\nKnowledge", color: "bg-library-burgundy", delay: 0.2, rotation: 3 },
+                    { title: "Wellness\nGuide", color: "bg-library-copper", delay: 0.4, rotation: -3 },
+                    { title: "Community\nStories", color: "bg-library-gold-dark", delay: 0.6, rotation: 5 },
+                  ].map((book, index) => (
+                    <motion.div
+                      key={book.title}
+                      initial={{ opacity: 0, y: 50, rotateY: -90 }}
+                      animate={{ 
+                        opacity: 1, 
+                        y: 0, 
+                        rotateY: 0,
+                      }}
+                      transition={{ 
+                        delay: 1 + book.delay, 
+                        duration: 0.8,
+                        type: "spring"
+                      }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        rotateY: 15,
+                        z: 50,
+                      }}
+                      className={`absolute ${book.color} book-shadow rounded-lg p-6 cursor-pointer transform-gpu`}
+                      style={{
+                        top: `${20 + index * 80}px`,
+                        left: `${50 + index * 30}px`,
+                        transform: `rotate(${book.rotation}deg)`,
+                        width: '180px',
+                        height: '60px',
+                      }}
+                    >
+                      <div className="relative h-full flex items-center">
+                        <span className="text-library-cream font-display text-sm whitespace-pre-line leading-tight">
+                          {book.title}
+                        </span>
+                        <div className="absolute top-1 right-2 w-8 h-8 bg-library-gold-shimmer/30 rounded-full animate-pulse" />
+                      </div>
+                    </motion.div>
+                  ))}
+
+                  {/* Decorative quill */}
+                  <motion.div
+                    initial={{ opacity: 0, rotate: -45 }}
+                    animate={{ opacity: 1, rotate: -30 }}
+                    transition={{ delay: 2, duration: 1 }}
+                    className="absolute bottom-10 right-10"
+                    whileHover={{ rotate: -25 }}
+                  >
+                    <Feather className="w-16 h-16 text-library-gold-light opacity-60" />
+                  </motion.div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
 
-          {/* Right Visual */}
+          {/* Scroll Indicator */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative hidden lg:block"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 1 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2"
           >
-            <div className="relative">
-              {/* Decorative Books */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-library-gold/20 rounded-full blur-3xl"></div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-library-teal/20 rounded-full blur-3xl"></div>
-              
-              {/* Book Stack Visualization */}
-              <div className="relative bg-library-white/10 backdrop-blur-sm rounded-lg p-8 border border-library-white/20">
-                <div className="space-y-3">
-                  <div className="h-12 bg-library-gold/80 rounded flex items-center px-4">
-                    <span className="text-library-white font-serif">Cannabis Education</span>
-                  </div>
-                  <div className="h-12 bg-library-teal/80 rounded flex items-center px-4">
-                    <span className="text-library-white font-serif">Product Knowledge</span>
-                  </div>
-                  <div className="h-12 bg-library-burgundy/80 rounded flex items-center px-4">
-                    <span className="text-library-white font-serif">Wellness Guide</span>
-                  </div>
-                  <div className="h-12 bg-library-brown/60 rounded flex items-center px-4">
-                    <span className="text-library-white font-serif">Community Stories</span>
-                  </div>
-                </div>
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="flex flex-col items-center gap-2 text-library-gold-light"
+            >
+              <span className="text-xs uppercase tracking-widest opacity-70">Scroll to explore</span>
+              <div className="w-6 h-10 border-2 border-library-gold/30 rounded-full flex justify-center">
+                <motion.div
+                  animate={{ y: [0, 15, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-1 h-3 bg-library-gold rounded-full mt-2"
+                />
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
-      </div>
+      </PremiumBackground>
 
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg className="w-full h-12 fill-library-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C0,95.8,90.84,76.43,321.39,56.44Z"></path>
+      {/* Bottom ornamental border */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none">
+        <svg className="w-full h-full" viewBox="0 0 1200 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#2C1F16" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#3E2E23" stopOpacity="1" />
+            </linearGradient>
+          </defs>
+          <path 
+            d="M0,40 Q300,60 600,40 T1200,40 L1200,100 L0,100 Z" 
+            fill="url(#waveGradient)"
+          />
         </svg>
       </div>
     </section>

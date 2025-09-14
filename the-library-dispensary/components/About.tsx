@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Users, Heart, Shield } from "lucide-react";
+import { Award, Users, Heart, Shield, Feather, BookOpen } from "lucide-react";
+import PremiumBackground from "./PremiumBackground";
 
 export default function About() {
   const features = [
@@ -28,105 +29,118 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-library-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl lg:text-5xl font-serif text-library-brown mb-4">
-            About The Library
-          </h2>
-          <div className="w-24 h-1 bg-library-gold mx-auto mb-8"></div>
-          <p className="text-lg text-library-black/80 max-w-3xl mx-auto">
-            More than just a dispensary, The Library is your trusted resource for cannabis education 
-            and premium products. We believe in empowering our community with knowledge while providing 
-            access to the finest cannabis New Jersey has to offer.
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+    <section id="about" className="relative py-24 overflow-hidden">
+      <PremiumBackground variant="dark" enableParallax={false}>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="text-center mb-12"
           >
-            <h3 className="text-2xl font-serif text-library-brown mb-4">Our Story</h3>
-            <div className="space-y-4 text-library-black/70">
-              <p>
-                The Library was founded on the principle that cannabis consumers deserve a sophisticated, 
-                educational, and welcoming environment. Just as a traditional library serves as a repository 
-                of knowledge, we serve as your trusted source for cannabis information and products.
-              </p>
-              <p>
-                Located in the heart of West Orange, we&apos;re proud to be part of this vibrant community. 
-                Our team is passionate about helping both newcomers and experienced consumers find the 
-                perfect products for their needs.
-              </p>
-              <p>
-                Every product on our shelves has been carefully selected for quality, potency, and consistency. 
-                We work directly with New Jersey&apos;s finest cultivators and manufacturers to ensure you have 
-                access to the best the state has to offer.
-              </p>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-px bg-gradient-to-r from-transparent via-library-gold to-transparent w-24" />
+              <Feather className="w-8 h-8 text-library-gold animate-float" />
+              <div className="h-px bg-gradient-to-r from-transparent via-library-gold to-transparent w-24" />
             </div>
+            <h2 className="text-5xl lg:text-6xl font-display text-gold-foil mb-6">
+              About The Library
+            </h2>
+            <p className="text-lg text-library-cream/80 max-w-3xl mx-auto leading-relaxed">
+              More than just a dispensary, The Library is your trusted resource for cannabis education 
+              and premium products. We believe in empowering our community with knowledge while providing 
+              access to the finest cannabis New Jersey has to offer.
+            </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-library-teal/5 rounded-lg p-8 border border-library-teal/20"
-          >
-            <h3 className="text-2xl font-serif text-library-brown mb-6">Our Mission</h3>
-            <blockquote className="text-lg italic text-library-teal mb-6">
-              &ldquo;To provide New Jersey with a premier cannabis experience that combines education, 
-              quality products, and exceptional service in an atmosphere of sophistication and comfort.&rdquo;
-            </blockquote>
-            <div className="flex items-center gap-3">
-              <div className="w-16 h-16 bg-library-gold rounded-full flex items-center justify-center">
-                <BookIcon className="w-8 h-8 text-library-white" />
-              </div>
-              <div>
-                <p className="font-semibold text-library-brown">The Library Team</p>
-                <p className="text-sm text-library-black/60">Your Local Cannabis Experts</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                className="glass-gold rounded-xl p-6 text-center hover:shadow-gold transition-all"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-library-gold/20 to-library-gold-dark/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <feature.icon className="w-6 h-6 text-library-gold-light" />
+                </div>
+                <h3 className="text-lg font-display text-library-cream mb-2">{feature.title}</h3>
+                <p className="text-library-cream/70 text-sm">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center p-6 rounded-lg hover:bg-library-gold/5 transition-colors"
+              transition={{ duration: 0.6 }}
             >
-              <div className="w-14 h-14 bg-library-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <feature.icon className="w-7 h-7 text-library-gold" />
+              <h3 className="text-3xl font-display text-library-gold-light mb-6">
+                Your Cannabis Journey Starts Here
+              </h3>
+              <div className="space-y-4 text-library-cream/80">
+                <p>
+                  The Library is more than a name – it&apos;s our philosophy. Just as a traditional library 
+                  serves as a repository of knowledge and a community gathering space, we&apos;re creating a 
+                  dispensary that prioritizes education, quality, and community connection.
+                </p>
+                <p>
+                  Our carefully curated selection represents the finest that New Jersey&apos;s cannabis 
+                  industry has to offer. From premium flower to artisanal edibles, every product on 
+                  our shelves has been chosen with care and expertise.
+                </p>
+                <p>
+                  When you visit The Library, you&apos;re not just a customer – you&apos;re a member of our 
+                  community. Our knowledgeable staff is here to guide you, whether you&apos;re a cannabis 
+                  connoisseur or just beginning your journey.
+                </p>
               </div>
-              <h4 className="font-semibold text-library-brown mb-2">{feature.title}</h4>
-              <p className="text-sm text-library-black/60">{feature.description}</p>
+              <motion.a
+                href="#services"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="relative group overflow-hidden rounded-full inline-block mt-8"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-library-gold via-library-gold-light to-library-gold animate-shimmer bg-[length:200%_100%]" />
+                <span className="relative flex items-center gap-2 px-8 py-3 text-library-brown-darkest font-semibold">
+                  Learn More About Us
+                  <BookOpen className="w-4 h-4" />
+                </span>
+              </motion.a>
             </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
-// Custom Book Icon Component
-function BookIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
-    </svg>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="glass-dark rounded-2xl p-8 border border-library-gold/30 shadow-book"
+            >
+              <blockquote className="text-lg italic text-library-cream/90 mb-4 font-serif">
+                &ldquo;We&apos;re building something special in West Orange – a dispensary that honors the 
+                rich tradition of cannabis culture while embracing innovation and education. 
+                The Library will be your trusted guide in exploring the world of cannabis.&rdquo;
+              </blockquote>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-library-gold to-library-gold-dark rounded-full flex items-center justify-center shadow-gold">
+                  <span className="text-library-brown-darkest font-bold font-display">TL</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-library-cream font-display">The Library Team</p>
+                  <p className="text-sm text-library-cream/60">West Orange, New Jersey</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </PremiumBackground>
+    </section>
   );
 }

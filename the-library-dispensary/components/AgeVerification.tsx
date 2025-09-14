@@ -101,7 +101,7 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div className="flex items-center justify-center mb-4">
-            <Calendar className="w-8 h-8 text-library-teal" />
+            <Calendar className="w-8 h-8 text-library-emerald" />
           </div>
           
           <p className="text-center text-library-black mb-6">
@@ -121,7 +121,7 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
                 placeholder="MM"
                 value={month}
                 onChange={(e) => setMonth(e.target.value)}
-                className="w-full px-3 py-2 border border-library-brown/20 rounded focus:outline-none focus:ring-2 focus:ring-library-gold"
+                className="w-full px-3 py-2 border border-library-brown/20 rounded focus:outline-none focus:ring-2 focus:ring-library-gold bg-white text-library-black placeholder:text-library-black/50"
                 required
               />
             </div>
@@ -137,7 +137,7 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
                 placeholder="DD"
                 value={day}
                 onChange={(e) => setDay(e.target.value)}
-                className="w-full px-3 py-2 border border-library-brown/20 rounded focus:outline-none focus:ring-2 focus:ring-library-gold"
+                className="w-full px-3 py-2 border border-library-brown/20 rounded focus:outline-none focus:ring-2 focus:ring-library-gold bg-white text-library-black placeholder:text-library-black/50"
                 required
               />
             </div>
@@ -153,7 +153,7 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
                 placeholder="YYYY"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
-                className="w-full px-3 py-2 border border-library-brown/20 rounded focus:outline-none focus:ring-2 focus:ring-library-gold"
+                className="w-full px-3 py-2 border border-library-brown/20 rounded focus:outline-none focus:ring-2 focus:ring-library-gold bg-white text-library-black placeholder:text-library-black/50"
                 required
               />
             </div>
@@ -174,8 +174,8 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
             {isChecking ? "Verifying..." : "Enter Site"}
           </button>
 
-          <div className="mt-6 p-4 bg-library-teal/10 border border-library-teal/20 rounded">
-            <p className="text-xs text-library-teal leading-relaxed">
+          <div className="mt-6 p-4 bg-library-emerald/10 border border-library-emerald/20 rounded">
+            <p className="text-xs text-library-ink leading-relaxed">
               <strong>Legal Notice:</strong> This website is intended for adults 21 years of age and older. 
               Cannabis products have not been analyzed or approved by the FDA. 
               There is limited information on the side effects of using cannabis products.

@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+  --font-cinzel: 'Cinzel', serif;
+  
+  /* Premium color variables */
+  --library-brown-darkest: #2C1F16;
+  --library-brown-dark: #3E2E23;
+  --library-gold: #D4A574;
+  --library-gold-light: #F4E4C1;
+  --library-emerald: #2C5530;
+  --library-burgundy: #6B2737;
+  --library-cream: #FAF8F3;
+  --library-copper: #B87333;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-inter);
+  background: var(--library-brown-darkest);
+  color: var(--library-cream);
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Premium background layer */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at top, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(44, 31, 22, 0.9) 0%, transparent 70%),
+    linear-gradient(180deg, var(--library-brown-darkest) 0%, var(--library-brown-dark) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.font-serif {
+  font-family: var(--font-playfair);
+}
+
+.font-display {
+  font-family: var(--font-cinzel);
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--library-brown-dark);
+  border: 1px solid var(--library-gold);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--library-gold) 0%, var(--library-copper) 100%);
+  border-radius: 6px;
+  border: 1px solid var(--library-brown-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--library-gold-light) 0%, var(--library-gold) 100%);
+}
+
+/* Glass morphism utility classes with GPU acceleration */
+@layer utilities {
+  /* GPU acceleration for animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .glass {
+    background: rgba(250, 248, 243, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 165, 116, 0.2);
+  }
+  
+  .glass-dark {
+    background: rgba(44, 31, 22, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+  }
+  
+  .glass-gold {
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(244, 228, 193, 0.05) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 165, 116, 0.4);
+  }
+  
+  /* Gold foil text effect */
+  .text-gold-foil {
+    background: linear-gradient(135deg, #D4A574 0%, #F4E4C1 25%, #FFD700 50%, #B8935F 75%, #D4A574 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  /* Leather texture overlay */
+  .leather-texture {
+    position: relative;
+  }
+  
+  .leather-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px),
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px);
+    pointer-events: none;
+  }
+  
+  /* Paper texture */
+  .paper-texture {
+    position: relative;
+    background: var(--library-cream);
+  }
+  
+  .paper-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.3;
+    background-image: 
+      repeating-radial-gradient(circle at 1px 1px, rgba(70, 55, 41, 0.05) 0px, transparent 2px),
+      repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(70, 55, 41, 0.02) 10px, rgba(70, 55, 41, 0.02) 20px);
+    pointer-events: none;
+  }
+  
+  /* Book shadow effect */
+  .book-shadow {
+    box-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.2),
+      0 16px 32px rgba(0, 0, 0, 0.3),
+      inset 0 0 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Ambient glow */
+  .ambient-glow {
+    filter: drop-shadow(0 0 20px rgba(212, 165, 116, 0.3));
+  }
+  
+  /* Page turn effect */
+  .page-turn {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  .page-turn:hover {
+    transform: rotateY(-15deg);
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Ensure forms are accessible */
+input, textarea, select {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+/* Loading animation */
+@keyframes bookLoad {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(180deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Enhance shimmer effect */
+@keyframes shimmer {
+  0% { 
+    background-position: -200% center;
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+  100% { 
+    background-position: 200% center;
+    filter: brightness(1);
+  }
+}
+
+/* Smooth page transitions */
+.page-transition {
+  animation: pageEnter 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced focus visible states for accessibility */
+*:focus-visible {
+  outline: 3px solid var(--library-gold);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgba(212, 165, 116, 0.2);
+  border-radius: 2px;
+}
+
+/* Improved selection colors */
+::selection {
+  background-color: var(--library-gold);
+  color: var(--library-brown-darkest);
+}
+
+::-moz-selection {
+  background-color: var(--library-gold);
+  color: var(--library-brown-darkest);
+}

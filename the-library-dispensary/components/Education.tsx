@@ -154,12 +154,20 @@ export default function Education() {
               educational workshops.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-library-white text-library-teal px-6 py-3 rounded-full font-semibold hover:bg-library-white/90 transition-colors">
+              <a 
+                href="https://thelibrary.app.n8n.cloud/form/2de56228-8522-485f-af34-36b282fe359d"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-library-white text-library-teal px-6 py-3 rounded-full font-semibold hover:bg-library-white/90 transition-colors inline-block">
                 Get Updates on Consultations
-              </button>
-              <button className="border-2 border-library-white text-library-white px-6 py-3 rounded-full font-semibold hover:bg-library-white hover:text-library-teal transition-all">
+              </a>
+              <a 
+                href="https://thelibrary.app.n8n.cloud/form/2de56228-8522-485f-af34-36b282fe359d"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-library-white text-library-white px-6 py-3 rounded-full font-semibold hover:bg-library-white hover:text-library-teal transition-all inline-block">
                 Learn About Future Workshops
-              </button>
+              </a>
             </div>
           </div>
         </motion.div>
