@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { Calendar, AlertCircle } from "lucide-react";
 /* eslint-disable @next/next/no-img-element */
