@@ -93,7 +93,7 @@ export default function FloatingIntakeButton() {
                   </span>
                   <span className="text-library-brown/70 text-xs flex items-center gap-1">
                     <Calendar className="w-3 h-3" />
-                    Sept 15 Opening
+                    Sept 21 Opening
                   </span>
                 </div>
               </div>

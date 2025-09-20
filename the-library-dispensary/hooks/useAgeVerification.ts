@@ -40,6 +40,10 @@ export function useAgeVerification(): UseAgeVerificationReturn {
         if (syncVerified) {
           setIsVerified(true);
           setIsLoading(false);
+        } else {
+          // If sync check is false, we know there's no verification
+          // Set loading to false immediately to show the modal
+          setIsLoading(false);
         }
 
         // Then do a comprehensive async check

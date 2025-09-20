@@ -103,7 +103,7 @@ export default function Hero() {
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                     <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-library-gold-light whitespace-nowrap opacity-75">
-                      Limited Spots - Sept 15 Opening
+                      Limited Spots - Sept 21 Opening
                     </span>
                   </motion.a>
 

@@ -6,6 +6,7 @@ import Footer from "../components/Footer"
 import PageTransition from "../components/PageTransition"
 import FloatingParticles from "../components/FloatingParticles"
 import FloatingIntakeButton from "../components/FloatingIntakeButton"
+import GrandOpeningAnnouncement from "../components/GrandOpeningAnnouncement"
 
 const HomePage: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage: NextPage = () => {
         title="The Library Dispensary - Cape Coral's Premier Cannabis Destination"
         description="Cape Coral's premier cannabis dispensary. Discover curated selections, expert guidance, and a refined experience."
       />
+      <GrandOpeningAnnouncement />
       <FloatingParticles />
       <FloatingIntakeButton />
       <Header />
