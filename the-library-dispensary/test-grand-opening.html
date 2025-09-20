@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Opening Test</title>
+    <style>
+        body {
+            background: #1a0f08;
+            color: #f4e4c1;
+            font-family: system-ui;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #d4a574;
+        }
+        button {
+            background: #d4a574;
+            color: #1a0f08;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #e5b685;
+        }
+        .status {
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid #d4a574;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .log {
+            background: #000;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+        .log-entry {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 2px solid #d4a574;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grand Opening Modal Test</h1>
+
+    <div class="status">
+        <h2>Test Flow</h2>
+        <p>This tests the grand opening modal appearing after age verification (simulated login).</p>
+
+        <h3>Current Status:</h3>
+        <p>Age Verified: <span id="age-status">Checking...</span></p>
+        <p>Grand Opening Dismissed: <span id="modal-status">Checking...</span></p>
+
+        <h3>Actions:</h3>
+        <button onclick="clearAll()">1. Clear All (Reset)</button>
+        <button onclick="simulateLogin()">2. Simulate Login (Age Verify)</button>
+        <button onclick="checkModalTrigger()">3. Check Modal Should Trigger</button>
+        <button onclick="refreshStatus()">Refresh Status</button>
+    </div>
+
+    <div class="status">
+        <h3>Expected Behavior:</h3>
+        <ol>
+            <li>Click "Clear All" to reset state</li>
+            <li>Click "Simulate Login" to trigger age verification</li>
+            <li>Within 2 seconds, the grand opening modal should trigger</li>
+            <li>Check the logs below to see if storage event fired</li>
+        </ol>
+    </div>
+
+    <div class="status">
+        <h3>Event Log:</h3>
+        <div id="log" class="log"></div>
+    </div>
+
+    <script>
+        const logDiv = document.getElementById('log');
+
+        function log(message) {
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logDiv.insertBefore(entry, logDiv.firstChild);
+        }
+
+        function refreshStatus() {
+            const ageVerified = localStorage.getItem('library_age_verified') === 'true';
+            const modalDismissed = localStorage.getItem('grandOpeningDismissed') === 'true';
+
+            document.getElementById('age-status').textContent = ageVerified ? '✅ Yes' : '❌ No';
+            document.getElementById('modal-status').textContent = modalDismissed ? '✅ Yes' : '❌ No';
+
+            log(`Status check - Age: ${ageVerified}, Modal dismissed: ${modalDismissed}`);
+        }
+
+        function clearAll() {
+            localStorage.removeItem('library_age_verified');
+            localStorage.removeItem('library_age_verified_timestamp');
+            localStorage.removeItem('grandOpeningDismissed');
+            log('Cleared all storage');
+            refreshStatus();
+        }
+
+        function simulateLogin() {
+            // Simulate what happens when user completes age verification
+            const timestamp = Date.now().toString();
+            localStorage.setItem('library_age_verified', 'true');
+            localStorage.setItem('library_age_verified_timestamp', timestamp);
+            log('Simulated login - age verification saved');
+
+            // Dispatch storage event for same tab (normally only works cross-tab)
+            window.dispatchEvent(new StorageEvent('storage', {
+                key: 'library_age_verified',
+                newValue: 'true',
+                oldValue: null,
+                storageArea: localStorage
+            }));
+            log('Dispatched storage event');
+
+            refreshStatus();
+
+            // Check if modal should trigger after delay
+            setTimeout(() => {
+                checkModalTrigger();
+            }, 2000);
+        }
+
+        function checkModalTrigger() {
+            const ageVerified = localStorage.getItem('library_age_verified') === 'true';
+            const modalDismissed = localStorage.getItem('grandOpeningDismissed') === 'true';
+
+            if (ageVerified && !modalDismissed) {
+                log('✅ Modal SHOULD trigger (age verified, not dismissed)');
+            } else if (!ageVerified) {
+                log('❌ Modal should NOT trigger (not age verified)');
+            } else if (modalDismissed) {
+                log('❌ Modal should NOT trigger (already dismissed)');
+            }
+
+            refreshStatus();
+        }
+
+        // Listen for storage events
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'library_age_verified') {
+                log(`Storage event detected: library_age_verified = ${e.newValue}`);
+            }
+        });
+
+        // Initial status check
+        refreshStatus();
+
+        log('Test page loaded - ready to test');
+    </script>
+</body>
+</html>
