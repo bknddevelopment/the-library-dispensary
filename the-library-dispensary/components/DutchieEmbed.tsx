@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, AlertCircle, ExternalLink } from "lucide-react";
 
@@ -10,6 +10,7 @@ interface DutchieEmbedProps {
   className?: string;
   height?: string;
   enableSEO?: boolean;
+  fullPage?: boolean;
 }
 
 export default function DutchieEmbed({
@@ -18,6 +19,7 @@ export default function DutchieEmbed({
   className = "",
   height,
   enableSEO = true,
+  fullPage = false,
 }: DutchieEmbedProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -25,7 +27,6 @@ export default function DutchieEmbed({
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const loadTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
-  const modalCheckIntervalRef = useRef<NodeJS.Timer | undefined>(undefined);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -36,40 +37,8 @@ export default function DutchieEmbed({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Auto-adjust scroll position when modal might appear
-  const adjustScrollForModal = useCallback(() => {
-    if (!isMobile && containerRef.current) {
-      // Scroll container to top to ensure modal is visible
-      containerRef.current.scrollTop = 0;
-    }
-  }, [isMobile]);
-
-  // Monitor for potential modal appearance
-  useEffect(() => {
-    if (!isMobile && !isLoading) {
-      // Initial adjustment after load
-      const initialAdjustTimer = setTimeout(() => {
-        adjustScrollForModal();
-      }, 500);
-
-      // Also check periodically in case modal appears later
-      modalCheckIntervalRef.current = setInterval(() => {
-        // Only adjust if we detect the container might need it
-        if (containerRef.current && containerRef.current.scrollTop > 100) {
-          // User has scrolled, don't auto-adjust
-          return;
-        }
-        adjustScrollForModal();
-      }, 3000);
-
-      return () => {
-        clearTimeout(initialAdjustTimer);
-        if (modalCheckIntervalRef.current) {
-          clearInterval(modalCheckIntervalRef.current);
-        }
-      };
-    }
-  }, [isMobile, isLoading, adjustScrollForModal]);
+  // Removed auto-scroll adjustment to prevent interference with modal display
+  // The modal visibility is now handled entirely through CSS z-index stacking
 
   // Handle iframe load events
   useEffect(() => {
@@ -142,9 +111,18 @@ export default function DutchieEmbed({
   };
 
   // Responsive height for mobile devices
-  // Use viewport-relative heights to prevent modal cutoff
-  const responsiveHeight = isMobile ? "90vh" : "100vh";
-  const iframeHeight = height || (isMobile ? "1400px" : "4500px"); // Use passed height or defaults
+  // For full page mode, calculate actual available height
+  const calculateHeight = () => {
+    if (fullPage) {
+      // For full page mode, use calc to subtract header and footer heights
+      // Header is approximately 160px (top bar + book spines) and footer is approximately 300px
+      return isMobile ? "calc(100vh - 120px)" : "calc(100vh - 160px)";
+    }
+    return isMobile ? "90vh" : "90vh";
+  };
+
+  const responsiveHeight = calculateHeight();
+  const iframeHeight = fullPage ? "200vh" : (height || (isMobile ? "2000px" : "6000px")); // Use 200vh for fullPage to ensure content doesn't get cut off
 
   // Calculate offset to ensure modal visibility
   // Keep iframe at top position - no negative offset needed
@@ -157,7 +135,14 @@ export default function DutchieEmbed({
   const dutchieFallbackUrl = `https://dutchie.com/kiosks/${retailerId}`;
 
   return (
-    <div id="dutchie-embed-wrapper" className={`relative ${className}`} style={{ minHeight: responsiveHeight }}>
+    <div
+      id="dutchie-embed-wrapper"
+      className={`relative ${className} ${fullPage ? 'h-full' : ''}`}
+      style={{
+        height: fullPage ? responsiveHeight : 'auto',
+        minHeight: fullPage ? responsiveHeight : responsiveHeight
+      }}
+    >
       {/* Loading State */}
       <AnimatePresence>
         {isLoading && (
@@ -235,20 +220,23 @@ export default function DutchieEmbed({
         )}
       </AnimatePresence>
 
-      {/* Dutchie Iframe Embed - Fixed Modal Cutoff Issue */}
+      {/* Dutchie Iframe Embed - Full Page Mode */}
       <div
         ref={containerRef}
-        className={`relative w-full dutchie-iframe-container ${!isMobile ? 'desktop-modal-fix' : ''}`}
+        className={`relative w-full dutchie-iframe-container ${!isMobile ? 'desktop-modal-fix' : ''} ${fullPage ? 'fullpage-embed' : ''}`}
         style={{
-          height: responsiveHeight,
-          maxHeight: responsiveHeight,
-          overflowY: 'auto',
-          overflowX: 'hidden',
+          height: fullPage ? '100%' : responsiveHeight,
+          minHeight: fullPage ? '100%' : "600px",
+          maxHeight: fullPage ? '100%' : "90vh",
+          // CRITICAL FIX: Set overflow to visible to prevent modal clipping
+          overflow: 'visible',
           WebkitOverflowScrolling: 'touch', // Smooth scrolling on iOS
           position: 'relative',
-          borderRadius: '0.5rem',
+          borderRadius: fullPage ? '0' : '0.5rem',
           scrollBehavior: 'smooth',
-          paddingTop: isMobile ? '0' : '150px', // Balanced padding on desktop for modal space
+          paddingTop: fullPage ? '0' : (isMobile ? '0' : '0'), // Removed padding that might interfere
+          // High z-index for modal visibility
+          zIndex: 99999,
         }}
       >
         <iframe
@@ -257,14 +245,20 @@ export default function DutchieEmbed({
           title="Dutchie Cannabis Menu"
           className="w-full dutchie-iframe"
           style={{
-            height: iframeHeight, // Taller than container to accommodate modals
-            minHeight: iframeHeight,
+            height: fullPage ? '100%' : iframeHeight,
+            minHeight: fullPage ? '100%' : iframeHeight,
             border: 'none',
             backgroundColor: '#fafafa',
-            position: 'absolute',
-            top: iframeTopOffset, // Negative offset on desktop to show modal headers
+            position: 'relative', // Changed to relative for both modes
+            top: 0, // Reset top position
             left: 0,
             width: '100%',
+            // CRITICAL FIX: Maximum z-index for modal visibility
+            zIndex: 2147483647,
+            // Ensure iframe is not clipped
+            clipPath: 'none',
+            filter: 'none',
+            transform: 'none',
           }}
           loading="lazy"
           allowFullScreen
@@ -272,7 +266,7 @@ export default function DutchieEmbed({
           allow="payment; fullscreen"
           referrerPolicy="strict-origin-when-cross-origin"
           aria-label="Cannabis product menu powered by Dutchie"
-          scrolling="no" // Let container handle scrolling
+          scrolling={fullPage ? "auto" : "no"} // Allow iframe scrolling in full page mode
         />
       </div>
 

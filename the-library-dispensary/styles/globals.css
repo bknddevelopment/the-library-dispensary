@@ -7,6 +7,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Products Page Full Height Layout */
+body:has(.products-fullpage) {
+  /* Allow vertical scroll but hide horizontal overflow */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.products-fullpage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* CRITICAL: Don't hide overflow to allow modal visibility */
+  overflow: visible;
+}
+
+.products-fullpage main {
+  flex: 1;
+  /* CRITICAL: Allow overflow for Dutchie modals */
+  overflow: visible !important;
+  display: flex;
+  flex-direction: column;
+  /* Ensure high stacking context for embedded content */
+  position: relative;
+  z-index: 1;
+}
+
 :root {
   --font-inter: 'Inter', sans-serif;
   --font-playfair: 'Playfair Display', serif;
