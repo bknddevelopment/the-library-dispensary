@@ -23,7 +23,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-library-white/80 text-sm mb-4">
-              West Orange&apos;s premier cannabis dispensary opening soon - committed to education, quality, and community.
+              West Orange&apos;s premier cannabis dispensary - committed to education, quality, and community.
             </p>
             <div className="flex gap-3">
               <a
@@ -63,11 +63,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <button
+                <a
+                  href="https://dutchie.com/dispensaries/the-library-nj"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-library-white/80 hover:text-library-gold transition-colors text-sm text-left"
                 >
-                  Coming Soon
-                </button>
+                  Order Online
+                </a>
               </li>
             </ul>
           </div>
@@ -106,10 +109,15 @@ export default function Footer() {
 
           {/* Hours */}
           <div>
-            <h4 className="text-library-gold font-semibold mb-4">Opening Soon</h4>
-            <div className="text-sm text-library-white/80">
-              <p className="font-bold text-library-gold mb-1">Grand Opening 2025</p>
-              <p>Hours to be announced</p>
+            <h4 className="text-library-gold font-semibold mb-4">Store Hours</h4>
+            <div className="text-sm text-library-white/80 space-y-1">
+              <p><span className="font-medium">Saturday:</span> 9 AM–9 PM</p>
+              <p><span className="font-medium">Sunday:</span> 10 AM–5 PM</p>
+              <p><span className="font-medium">Monday:</span> 9 AM–8 PM</p>
+              <p><span className="font-medium">Tuesday:</span> 9 AM–8 PM</p>
+              <p><span className="font-medium">Wednesday:</span> 9 AM–8 PM</p>
+              <p><span className="font-medium">Thursday:</span> 9 AM–9 PM</p>
+              <p><span className="font-medium">Friday:</span> 9 AM–9 PM</p>
             </div>
             <div className="mt-4 p-3 bg-library-gold/20 rounded">
               <p className="text-xs">

@@ -103,7 +103,7 @@ export default function Hero() {
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                     <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-library-gold-light whitespace-nowrap opacity-75">
-                      Limited Spots - Sept 21 Opening
+                      Now Open - Visit Us Today
                     </span>
                   </motion.a>
 
@@ -129,7 +129,7 @@ export default function Hero() {
                 >
                   {[
                     { value: "21+", label: "Age Required", icon: "📚" },
-                    { value: "2025", label: "Grand Opening", icon: "✨" },
+                    { value: "Open", label: "Now Serving", icon: "✨" },
                     { value: "NJ", label: "Licensed", icon: "📜" }
                   ].map((stat, index) => (
                     <motion.div

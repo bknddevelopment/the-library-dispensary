@@ -20,7 +20,7 @@ export default function Location() {
           </h2>
           <div className="w-24 h-1 bg-library-gold mx-auto mb-8"></div>
           <p className="text-lg text-library-black/80 max-w-3xl mx-auto">
-            Opening soon in West Orange - conveniently accessible by car or public transportation.
+            Now open in West Orange - conveniently accessible by car or public transportation.
           </p>
         </motion.div>
 
@@ -85,11 +85,37 @@ export default function Location() {
                 <div className="w-10 h-10 bg-library-teal/10 rounded-full flex items-center justify-center">
                   <Clock className="w-5 h-5 text-library-teal" />
                 </div>
-                <h3 className="text-xl font-serif text-library-brown">Opening Soon</h3>
+                <h3 className="text-xl font-serif text-library-brown">Store Hours</h3>
               </div>
-              <div className="text-center py-8">
-                <p className="text-2xl font-bold text-library-gold mb-2">Grand Opening 2025</p>
-                <p className="text-library-black/70">Stay tuned for our official hours</p>
+              <div className="space-y-2">
+                <div className="flex justify-between py-1 border-b border-library-gold/10">
+                  <span className="text-library-brown font-medium">Saturday</span>
+                  <span className="text-library-black/70">9 AM–9 PM</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-library-gold/10">
+                  <span className="text-library-brown font-medium">Sunday</span>
+                  <span className="text-library-black/70">10 AM–5 PM</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-library-gold/10">
+                  <span className="text-library-brown font-medium">Monday</span>
+                  <span className="text-library-black/70">9 AM–8 PM</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-library-gold/10">
+                  <span className="text-library-brown font-medium">Tuesday</span>
+                  <span className="text-library-black/70">9 AM–8 PM</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-library-gold/10">
+                  <span className="text-library-brown font-medium">Wednesday</span>
+                  <span className="text-library-black/70">9 AM–8 PM</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-library-gold/10">
+                  <span className="text-library-brown font-medium">Thursday</span>
+                  <span className="text-library-black/70">9 AM–9 PM</span>
+                </div>
+                <div className="flex justify-between py-1">
+                  <span className="text-library-brown font-medium">Friday</span>
+                  <span className="text-library-black/70">9 AM–9 PM</span>
+                </div>
               </div>
             </div>
 

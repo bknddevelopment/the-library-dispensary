@@ -237,7 +237,7 @@ export default function GrandOpeningAnnouncement() {
                         transition={{ duration: 0.3 }}
                       >
                         <span className="text-gold-foil gpu-accelerated font-bold">
-                          Grand Opening
+                          Now Open
                         </span>
                       </motion.h2>
                       <div className="h-px bg-gradient-to-r from-transparent via-library-gold to-transparent flex-1 max-w-[100px]" />
@@ -262,12 +262,12 @@ export default function GrandOpeningAnnouncement() {
                           <Calendar className="w-5 h-5 text-library-gold" />
                         </div>
                         <div className="text-left">
-                          <p className="text-library-gold-light text-sm font-medium uppercase tracking-wider">Sunday</p>
+                          <p className="text-library-gold-light text-sm font-medium uppercase tracking-wider">Opened</p>
                           <p
                             className="font-serif text-xl text-library-cream"
                             style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.5)' }}
                           >
-                            September 21st, 2025
+                            September 21st
                           </p>
                         </div>
                       </div>
@@ -296,12 +296,12 @@ export default function GrandOpeningAnnouncement() {
                           <Clock className="w-5 h-5 text-library-gold" />
                         </div>
                         <div className="text-left">
-                          <p className="text-library-gold-light text-sm font-medium uppercase tracking-wider">Opening Soon</p>
+                          <p className="text-library-gold-light text-sm font-medium uppercase tracking-wider">Hours Today</p>
                           <p
                             className="font-serif text-xl text-library-cream"
                             style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.5)' }}
                           >
-                            West Orange
+                            See Below
                           </p>
                         </div>
                       </div>
