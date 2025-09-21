@@ -1,0 +1,384 @@
+/* Dutchie Iframe Modal Position Fix */
+/* CRITICAL FIX: Cart modal visibility issue - Updated December 2024 */
+/* This file contains fixes for the Dutchie iframe modal positioning issue */
+
+/* SOLUTION: High z-index and proper stacking context for modal visibility */
+#dutchie-embed-wrapper {
+  position: relative;
+  /* Critical: Very high z-index to ensure modals display above all content */
+  z-index: 99999 !important;
+  /* Ensure no clipping of child elements */
+  overflow: visible !important;
+  /* Remove any transforms that might create stacking issues */
+  transform: none !important;
+  /* Ensure no contain property that might clip content */
+  contain: none !important;
+}
+
+/* Fix for the parent container on products page */
+.glass-dark:has(#dutchie-embed-wrapper) {
+  position: relative;
+  /* Ensure parent doesn't clip iframe modals */
+  overflow: visible !important;
+  z-index: auto !important;
+}
+
+/* Desktop-specific iframe positioning to show modal headers */
+@media (min-width: 769px) {
+  .dutchie-iframe-container {
+    /* Ensure container can handle iframe and its modals */
+    position: relative !important;
+    /* CRITICAL FIX: Set overflow to visible for modals, use iframe's internal scroll */
+    overflow: visible !important;
+    /* High z-index for modal stacking */
+    z-index: 99999 !important;
+    /* Remove any clipping */
+    clip: auto !important;
+    clip-path: none !important;
+    /* Disable contain to prevent clipping */
+    contain: none !important;
+  }
+
+  /* Desktop modal fix class - applied when not mobile */
+  .dutchie-iframe-container.desktop-modal-fix {
+    /* CRITICAL: Don't clip modal content */
+    overflow: visible !important;
+    /* Ensure proper stacking context */
+    isolation: isolate;
+    /* High z-index for modal layer */
+    z-index: 99999 !important;
+  }
+
+  .dutchie-iframe {
+    /* Ensure iframe can display modals properly */
+    position: relative !important;
+    z-index: 99999 !important;
+    /* Remove any filters that might affect stacking */
+    filter: none !important;
+    /* Ensure no clipping */
+    clip: auto !important;
+    clip-path: none !important;
+  }
+
+  /* Compensate for the negative positioning to ensure bottom content is accessible */
+  .dutchie-iframe-container::after {
+    content: '';
+    display: block;
+    height: 100px; /* Adjusted to match new offset */
+    pointer-events: none;
+  }
+
+  /* Force container to start at scroll position 0 */
+  .dutchie-iframe-container.desktop-modal-fix {
+    /* Initial state should show top of content */
+    scrollbar-gutter: stable;
+  }
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+  .dutchie-iframe-container {
+    /* Mobile containers work fine with default positioning */
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+    min-height: 500px !important; /* Ensure minimum usable height on mobile */
+  }
+
+  .dutchie-iframe {
+    /* No offset needed on mobile */
+    top: 0 !important;
+  }
+
+  /* Full page mode on mobile */
+  .dutchie-iframe-container.fullpage-embed {
+    min-height: calc(100vh - 120px) !important; /* Account for mobile header */
+  }
+}
+
+/* Ensure iframe container scrolling works properly */
+.dutchie-iframe-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dutchie-iframe-container::-webkit-scrollbar-track {
+  background: rgba(212, 165, 116, 0.1);
+  border-radius: 4px;
+}
+
+.dutchie-iframe-container::-webkit-scrollbar-thumb {
+  background: rgba(212, 165, 116, 0.5);
+  border-radius: 4px;
+}
+
+.dutchie-iframe-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 165, 116, 0.7);
+}
+
+/* Ensure proper stacking context */
+body:has(#dutchie-embed-wrapper iframe) {
+  /* Create new stacking context to prevent z-index issues */
+  position: relative;
+  z-index: 0;
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  #dutchie-embed-wrapper {
+    /* iOS Safari specific fixes for iframe positioning */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  #dutchie-embed-wrapper iframe {
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+  }
+}
+
+/* Handle edge cases for very tall modals */
+@media (min-width: 769px) and (min-height: 900px) {
+  .dutchie-iframe-container {
+    /* For larger desktop screens, allow more room */
+    /* INCREASED: Better viewing experience with larger window */
+    max-height: 90vh !important;
+    min-height: 600px !important;
+  }
+}
+
+/* Full Page Embed Mode */
+.dutchie-iframe-container.fullpage-embed {
+  height: 100% !important;
+  max-height: 100% !important;
+  min-height: 100% !important;
+  /* CRITICAL FIX: Allow overflow for modals in fullpage mode */
+  overflow: visible !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  /* High z-index for fullpage modal visibility */
+  z-index: 99999 !important;
+  /* Allow all pointer events */
+  pointer-events: auto !important;
+  /* Ensure no clipping */
+  clip: auto !important;
+  clip-path: none !important;
+  contain: none !important;
+}
+
+.dutchie-iframe-container.fullpage-embed .dutchie-iframe {
+  position: relative !important;
+  top: 0 !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  /* Allow iframe to handle its own scrolling and interactions */
+  pointer-events: auto !important;
+  /* Ensure iframe fills available space */
+  width: 100% !important;
+  border: none !important;
+  /* Critical for modal visibility */
+  z-index: 99999 !important;
+  /* No clipping */
+  clip: auto !important;
+  clip-path: none !important;
+}
+
+/* Ensure full page embed fills available space */
+#dutchie-embed-wrapper.h-full {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove any padding/margins in full page mode */
+.fullpage-embed::after {
+  display: none !important;
+}
+
+/* Fix for modal centering on different screen sizes */
+@media (min-width: 1024px) {
+  .dutchie-iframe {
+    /* Fine-tune offset for larger screens */
+    /* This ensures the "Sorry, The Library is closed!" header is visible */
+  }
+}
+
+/* Critical fix for desktop modal visibility */
+@media (min-width: 769px) {
+  /* When modal is likely to be shown,
+     ensure the iframe is positioned to show the full modal */
+  .dutchie-iframe-container {
+    /* CRITICAL FIX: Visible overflow for modals */
+    overflow: visible !important;
+    /* High z-index */
+    z-index: 99999 !important;
+  }
+}
+
+/* CRITICAL CART MODAL FIX - Ensure all parent elements don't clip */
+div:has(iframe[src*="dutchie.com"]) {
+  /* Allow horizontal overflow for modal that extends right */
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  z-index: 99999 !important;
+  transform: none !important;
+  filter: none !important;
+  contain: none !important;
+  clip: auto !important;
+  clip-path: none !important;
+  /* Ensure sufficient width for modal */
+  min-width: 100vw !important;
+  position: relative !important;
+}
+
+/* Ensure body doesn't interfere with modal stacking */
+body:has(iframe[src*="dutchie.com"]) {
+  /* CRITICAL FIX: Allow horizontal overflow for cart modal */
+  overflow-x: visible !important;
+  overflow-y: auto;
+  position: relative;
+  /* Prevent horizontal scroll but allow overflow */
+  width: 100vw;
+  max-width: 100vw;
+}
+
+/* Fix for any glass containers that might clip */
+.glass:has(iframe[src*="dutchie.com"]),
+.glass-dark:has(iframe[src*="dutchie.com"]),
+.glass-gold:has(iframe[src*="dutchie.com"]) {
+  overflow: visible !important;
+  z-index: auto !important;
+  transform: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* CRITICAL: Dutchie iframe proper dimensions for cart modal */
+iframe[src*="dutchie.com"] {
+  /* High z-index for modal visibility */
+  z-index: 99999 !important;
+  position: relative !important;
+  /* CRITICAL: Minimum dimensions for cart modal to work */
+  width: 100% !important;
+  min-width: 1200px !important; /* Cart modal needs at least 1200px width */
+  min-height: 800px !important; /* Cart modal needs at least 800px height */
+  /* No transforms that could misalign modal */
+  transform: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  /* No clipping */
+  clip: auto !important;
+  clip-path: none !important;
+  /* Standard iframe settings */
+  border: none !important;
+  overflow: auto !important;
+}
+
+/* REMOVED: Hover expansion was causing layout shifts */
+/* The iframe should maintain consistent dimensions */
+
+/* CRITICAL FIX: Dutchie Cart Modal Full Width Solution */
+/* This ensures the cart modal panel on the right is visible */
+@media (min-width: 769px) {
+  /* When iframe is in container, ensure proper dimensions */
+  .dutchie-iframe-container {
+    /* Allow container to expand for modal */
+    width: 100% !important;
+    max-width: 100vw !important;
+    position: relative !important;
+    /* Remove any constraints that might clip the modal */
+    overflow: visible !important;
+    contain: layout style !important; /* Only contain layout and style, not size */
+  }
+
+  /* Ensure iframe fills available space and can show modal */
+  .dutchie-iframe-container iframe {
+    /* Base dimensions */
+    width: 100% !important;
+    min-width: 100% !important;
+    /* Allow iframe content to determine height */
+    height: auto !important;
+    min-height: 800px !important;
+    /* Position for modal visibility */
+    position: relative !important;
+    z-index: 2147483647 !important;
+    /* No scrolling constraints */
+    overflow: visible !important;
+  }
+
+  /* When on products page specifically */
+  .products-fullpage .dutchie-iframe-container iframe {
+    /* DO NOT center with transforms - this pushes cart modal off screen */
+    width: 100% !important;
+    position: relative !important;
+    left: 0 !important;
+    transform: none !important;
+    /* Ensure modal can extend beyond normal bounds */
+    max-width: none !important;
+  }
+}
+
+/* Mobile-specific modal fixes */
+@media (max-width: 768px) {
+  .dutchie-iframe-container iframe {
+    /* On mobile, cart modal typically slides from bottom or side */
+    width: 100% !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+}
+
+/* CRITICAL: Cart Modal Active State - JavaScript Enhanced */
+.cart-modal-active {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 2147483647 !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+.cart-modal-active iframe {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 2147483647 !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+
+/* REMOVED: This was breaking the cart modal by forcing fixed positioning */
+/* The iframe needs to stay within its container for proper modal display */
+
+/* CRITICAL FIX: Proper container settings for cart modal */
+.dutchie-iframe-container {
+  /* Container needs relative positioning */
+  position: relative !important;
+  /* Container must be wide enough for cart modal */
+  width: 100% !important;
+  min-width: 1200px !important; /* Minimum width for cart modal */
+  /* Allow horizontal scroll if needed */
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  /* High z-index for modal */
+  z-index: 99999 !important;
+  /* No transforms that could break modal */
+  transform: none !important;
+  /* Full opacity */
+  opacity: 1 !important;
+}
+
+/* Ensure body doesn't scroll when cart is open */
+body:has(.cart-modal-active) {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+}
+
+/* REMOVED: Static positioning was breaking layout */
+/* Parents need relative positioning for proper stacking */

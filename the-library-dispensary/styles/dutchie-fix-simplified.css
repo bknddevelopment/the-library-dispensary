@@ -1,0 +1,90 @@
+/* Dutchie Cart Modal Fix - Simplified and Focused */
+/* CRITICAL: Minimum dimensions required for cart modal to display */
+/* Based on investigation: Cart needs 1200px width and 800px height minimum */
+
+/* 1. Main wrapper - Allow proper dimensions */
+#dutchie-embed-wrapper {
+  position: relative;
+  z-index: 99999 !important;
+  overflow: visible !important;
+  min-width: 100%;
+}
+
+/* 2. Container - Must accommodate cart modal width */
+.dutchie-iframe-container {
+  position: relative !important;
+  width: 100% !important;
+  min-width: 1200px !important; /* CRITICAL: Cart modal needs this width */
+  min-height: 800px !important; /* CRITICAL: Cart modal needs this height */
+  overflow-x: auto !important; /* Allow horizontal scroll if needed */
+  overflow-y: visible !important; /* Don't clip vertically */
+  z-index: 99999 !important;
+}
+
+/* 3. Iframe - Proper dimensions for cart modal */
+iframe[src*="dutchie.com"] {
+  position: relative !important;
+  width: 100% !important;
+  min-width: 1200px !important; /* CRITICAL: Minimum for cart */
+  min-height: 800px !important; /* CRITICAL: Minimum for cart */
+  border: none !important;
+  z-index: 99999 !important;
+  transform: none !important; /* No transforms that could misalign */
+}
+
+/* 4. Mobile adjustments */
+@media (max-width: 768px) {
+  .dutchie-iframe-container {
+    min-width: 100% !important; /* Mobile can use full width */
+    overflow-x: auto !important;
+  }
+
+  iframe[src*="dutchie.com"] {
+    min-width: 100% !important;
+    min-height: 600px !important; /* Slightly less height on mobile */
+  }
+}
+
+/* 5. Full page mode */
+.dutchie-iframe-container.fullpage-embed {
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+.dutchie-iframe-container.fullpage-embed iframe {
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+/* 6. Ensure parent containers don't clip */
+.glass:has(iframe[src*="dutchie"]),
+.glass-dark:has(iframe[src*="dutchie"]) {
+  overflow: visible !important;
+}
+
+/* 7. Body scroll management */
+body:has(iframe[src*="dutchie"]) {
+  overflow-x: auto; /* Allow horizontal scroll for wide cart */
+  overflow-y: auto;
+  min-width: 100%;
+}
+
+/* 8. Custom scrollbar for container */
+.dutchie-iframe-container::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.dutchie-iframe-container::-webkit-scrollbar-track {
+  background: rgba(212, 165, 116, 0.1);
+  border-radius: 4px;
+}
+
+.dutchie-iframe-container::-webkit-scrollbar-thumb {
+  background: rgba(212, 165, 116, 0.5);
+  border-radius: 4px;
+}
+
+.dutchie-iframe-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 165, 116, 0.7);
+}

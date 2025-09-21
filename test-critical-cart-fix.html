@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Cart Modal Fix Test - The Library Dispensary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #2C1F16;
+            color: #FAF8F3;
+            font-family: Arial, sans-serif;
+            /* CRITICAL: Allow overflow for modal visibility */
+            overflow-x: visible !important;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .header {
+            background: #3E2E23;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #D4A574;
+        }
+
+        .header h1 {
+            color: #D4A574;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            background: #D4A574;
+            color: #2C1F16;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px auto;
+            max-width: 800px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .embed-container {
+            /* CRITICAL FIX: Use static positioning to avoid stacking context */
+            position: static !important;
+            width: 100%;
+            padding: 0;
+            /* Remove ALL properties that create stacking contexts */
+            transform: none !important;
+            filter: none !important;
+            backdrop-filter: none !important;
+            opacity: 1 !important;
+            isolation: auto !important;
+            contain: none !important;
+            overflow: visible !important;
+            z-index: auto !important;
+            will-change: auto !important;
+        }
+
+        /* CRITICAL: Fixed positioned iframe to escape all containers */
+        .dutchie-iframe {
+            /* Use fixed positioning to show cart modal properly */
+            position: fixed !important;
+            top: 100px !important; /* Below header */
+            left: 0 !important;
+            width: 100vw !important;
+            height: calc(100vh - 100px) !important;
+            border: none;
+            /* Maximum z-index for modal visibility */
+            z-index: 2147483647 !important;
+            /* Remove all constraints */
+            transform: none !important;
+            filter: none !important;
+            opacity: 1 !important;
+            clip: auto !important;
+            clip-path: none !important;
+            overflow: visible !important;
+            background: white;
+        }
+
+        .instructions {
+            position: fixed;
+            top: 60px;
+            left: 10px;
+            right: 10px;
+            background: rgba(212, 165, 116, 0.95);
+            color: #2C1F16;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Alternative approach: Transform the iframe on interaction */
+        .dutchie-iframe:hover,
+        .dutchie-iframe:focus {
+            /* Temporarily expand iframe dimensions on interaction */
+            width: calc(100vw + 500px) !important;
+            left: -250px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🍃 The Library Dispensary - Cart Modal Fix Test</h1>
+    </div>
+
+    <div class="status">
+        ⚡ CRITICAL FIX APPLIED: Iframe using position:fixed to escape container constraints
+    </div>
+
+    <div class="instructions">
+        Click on any product below, add to cart, then click the cart icon. The right panel should now be visible!
+    </div>
+
+    <div class="embed-container">
+        <iframe
+            src="https://dutchie.com/embedded-menu/the-library"
+            class="dutchie-iframe"
+            title="Dutchie Cannabis Menu"
+            allowfullscreen
+            loading="eager"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
+            allow="payment; fullscreen"
+        ></iframe>
+    </div>
+
+    <script>
+        // Log when iframe loads
+        document.querySelector('.dutchie-iframe').addEventListener('load', function() {
+            console.log('✅ Dutchie iframe loaded successfully');
+            console.log('📍 Iframe position:', window.getComputedStyle(this).position);
+            console.log('📏 Iframe dimensions:', this.offsetWidth, 'x', this.offsetHeight);
+            console.log('🎯 Z-index:', window.getComputedStyle(this).zIndex);
+        });
+
+        // Monitor for cart modal activation (optional enhancement)
+        let cartCheckInterval;
+        document.querySelector('.dutchie-iframe').addEventListener('mouseenter', function() {
+            console.log('🛒 User interacting with products - cart modal may open');
+
+            // Start checking for modal
+            if (!cartCheckInterval) {
+                cartCheckInterval = setInterval(() => {
+                    // Check if iframe has expanded (indicating modal might be open)
+                    const iframe = document.querySelector('.dutchie-iframe');
+                    if (iframe) {
+                        const rect = iframe.getBoundingClientRect();
+                        if (rect.width > window.innerWidth) {
+                            console.log('🎉 Cart modal detected - iframe expanded');
+                            clearInterval(cartCheckInterval);
+                            cartCheckInterval = null;
+                        }
+                    }
+                }, 500);
+
+                // Stop checking after 10 seconds
+                setTimeout(() => {
+                    if (cartCheckInterval) {
+                        clearInterval(cartCheckInterval);
+                        cartCheckInterval = null;
+                    }
+                }, 10000);
+            }
+        });
+    </script>
+</body>
+</html>
