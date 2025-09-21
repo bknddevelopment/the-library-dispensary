@@ -14,6 +14,8 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        {/* Critical fix for Dutchie cart modal visibility */}
+        <script src="/dutchie-cart-fix.js" defer />
       </body>
     </Html>
   )

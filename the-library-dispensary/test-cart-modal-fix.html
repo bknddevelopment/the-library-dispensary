@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dutchie Cart Modal Fix Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #2C1F16;
+            color: #FAF8F3;
+        }
+        .test-header {
+            background: #473729;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin: 5px;
+            font-weight: bold;
+        }
+        .status.pass {
+            background: #28a745;
+            color: white;
+        }
+        .status.fail {
+            background: #dc3545;
+            color: white;
+        }
+        .status.pending {
+            background: #ffc107;
+            color: black;
+        }
+        .test-results {
+            background: #3E2E23;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .test-item {
+            padding: 10px;
+            margin: 5px 0;
+            border-left: 3px solid #D4A574;
+            background: rgba(212, 165, 116, 0.1);
+        }
+        .debug-info {
+            background: #000;
+            color: #0f0;
+            padding: 10px;
+            font-family: monospace;
+            border-radius: 4px;
+            margin: 10px 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .iframe-container {
+            border: 2px solid #D4A574;
+            border-radius: 8px;
+            overflow: visible;
+            position: relative;
+            height: 600px;
+            margin: 20px 0;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        button {
+            background: #D4A574;
+            color: #2C1F16;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #F4E4C1;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-header">
+        <h1>🛒 Dutchie Cart Modal Fix Verification</h1>
+        <p>This page tests the cart modal visibility fix for the Dutchie iframe integration.</p>
+        <div id="test-status">
+            <span class="status pending">Testing...</span>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="runTests()">Run All Tests</button>
+        <button onclick="simulateCartClick()">Simulate Cart Click</button>
+        <button onclick="checkModalVisibility()">Check Modal Visibility</button>
+        <button onclick="resetIframe()">Reset Iframe</button>
+    </div>
+
+    <div class="test-results" id="results">
+        <h3>Test Results:</h3>
+        <div id="test-list"></div>
+    </div>
+
+    <div class="debug-info" id="debug">
+        <strong>Debug Console:</strong><br>
+        <div id="debug-log"></div>
+    </div>
+
+    <div class="iframe-container" id="dutchie-container">
+        <iframe
+            src="https://dutchie.com/embedded-menu/the-library"
+            title="Test Dutchie Menu"
+            id="dutchie-iframe"
+        ></iframe>
+    </div>
+
+    <script>
+        // Debug logging
+        function log(message, type = 'info') {
+            const debugLog = document.getElementById('debug-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? '#f00' : type === 'success' ? '#0f0' : '#fff';
+            debugLog.innerHTML += `<span style="color: ${color}">[${timestamp}] ${message}</span><br>`;
+            debugLog.scrollTop = debugLog.scrollHeight;
+            console.log(`[Cart Fix Test] ${message}`);
+        }
+
+        // Test suite
+        const tests = {
+            'CSS Overflow Rules': () => {
+                const iframe = document.getElementById('dutchie-iframe');
+                const container = document.getElementById('dutchie-container');
+
+                const containerStyle = window.getComputedStyle(container);
+                const iframeStyle = window.getComputedStyle(iframe);
+
+                const containerOverflow = containerStyle.overflow;
+                const iframePosition = iframeStyle.position;
+
+                log(`Container overflow: ${containerOverflow}`);
+                log(`Iframe position: ${iframeStyle.position}`);
+
+                return containerOverflow === 'visible';
+            },
+
+            'Z-Index Stacking': () => {
+                const iframe = document.getElementById('dutchie-iframe');
+                const zIndex = window.getComputedStyle(iframe).zIndex;
+
+                log(`Iframe z-index: ${zIndex}`);
+
+                return zIndex === '2147483647' || parseInt(zIndex) > 99999;
+            },
+
+            'Parent Container Width': () => {
+                const container = document.getElementById('dutchie-container');
+                const rect = container.getBoundingClientRect();
+
+                log(`Container width: ${rect.width}px`);
+                log(`Window width: ${window.innerWidth}px`);
+
+                return rect.width >= window.innerWidth * 0.9;
+            },
+
+            'Iframe Dimensions': () => {
+                const iframe = document.getElementById('dutchie-iframe');
+                const rect = iframe.getBoundingClientRect();
+
+                log(`Iframe dimensions: ${rect.width}x${rect.height}px`);
+
+                return rect.width > 0 && rect.height > 0;
+            },
+
+            'Transform/Filter Check': () => {
+                const iframe = document.getElementById('dutchie-iframe');
+                const style = window.getComputedStyle(iframe);
+
+                const hasTransform = style.transform !== 'none';
+                const hasFilter = style.filter !== 'none';
+
+                log(`Transform: ${style.transform}, Filter: ${style.filter}`);
+
+                return !hasTransform && !hasFilter;
+            },
+
+            'Cart Fix Script Loaded': () => {
+                const scriptExists = typeof initCartFix !== 'undefined' ||
+                                   document.querySelector('script[src*="dutchie-cart-fix"]');
+
+                log(`Cart fix script loaded: ${scriptExists ? 'Yes' : 'No'}`);
+
+                return !!scriptExists;
+            }
+        };
+
+        // Run all tests
+        function runTests() {
+            const testList = document.getElementById('test-list');
+            const statusEl = document.querySelector('#test-status .status');
+            testList.innerHTML = '';
+
+            let passed = 0;
+            let failed = 0;
+
+            Object.entries(tests).forEach(([name, test]) => {
+                try {
+                    const result = test();
+                    const testItem = document.createElement('div');
+                    testItem.className = 'test-item';
+                    testItem.innerHTML = `
+                        <strong>${name}:</strong>
+                        <span class="status ${result ? 'pass' : 'fail'}">${result ? 'PASS' : 'FAIL'}</span>
+                    `;
+                    testList.appendChild(testItem);
+
+                    if (result) {
+                        passed++;
+                        log(`✓ ${name} passed`, 'success');
+                    } else {
+                        failed++;
+                        log(`✗ ${name} failed`, 'error');
+                    }
+                } catch (error) {
+                    failed++;
+                    log(`✗ ${name} error: ${error.message}`, 'error');
+                }
+            });
+
+            // Update overall status
+            statusEl.className = failed === 0 ? 'status pass' : 'status fail';
+            statusEl.textContent = failed === 0 ?
+                `All Tests Passed (${passed}/${passed + failed})` :
+                `${failed} Tests Failed (${passed}/${passed + failed})`;
+        }
+
+        // Simulate cart button click
+        function simulateCartClick() {
+            log('Simulating cart click...');
+            const iframe = document.getElementById('dutchie-iframe');
+
+            // Apply fixed positioning
+            iframe.style.cssText = `
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                z-index: 2147483647 !important;
+                transform: none !important;
+                margin: 0 !important;
+            `;
+
+            document.body.style.overflow = 'hidden';
+
+            log('Cart modal mode activated', 'success');
+
+            // Auto-reset after 5 seconds
+            setTimeout(resetIframe, 5000);
+        }
+
+        // Check if modal would be visible
+        function checkModalVisibility() {
+            const iframe = document.getElementById('dutchie-iframe');
+            const rect = iframe.getBoundingClientRect();
+
+            const visible = rect.width >= window.innerWidth &&
+                           rect.height >= window.innerHeight * 0.8;
+
+            log(`Modal visibility check: ${visible ? 'VISIBLE' : 'NOT VISIBLE'}`);
+            log(`Iframe covers ${Math.round(rect.width / window.innerWidth * 100)}% width`);
+            log(`Iframe covers ${Math.round(rect.height / window.innerHeight * 100)}% height`);
+
+            return visible;
+        }
+
+        // Reset iframe to normal position
+        function resetIframe() {
+            const iframe = document.getElementById('dutchie-iframe');
+            iframe.style.cssText = '';
+            document.body.style.overflow = '';
+
+            log('Iframe reset to normal position', 'success');
+        }
+
+        // Apply runtime fixes
+        function applyRuntimeFixes() {
+            const style = document.createElement('style');
+            style.textContent = `
+                #dutchie-container {
+                    overflow: visible !important;
+                    z-index: 99999 !important;
+                }
+
+                #dutchie-iframe {
+                    position: relative !important;
+                    z-index: 99999 !important;
+                }
+
+                body {
+                    overflow-x: auto;
+                }
+            `;
+            document.head.appendChild(style);
+
+            log('Runtime CSS fixes applied', 'success');
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            log('Page loaded, initializing tests...');
+            applyRuntimeFixes();
+            setTimeout(runTests, 1000);
+        });
+    </script>
+</body>
+</html>

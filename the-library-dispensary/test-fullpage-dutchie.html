@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Page Dutchie Embed Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .test-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 9999;
+            font-size: 12px;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .test-section {
+            border: 2px solid #333;
+            padding: 10px;
+            overflow: auto;
+            background: white;
+        }
+
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .test-checklist {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .test-checklist li {
+            padding: 8px;
+            margin: 5px 0;
+            background: #f0f0f0;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .test-checklist li:hover {
+            background: #e0e0e0;
+        }
+
+        .test-checklist li.checked {
+            background: #4CAF50;
+            color: white;
+            text-decoration: line-through;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .responsive-test {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .responsive-test button {
+            padding: 5px 10px;
+            cursor: pointer;
+            background: #D4A574;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .responsive-test button:hover {
+            background: #B87333;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <strong>Full Page Dutchie Test</strong><br>
+        Screen: <span id="screenSize"></span><br>
+        Viewport: <span id="viewportSize"></span>
+    </div>
+
+    <div class="test-grid">
+        <div class="test-section">
+            <h3>Desktop View Test</h3>
+            <p>Open in desktop browser at: <a href="http://localhost:3003/products" target="_blank">http://localhost:3003/products</a></p>
+
+            <h4>Checklist:</h4>
+            <ul class="test-checklist" id="desktopChecklist">
+                <li>Header stays fixed at top</li>
+                <li>Footer stays fixed at bottom</li>
+                <li>Dutchie embed fills space between header/footer</li>
+                <li>No double scrollbars visible</li>
+                <li>Iframe scrolling is smooth</li>
+                <li>Products load correctly</li>
+                <li>Modal popups appear correctly</li>
+                <li>No unnecessary padding around embed</li>
+                <li>Full width utilization</li>
+                <li>Responsive to window resizing</li>
+            </ul>
+
+            <h4>Preview (Desktop):</h4>
+            <iframe src="http://localhost:3003/products" id="desktopFrame"></iframe>
+        </div>
+
+        <div class="test-section">
+            <h3>Mobile View Test</h3>
+            <p>Open in mobile device or DevTools mobile view</p>
+
+            <h4>Checklist:</h4>
+            <ul class="test-checklist" id="mobileChecklist">
+                <li>Header is visible and compact</li>
+                <li>Footer is visible at bottom</li>
+                <li>Dutchie embed is touch-scrollable</li>
+                <li>No horizontal scrolling</li>
+                <li>Products display correctly</li>
+                <li>Touch interactions work</li>
+                <li>Add to cart functionality</li>
+                <li>Proper spacing on small screens</li>
+                <li>Menu navigation works</li>
+                <li>No content cutoff</li>
+            </ul>
+
+            <h4>Responsive Tester:</h4>
+            <div class="responsive-test">
+                <button onclick="setFrameSize('mobile')">Mobile (375px)</button>
+                <button onclick="setFrameSize('tablet')">Tablet (768px)</button>
+                <button onclick="setFrameSize('desktop')">Desktop (1200px)</button>
+            </div>
+            <iframe src="http://localhost:3003/products" id="mobileFrame" style="width: 375px;"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Update screen info
+        function updateScreenInfo() {
+            document.getElementById('screenSize').textContent = `${screen.width}x${screen.height}`;
+            document.getElementById('viewportSize').textContent = `${window.innerWidth}x${window.innerHeight}`;
+        }
+        updateScreenInfo();
+        window.addEventListener('resize', updateScreenInfo);
+
+        // Checklist functionality
+        document.querySelectorAll('.test-checklist li').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('checked');
+            });
+        });
+
+        // Responsive frame sizing
+        function setFrameSize(size) {
+            const frame = document.getElementById('mobileFrame');
+            switch(size) {
+                case 'mobile':
+                    frame.style.width = '375px';
+                    break;
+                case 'tablet':
+                    frame.style.width = '768px';
+                    break;
+                case 'desktop':
+                    frame.style.width = '100%';
+                    break;
+            }
+        }
+
+        // Test results summary
+        function generateReport() {
+            const desktopChecked = document.querySelectorAll('#desktopChecklist li.checked').length;
+            const desktopTotal = document.querySelectorAll('#desktopChecklist li').length;
+            const mobileChecked = document.querySelectorAll('#mobileChecklist li.checked').length;
+            const mobileTotal = document.querySelectorAll('#mobileChecklist li').length;
+
+            console.log('=== Full Page Dutchie Test Report ===');
+            console.log(`Desktop: ${desktopChecked}/${desktopTotal} tests passed`);
+            console.log(`Mobile: ${mobileChecked}/${mobileTotal} tests passed`);
+            console.log('=====================================');
+        }
+
+        // Auto-save test progress
+        setInterval(() => {
+            localStorage.setItem('dutchie-test-progress', JSON.stringify({
+                desktop: Array.from(document.querySelectorAll('#desktopChecklist li')).map(li => li.classList.contains('checked')),
+                mobile: Array.from(document.querySelectorAll('#mobileChecklist li')).map(li => li.classList.contains('checked'))
+            }));
+        }, 5000);
+
+        // Load saved progress
+        const saved = localStorage.getItem('dutchie-test-progress');
+        if (saved) {
+            const progress = JSON.parse(saved);
+            document.querySelectorAll('#desktopChecklist li').forEach((li, i) => {
+                if (progress.desktop[i]) li.classList.add('checked');
+            });
+            document.querySelectorAll('#mobileChecklist li').forEach((li, i) => {
+                if (progress.mobile[i]) li.classList.add('checked');
+            });
+        }
+    </script>
+</body>
+</html>

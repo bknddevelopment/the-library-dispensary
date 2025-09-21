@@ -24,6 +24,7 @@ export default function DutchieEmbed({
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [cartModalOpen, setCartModalOpen] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const loadTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
@@ -36,6 +37,73 @@ export default function DutchieEmbed({
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // CRITICAL FIX: Detect cart modal interactions and adjust iframe positioning
+  useEffect(() => {
+    if (!iframeRef.current) return;
+
+    const handleCartInteraction = () => {
+      // When user interacts with iframe, assume they might open cart
+      setCartModalOpen(true);
+
+      // Force iframe to expand for modal
+      if (iframeRef.current && !isMobile) {
+        iframeRef.current.style.position = 'fixed';
+        iframeRef.current.style.top = '0';
+        iframeRef.current.style.left = '0';
+        iframeRef.current.style.width = '100vw';
+        iframeRef.current.style.height = '100vh';
+        iframeRef.current.style.zIndex = '2147483647';
+        document.body.style.overflow = 'hidden';
+      }
+
+      // Auto-close after 10 seconds if no further interaction
+      setTimeout(() => {
+        resetIframePosition();
+      }, 10000);
+    };
+
+    const resetIframePosition = () => {
+      setCartModalOpen(false);
+      if (iframeRef.current && !isMobile) {
+        iframeRef.current.style.position = 'relative';
+        iframeRef.current.style.top = '0';
+        iframeRef.current.style.left = '0';
+        iframeRef.current.style.width = '100%';
+        iframeRef.current.style.height = fullPage ? '100%' : (height || '6000px');
+        iframeRef.current.style.zIndex = '99999';
+        document.body.style.overflow = '';
+      }
+    };
+
+    // Listen for clicks on the iframe
+    const handleIframeClick = () => {
+      // Detect if cart might be opening
+      if (!cartModalOpen) {
+        handleCartInteraction();
+      }
+    };
+
+    // Add click listener to detect cart button clicks
+    const iframe = iframeRef.current;
+    iframe.addEventListener('mouseenter', handleIframeClick);
+    iframe.addEventListener('click', handleIframeClick);
+
+    // Listen for escape key to close modal
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && cartModalOpen) {
+        resetIframePosition();
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+
+    return () => {
+      iframe.removeEventListener('mouseenter', handleIframeClick);
+      iframe.removeEventListener('click', handleIframeClick);
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
+    };
+  }, [cartModalOpen, isMobile, fullPage, height]);
 
   // Removed auto-scroll adjustment to prevent interference with modal display
   // The modal visibility is now handled entirely through CSS z-index stacking
@@ -223,7 +291,7 @@ export default function DutchieEmbed({
       {/* Dutchie Iframe Embed - Full Page Mode */}
       <div
         ref={containerRef}
-        className={`relative w-full dutchie-iframe-container ${!isMobile ? 'desktop-modal-fix' : ''} ${fullPage ? 'fullpage-embed' : ''}`}
+        className={`relative w-full dutchie-iframe-container ${!isMobile ? 'desktop-modal-fix' : ''} ${fullPage ? 'fullpage-embed' : ''} ${cartModalOpen ? 'cart-modal-active' : ''}`}
         style={{
           height: fullPage ? '100%' : responsiveHeight,
           minHeight: fullPage ? '100%' : "600px",
@@ -244,6 +312,7 @@ export default function DutchieEmbed({
           src={dutchieEmbedUrl}
           title="Dutchie Cannabis Menu"
           className="w-full dutchie-iframe"
+          data-cart-open={cartModalOpen}
           style={{
             height: fullPage ? '100%' : iframeHeight,
             minHeight: fullPage ? '100%' : iframeHeight,
@@ -266,7 +335,7 @@ export default function DutchieEmbed({
           allow="payment; fullscreen"
           referrerPolicy="strict-origin-when-cross-origin"
           aria-label="Cannabis product menu powered by Dutchie"
-          scrolling={fullPage ? "auto" : "no"} // Allow iframe scrolling in full page mode
+          scrolling="yes" // CRITICAL FIX: Always allow scrolling for modal visibility
         />
       </div>
 

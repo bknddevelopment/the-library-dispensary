@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dutchie Cart Modal Fix Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #2C1F16;
+            color: #FAF8F3;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Critical Fix for Dutchie Cart Modal */
+
+        /* SOLUTION 1: High z-index for iframe container */
+        .dutchie-container {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 100px);
+            margin-top: 100px;
+            overflow: hidden;
+            /* Critical: High z-index to ensure modal displays above everything */
+            z-index: 9999 !important;
+        }
+
+        /* SOLUTION 2: Iframe specific fixes */
+        .dutchie-iframe {
+            width: 100%;
+            height: 150vh; /* Extra height for modals */
+            border: none;
+            position: relative;
+            /* Ensure iframe content can display modals */
+            z-index: 9999 !important;
+            /* Remove any clipping */
+            clip: auto !important;
+            clip-path: none !important;
+        }
+
+        /* SOLUTION 3: Override any conflicting styles */
+        body:has(.dutchie-iframe) {
+            /* Ensure body doesn't clip iframe content */
+            overflow: visible !important;
+            position: static !important;
+        }
+
+        /* SOLUTION 4: Full page specific fixes */
+        .fullpage-mode .dutchie-container {
+            height: 100vh;
+            margin-top: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 99999 !important;
+        }
+
+        .fullpage-mode .dutchie-iframe {
+            height: 100%;
+            width: 100%;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+        }
+
+        /* SOLUTION 5: Prevent parent elements from clipping */
+        div:has(> iframe[src*="dutchie.com"]) {
+            overflow: visible !important;
+            transform: none !important;
+            filter: none !important;
+            clip: auto !important;
+            clip-path: none !important;
+            contain: none !important;
+        }
+
+        /* Header for testing */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: #3E2E23;
+            padding: 20px;
+            z-index: 1000;
+            border-bottom: 2px solid #D4A574;
+        }
+
+        .test-info {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: rgba(212, 165, 116, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #D4A574;
+            max-width: 300px;
+            z-index: 10000;
+        }
+
+        .test-info h3 {
+            margin-bottom: 10px;
+            color: #D4A574;
+        }
+
+        .test-info ol {
+            margin-left: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: #D4A574;
+            color: #2C1F16;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 10000;
+        }
+
+        .toggle-btn:hover {
+            background: #F4E4C1;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="color: #D4A574;">Dutchie Cart Modal Fix Test</h1>
+        <p style="color: #FAF8F3; opacity: 0.8;">Testing cart modal visibility with proper z-index stacking</p>
+    </div>
+
+    <div class="test-info">
+        <h3>Test Instructions:</h3>
+        <ol>
+            <li>Wait for Dutchie menu to load</li>
+            <li>Add items to cart</li>
+            <li>Click the cart icon</li>
+            <li>Verify modal appears fully</li>
+            <li>Check both sides are visible</li>
+            <li>Test checkout flow</li>
+        </ol>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleFullPage()">Toggle Full Page Mode</button>
+
+    <div id="dutchie-wrapper" class="dutchie-container">
+        <iframe
+            src="https://dutchie.com/embedded-menu/the-library"
+            class="dutchie-iframe"
+            title="The Library Dispensary Menu"
+            allow="payment; fullscreen"
+            allowfullscreen
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
+        </iframe>
+    </div>
+
+    <script>
+        let isFullPage = false;
+
+        function toggleFullPage() {
+            const body = document.body;
+            const wrapper = document.getElementById('dutchie-wrapper');
+            const btn = document.querySelector('.toggle-btn');
+
+            isFullPage = !isFullPage;
+
+            if (isFullPage) {
+                body.classList.add('fullpage-mode');
+                btn.textContent = 'Exit Full Page Mode';
+            } else {
+                body.classList.remove('fullpage-mode');
+                btn.textContent = 'Toggle Full Page Mode';
+            }
+        }
+
+        // Monitor for iframe load
+        window.addEventListener('load', () => {
+            console.log('Page loaded - Dutchie iframe should be active');
+
+            // Log any z-index issues
+            const iframe = document.querySelector('.dutchie-iframe');
+            const container = document.querySelector('.dutchie-container');
+
+            if (iframe && container) {
+                const iframeStyles = window.getComputedStyle(iframe);
+                const containerStyles = window.getComputedStyle(container);
+
+                console.log('Container z-index:', containerStyles.zIndex);
+                console.log('Iframe z-index:', iframeStyles.zIndex);
+                console.log('Container overflow:', containerStyles.overflow);
+                console.log('Container position:', containerStyles.position);
+            }
+        });
+    </script>
+</body>
+</html>

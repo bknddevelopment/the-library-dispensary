@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dutchie Cart Modal Test - The Library Dispensary</title>
+    <style>
+        /* Import the actual CSS fix */
+        @import url('./styles/dutchie-fix.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #2C1F16;
+            color: #FAF8F3;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .test-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(180deg, #3E2E23 0%, #2C1F16 100%);
+            padding: 20px;
+            z-index: 1000;
+            border-bottom: 2px solid #D4A574;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .test-header h1 {
+            color: #D4A574;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .test-status {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid #D4A574;
+            border-radius: 20px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.checking {
+            background: #FFA500;
+        }
+
+        .status-dot.success {
+            background: #00FF00;
+        }
+
+        .status-dot.error {
+            background: #FF0000;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .test-container {
+            margin-top: 100px;
+            padding: 20px;
+        }
+
+        .test-instructions {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            padding: 20px;
+            background: rgba(212, 165, 116, 0.05);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 12px;
+        }
+
+        .test-instructions h2 {
+            color: #D4A574;
+            margin-bottom: 15px;
+        }
+
+        .test-instructions ol {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .test-instructions li {
+            margin-bottom: 10px;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #00FF00;
+            color: #00FF00;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            display: none;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid #FF0000;
+            color: #FF0000;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Embed container matching production styles */
+        #dutchie-embed-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: calc(100vh - 200px);
+        }
+
+        .dutchie-iframe-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .dutchie-iframe-container.fullpage-embed {
+            height: 100vh;
+            margin-top: -100px;
+        }
+
+        .modal-test-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px dashed #D4A574;
+            padding: 20px;
+            border-radius: 12px;
+            z-index: 1000000;
+            display: none;
+            max-width: 400px;
+        }
+
+        .modal-test-overlay.active {
+            display: block;
+        }
+
+        .modal-test-overlay h3 {
+            color: #D4A574;
+            margin-bottom: 10px;
+        }
+
+        .modal-test-overlay p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .modal-test-overlay button {
+            background: #D4A574;
+            color: #2C1F16;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .modal-test-overlay button:hover {
+            background: #F4E4C1;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-header">
+        <h1>Cart Modal Test Suite</h1>
+        <div class="test-status">
+            <div class="status-indicator">
+                <span class="status-dot checking"></span>
+                <span id="status-text">Initializing...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-container">
+        <div class="test-instructions">
+            <h2>Testing Instructions</h2>
+            <ol>
+                <li><strong>Wait for Dutchie to Load:</strong> The iframe below should load the Dutchie menu.</li>
+                <li><strong>Add Items to Cart:</strong> Browse products and add at least one item to your cart.</li>
+                <li><strong>Click Cart Icon:</strong> Click the cart icon (usually in top-right of the iframe).</li>
+                <li><strong>Verify Modal Display:</strong> The cart modal should appear with:
+                    <ul style="margin-top: 5px; list-style-type: disc; margin-left: 20px;">
+                        <li>Left side: Cart items list</li>
+                        <li>Right side: Order summary and checkout button</li>
+                        <li>Both sides should be fully visible</li>
+                        <li>No blank or empty sections</li>
+                    </ul>
+                </li>
+                <li><strong>Test Interactions:</strong> Try adjusting quantities, removing items, and proceeding to checkout.</li>
+            </ol>
+        </div>
+
+        <div id="success-msg" class="success-message">
+            ✓ Cart modal fix appears to be working! Both sides of the modal should be visible.
+        </div>
+
+        <div id="error-msg" class="error-message">
+            ✗ Issue detected. Please check browser console for details.
+        </div>
+
+        <div id="dutchie-embed-wrapper">
+            <div class="dutchie-iframe-container desktop-modal-fix">
+                <iframe
+                    src="https://dutchie.com/embedded-menu/the-library"
+                    class="dutchie-iframe"
+                    style="width: 100%; height: 150vh; border: none;"
+                    title="The Library Dispensary Menu"
+                    allow="payment; fullscreen"
+                    allowfullscreen
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-test" class="modal-test-overlay">
+        <h3>Modal Visibility Check</h3>
+        <p>This overlay tests if high z-index elements can display properly. If you can see this message clearly, the z-index stacking is working correctly.</p>
+        <button onclick="closeTestModal()">Close Test</button>
+    </div>
+
+    <script>
+        // Test suite for cart modal visibility
+        let testStatus = 'checking';
+        const statusDot = document.querySelector('.status-dot');
+        const statusText = document.getElementById('status-text');
+        const successMsg = document.getElementById('success-msg');
+        const errorMsg = document.getElementById('error-msg');
+
+        // Check iframe load status
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                checkIframeStatus();
+            }, 3000);
+        });
+
+        function checkIframeStatus() {
+            const iframe = document.querySelector('.dutchie-iframe');
+            if (iframe) {
+                // Check computed styles
+                const styles = window.getComputedStyle(iframe);
+                const container = iframe.parentElement;
+                const containerStyles = window.getComputedStyle(container);
+
+                console.log('=== Cart Modal Fix Diagnostics ===');
+                console.log('Iframe z-index:', styles.zIndex);
+                console.log('Container z-index:', containerStyles.zIndex);
+                console.log('Container overflow:', containerStyles.overflow);
+                console.log('Iframe position:', styles.position);
+                console.log('Iframe visibility:', styles.visibility);
+                console.log('Iframe opacity:', styles.opacity);
+
+                // Check if critical styles are applied
+                const hasHighZIndex = parseInt(styles.zIndex) > 1000;
+                const hasVisibleOverflow = containerStyles.overflow === 'visible';
+                const isPositioned = styles.position !== 'static';
+
+                if (hasHighZIndex && hasVisibleOverflow && isPositioned) {
+                    updateStatus('success', 'Fix Applied Successfully');
+                    successMsg.style.display = 'block';
+                    console.log('✓ Cart modal fix is properly applied');
+
+                    // Run additional visual test
+                    setTimeout(runVisualTest, 2000);
+                } else {
+                    updateStatus('error', 'Fix Not Fully Applied');
+                    errorMsg.style.display = 'block';
+                    console.error('✗ Some CSS fixes may not be applied correctly');
+                }
+            } else {
+                updateStatus('error', 'Iframe Not Found');
+                console.error('Could not find Dutchie iframe');
+            }
+        }
+
+        function updateStatus(status, text) {
+            testStatus = status;
+            statusDot.className = 'status-dot ' + status;
+            statusText.textContent = text;
+        }
+
+        function runVisualTest() {
+            // Show test modal briefly to verify z-index stacking
+            const testModal = document.getElementById('modal-test');
+            testModal.classList.add('active');
+            setTimeout(function() {
+                testModal.classList.remove('active');
+                console.log('✓ Visual z-index test completed');
+            }, 3000);
+        }
+
+        function closeTestModal() {
+            document.getElementById('modal-test').classList.remove('active');
+        }
+
+        // Monitor for cart modal appearance
+        let cartCheckInterval = setInterval(function() {
+            // This would need to check for Dutchie-specific modal elements
+            // Since we can't access iframe content directly, we rely on visual confirmation
+            console.log('Monitoring for cart modal...');
+        }, 5000);
+
+        // Clean up after 5 minutes
+        setTimeout(function() {
+            clearInterval(cartCheckInterval);
+            console.log('Test monitoring ended');
+        }, 300000);
+    </script>
+</body>
+</html>
