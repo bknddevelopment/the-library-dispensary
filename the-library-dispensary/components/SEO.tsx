@@ -10,9 +10,9 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'The Library Dispensary - Cape Coral\'s Premier Cannabis Destination',
-  description = 'Experience premium cannabis products in Cape Coral\'s most sophisticated dispensary. Expert guidance, curated selection, and unmatched service.',
-  keywords = 'cannabis dispensary Cape Coral, medical marijuana, CBD products, THC products, cannabis education',
+  title = 'The Library Dispensary - West Orange\'s Premier Cannabis Destination',
+  description = 'Experience premium cannabis products in West Orange\'s most sophisticated dispensary. Expert guidance, curated selection, and unmatched service.',
+  keywords = 'cannabis dispensary West Orange, medical marijuana, CBD products, THC products, cannabis education',
   ogImage = '/images/og-image.jpg',
   ogType = 'website',
   canonicalUrl

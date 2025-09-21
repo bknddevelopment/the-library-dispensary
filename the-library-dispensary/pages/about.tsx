@@ -12,7 +12,7 @@ const AboutPage: NextPage = () => {
     <>
       <SEO
         title="About Us - The Library Dispensary"
-        description="Learn about The Library Dispensary's story, mission, and commitment to Cape Coral's cannabis community."
+        description="Learn about The Library Dispensary's story, mission, and commitment to West Orange's cannabis community."
       />
       <FloatingParticles />
       <FloatingIntakeButton />

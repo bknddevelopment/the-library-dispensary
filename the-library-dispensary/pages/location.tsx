@@ -12,7 +12,7 @@ const LocationPage: NextPage = () => {
     <>
       <SEO
         title="Location - The Library Dispensary"
-        description="Find The Library Dispensary in Cape Coral - directions, hours, and contact information."
+        description="Find The Library Dispensary in West Orange - directions, hours, and contact information."
       />
       <FloatingParticles />
       <FloatingIntakeButton />

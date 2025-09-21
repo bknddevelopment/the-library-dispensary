@@ -12,8 +12,8 @@ const HomePage: NextPage = () => {
   return (
     <>
       <SEO
-        title="The Library Dispensary - Cape Coral's Premier Cannabis Destination"
-        description="Cape Coral's premier cannabis dispensary. Discover curated selections, expert guidance, and a refined experience."
+        title="The Library Dispensary - West Orange's Premier Cannabis Destination"
+        description="West Orange's premier cannabis dispensary. Discover curated selections, expert guidance, and a refined experience."
       />
       <GrandOpeningAnnouncement />
       <FloatingParticles />
