@@ -1,0 +1,307 @@
+"use client";
+
+import { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Loader2, AlertCircle, ExternalLink } from "lucide-react";
+
+interface DutchieEmbedProps {
+  retailerId: string;
+  productId?: string;
+  className?: string;
+  height?: string;
+  enableSEO?: boolean;
+}
+
+export default function DutchieEmbed({
+  retailerId,
+  productId, // eslint-disable-line @typescript-eslint/no-unused-vars -- Kept for future product-specific navigation
+  className = "",
+  height,
+  enableSEO = true,
+}: DutchieEmbedProps) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const loadTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  const modalCheckIntervalRef = useRef<NodeJS.Timer | undefined>(undefined);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Auto-adjust scroll position when modal might appear
+  const adjustScrollForModal = useCallback(() => {
+    if (!isMobile && containerRef.current) {
+      // Scroll container to top to ensure modal is visible
+      containerRef.current.scrollTop = 0;
+    }
+  }, [isMobile]);
+
+  // Monitor for potential modal appearance
+  useEffect(() => {
+    if (!isMobile && !isLoading) {
+      // Initial adjustment after load
+      const initialAdjustTimer = setTimeout(() => {
+        adjustScrollForModal();
+      }, 500);
+
+      // Also check periodically in case modal appears later
+      modalCheckIntervalRef.current = setInterval(() => {
+        // Only adjust if we detect the container might need it
+        if (containerRef.current && containerRef.current.scrollTop > 100) {
+          // User has scrolled, don't auto-adjust
+          return;
+        }
+        adjustScrollForModal();
+      }, 3000);
+
+      return () => {
+        clearTimeout(initialAdjustTimer);
+        if (modalCheckIntervalRef.current) {
+          clearInterval(modalCheckIntervalRef.current);
+        }
+      };
+    }
+  }, [isMobile, isLoading, adjustScrollForModal]);
+
+  // Handle iframe load events
+  useEffect(() => {
+    if (!iframeRef.current) return;
+
+    const handleLoad = () => {
+      setIsLoading(false);
+      setHasError(false);
+      if (loadTimeoutRef.current) {
+        clearTimeout(loadTimeoutRef.current);
+      }
+    };
+
+    const handleError = () => {
+      setIsLoading(false);
+      setHasError(true);
+
+      // Report to monitoring service (if available)
+      if (typeof window !== 'undefined' && (window as unknown as { Sentry?: { captureMessage: (message: string, options: object) => void } }).Sentry) {
+        (window as unknown as { Sentry: { captureMessage: (message: string, options: object) => void } }).Sentry.captureMessage('Dutchie iframe failed to load', {
+          level: 'error',
+          tags: {
+            component: 'DutchieEmbed',
+            retailerId
+          }
+        });
+      }
+
+      if (loadTimeoutRef.current) {
+        clearTimeout(loadTimeoutRef.current);
+      }
+    };
+
+    const iframe = iframeRef.current;
+    iframe.addEventListener('load', handleLoad);
+    iframe.addEventListener('error', handleError);
+
+    // Set a timeout for slow loading
+    loadTimeoutRef.current = setTimeout(() => {
+      if (isLoading) {
+        setIsLoading(false);
+        setHasError(true);
+      }
+    }, 20000); // 20 second timeout
+
+    return () => {
+      iframe.removeEventListener('load', handleLoad);
+      iframe.removeEventListener('error', handleError);
+      if (loadTimeoutRef.current) {
+        clearTimeout(loadTimeoutRef.current);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [retailerId]);
+
+  const handleRetry = () => {
+    setIsLoading(true);
+    setHasError(false);
+
+    // Force iframe reload by updating src
+    if (iframeRef.current) {
+      const currentSrc = iframeRef.current.src;
+      iframeRef.current.src = '';
+      setTimeout(() => {
+        if (iframeRef.current) {
+          iframeRef.current.src = currentSrc;
+        }
+      }, 100);
+    }
+  };
+
+  // Responsive height for mobile devices
+  // Use viewport-relative heights to prevent modal cutoff
+  const responsiveHeight = isMobile ? "90vh" : "100vh";
+  const iframeHeight = height || (isMobile ? "1400px" : "4500px"); // Use passed height or defaults
+
+  // Calculate offset to ensure modal visibility
+  // Keep iframe at top position - no negative offset needed
+  const iframeTopOffset = "0"; // Keep at top, let container height handle visibility
+
+  // Dutchie embedded menu URL
+  const dutchieEmbedUrl = `https://dutchie.com/embedded-menu/${retailerId}`;
+
+  // Fallback URL for Dutchie kiosk
+  const dutchieFallbackUrl = `https://dutchie.com/kiosks/${retailerId}`;
+
+  return (
+    <div id="dutchie-embed-wrapper" className={`relative ${className}`} style={{ minHeight: responsiveHeight }}>
+      {/* Loading State */}
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 flex items-center justify-center z-20 glass-dark rounded-lg"
+            style={{ minHeight: responsiveHeight }}
+          >
+            <div className="text-center">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                className="inline-block mb-4"
+              >
+                <Loader2 className="w-12 h-12 text-library-gold" />
+              </motion.div>
+              <p className="text-library-gold-light font-display text-lg uppercase tracking-wider">
+                Loading Products
+              </p>
+              <p className="text-library-cream/60 text-sm mt-2 italic">
+                Curating our finest selections for you...
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Error State */}
+      <AnimatePresence>
+        {hasError && !isLoading && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="absolute inset-0 flex items-center justify-center z-20 glass-dark rounded-lg"
+            style={{ minHeight: responsiveHeight }}
+          >
+            <div className="text-center p-8 max-w-md">
+              <AlertCircle className="w-12 h-12 text-library-gold mx-auto mb-4" />
+              <h3 className="text-library-gold font-display text-xl uppercase tracking-wider mb-2">
+                Unable to Load Menu
+              </h3>
+              <p className="text-library-cream/80 mb-6">
+                Our embedded menu is temporarily unavailable. You can still browse and order through our full website.
+              </p>
+              <div className="space-y-3">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleRetry}
+                  className="w-full px-6 py-3 bg-gradient-to-r from-library-gold to-library-gold-dark text-library-brown-darkest font-semibold rounded-full hover:shadow-gold transition-all"
+                >
+                  Try Again
+                </motion.button>
+                <a
+                  href={dutchieFallbackUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3 glass border border-library-gold/30 text-library-cream rounded-full hover:glass-gold transition-all"
+                >
+                  <span>Browse Full Menu</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+                <a
+                  href="tel:973-731-1199"
+                  className="block w-full px-6 py-3 glass border border-library-gold/30 text-library-cream rounded-full hover:glass-gold transition-all"
+                >
+                  Call Us: (973) 731-1199
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Dutchie Iframe Embed - Fixed Modal Cutoff Issue */}
+      <div
+        ref={containerRef}
+        className={`relative w-full dutchie-iframe-container ${!isMobile ? 'desktop-modal-fix' : ''}`}
+        style={{
+          height: responsiveHeight,
+          maxHeight: responsiveHeight,
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          WebkitOverflowScrolling: 'touch', // Smooth scrolling on iOS
+          position: 'relative',
+          borderRadius: '0.5rem',
+          scrollBehavior: 'smooth',
+          paddingTop: isMobile ? '0' : '150px', // Balanced padding on desktop for modal space
+        }}
+      >
+        <iframe
+          ref={iframeRef}
+          src={dutchieEmbedUrl}
+          title="Dutchie Cannabis Menu"
+          className="w-full dutchie-iframe"
+          style={{
+            height: iframeHeight, // Taller than container to accommodate modals
+            minHeight: iframeHeight,
+            border: 'none',
+            backgroundColor: '#fafafa',
+            position: 'absolute',
+            top: iframeTopOffset, // Negative offset on desktop to show modal headers
+            left: 0,
+            width: '100%',
+          }}
+          loading="lazy"
+          allowFullScreen
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
+          allow="payment; fullscreen"
+          referrerPolicy="strict-origin-when-cross-origin"
+          aria-label="Cannabis product menu powered by Dutchie"
+          scrolling="no" // Let container handle scrolling
+        />
+      </div>
+
+      {/* SEO Fallback Content */}
+      {enableSEO && (
+        <div className="sr-only">
+          <h2>Cannabis Products Available at The Library Dispensary</h2>
+          <p>
+            Browse our curated selection of premium cannabis products including flowers,
+            pre-rolls, edibles, concentrates, vapes, and accessories. Located in
+            West Orange, NJ, The Library Dispensary offers carefully selected products
+            from trusted brands, with expert guidance to help you find the perfect
+            match for your needs.
+          </p>
+          <ul>
+            <li>Premium Cannabis Flower - Indoor, Outdoor, and Greenhouse varieties</li>
+            <li>Pre-Rolled Joints - Singles and multi-packs</li>
+            <li>Edibles - Gummies, chocolates, baked goods, and beverages</li>
+            <li>Concentrates - Wax, shatter, live resin, and rosin</li>
+            <li>Vape Cartridges - Distillate, live resin, and full spectrum</li>
+            <li>CBD Products - Tinctures, topicals, and wellness items</li>
+            <li>Accessories - Grinders, papers, pipes, and storage</li>
+          </ul>
+          <p>
+            Shop online for pickup or delivery. New Jersey medical marijuana card required.
+            21+ for recreational purchases where available.
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}

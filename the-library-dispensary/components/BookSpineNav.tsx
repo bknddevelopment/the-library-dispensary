@@ -35,50 +35,58 @@ export default function BookSpineNav() {
   }, []);
 
   const bookSpines: BookSpine[] = [
-    { 
-      id: "about", 
-      label: "About", 
-      href: "/about", 
+    {
+      id: "products",
+      label: "Products",
+      href: "/products",
+      color: "bg-library-gold",
+      width: 75,
+      author: "Shop Online"
+    },
+    {
+      id: "about",
+      label: "About",
+      href: "/about",
       color: "bg-library-emerald",
       width: 60,
       author: "Our Story"
     },
-    { 
-      id: "services", 
-      label: "Services", 
-      href: "/services", 
+    {
+      id: "services",
+      label: "Services",
+      href: "/services",
       color: "bg-library-burgundy",
       width: 70,
       author: "What We Offer"
     },
-    { 
-      id: "first-visit", 
-      label: "First Visit", 
-      href: "/first-visit", 
+    {
+      id: "first-visit",
+      label: "First Visit",
+      href: "/first-visit",
       color: "bg-library-copper",
       width: 80,
       author: "Getting Started"
     },
-    { 
-      id: "location", 
-      label: "Location", 
-      href: "/location", 
+    {
+      id: "location",
+      label: "Location",
+      href: "/location",
       color: "bg-library-gold-dark",
       width: 65,
       author: "Find Us"
     },
-    { 
-      id: "education", 
-      label: "Education", 
-      href: "/education", 
+    {
+      id: "education",
+      label: "Education",
+      href: "/education",
       color: "bg-library-emerald-light",
       width: 75,
       author: "Learn More"
     },
-    { 
-      id: "art-collection", 
-      label: "Art", 
-      href: "/art-collection", 
+    {
+      id: "art-collection",
+      label: "Art",
+      href: "/art-collection",
       color: "bg-library-burgundy-light",
       width: 60,
       author: "Gallery"

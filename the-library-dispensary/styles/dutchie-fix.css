@@ -1,0 +1,138 @@
+/* Dutchie Iframe Modal Position Fix */
+/* This file contains fixes for the Dutchie iframe modal positioning issue */
+
+/* Allow the iframe container to properly display modal content */
+#dutchie-embed-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix for the parent container on products page */
+.glass-dark:has(#dutchie-embed-wrapper) {
+  position: relative;
+}
+
+/* Desktop-specific iframe positioning to show modal headers */
+@media (min-width: 769px) {
+  .dutchie-iframe-container {
+    /* Ensure container can handle negative positioned iframe */
+    position: relative !important;
+    /* Allow scrolling to access all content including negative-positioned areas */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    /* Start at top to show modal when it appears */
+    scroll-padding-top: 0;
+  }
+
+  /* Desktop modal fix class - applied when not mobile */
+  .dutchie-iframe-container.desktop-modal-fix {
+    /* Ensure we can scroll to show the modal */
+    overflow-y: scroll !important;
+  }
+
+  .dutchie-iframe {
+    /* The iframe is positioned with negative top in the component (-120px) */
+    /* This ensures modal headers are visible */
+    /* No transform needed as positioning is handled in component */
+  }
+
+  /* Compensate for the negative positioning to ensure bottom content is accessible */
+  .dutchie-iframe-container::after {
+    content: '';
+    display: block;
+    height: 120px; /* Match the negative top offset */
+    pointer-events: none;
+  }
+
+  /* Force container to start at scroll position 0 */
+  .dutchie-iframe-container.desktop-modal-fix {
+    /* Initial state should show top of content */
+    scrollbar-gutter: stable;
+  }
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+  .dutchie-iframe-container {
+    /* Mobile containers work fine with default positioning */
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dutchie-iframe {
+    /* No offset needed on mobile */
+    top: 0 !important;
+  }
+}
+
+/* Ensure iframe container scrolling works properly */
+.dutchie-iframe-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dutchie-iframe-container::-webkit-scrollbar-track {
+  background: rgba(212, 165, 116, 0.1);
+  border-radius: 4px;
+}
+
+.dutchie-iframe-container::-webkit-scrollbar-thumb {
+  background: rgba(212, 165, 116, 0.5);
+  border-radius: 4px;
+}
+
+.dutchie-iframe-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 165, 116, 0.7);
+}
+
+/* Ensure proper stacking context */
+body:has(#dutchie-embed-wrapper iframe) {
+  /* Create new stacking context to prevent z-index issues */
+  position: relative;
+  z-index: 0;
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  #dutchie-embed-wrapper {
+    /* iOS Safari specific fixes for iframe positioning */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  #dutchie-embed-wrapper iframe {
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+  }
+}
+
+/* Handle edge cases for very tall modals */
+@media (min-width: 769px) and (min-height: 900px) {
+  .dutchie-iframe-container {
+    /* For larger desktop screens, allow more room */
+    max-height: min(100vh, 1200px) !important;
+  }
+}
+
+/* Fix for modal centering on different screen sizes */
+@media (min-width: 1024px) {
+  .dutchie-iframe {
+    /* Fine-tune offset for larger screens */
+    /* This ensures the "Sorry, The Library is closed!" header is visible */
+  }
+}
+
+/* Critical fix for desktop modal visibility */
+@media (min-width: 769px) {
+  /* When modal is likely to be shown (closed hours),
+     ensure the iframe is positioned to show the full modal */
+  .dutchie-iframe-container {
+    /* Allow container to scroll to show modal content */
+    scroll-behavior: smooth;
+  }
+
+  /* Initial scroll position adjustment for desktop */
+  .dutchie-iframe-container {
+    /* Start scrolled to show potential modal content */
+    overflow-y: auto !important;
+  }
+}

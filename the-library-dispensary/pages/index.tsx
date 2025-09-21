@@ -22,6 +22,7 @@ const HomePage: NextPage = () => {
       <PageTransition>
         <main className="min-h-screen">
           <Hero />
+
         </main>
       </PageTransition>
       <Footer />
