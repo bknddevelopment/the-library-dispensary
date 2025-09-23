@@ -100,13 +100,13 @@ export default function BookSpineNav() {
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="bg-gradient-to-r from-library-brown-darkest via-library-brown-dark to-library-brown-darkest text-library-cream py-2 px-4 border-b border-library-gold/20"
+        className="bg-gradient-to-r from-library-brown-darkest via-library-brown-dark to-library-brown-darkest text-library-cream py-2 px-3 sm:px-4 border-b border-library-gold/20"
       >
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-xs sm:text-sm">
+          <div className="flex items-center gap-2 sm:gap-6">
+            <div className="flex items-center gap-1 sm:gap-2">
               <Phone className="w-3 h-3 text-library-gold" />
-              <span className="text-library-gold-light font-display text-xs uppercase tracking-wider">For Inquiries:</span>
+              <span className="hidden sm:inline text-library-gold-light font-display text-xs uppercase tracking-wider">For Inquiries:</span>
               <a href="tel:973-731-1199" className="text-library-cream hover:text-library-gold transition-colors">
                 (973) 731-1199
               </a>
@@ -120,10 +120,11 @@ export default function BookSpineNav() {
             href="https://instagram.com/thelibrarynj"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-library-cream hover:text-library-gold transition-colors"
+            className="flex items-center gap-1 sm:gap-2 text-library-cream hover:text-library-gold transition-colors"
           >
             <Instagram className="w-3 h-3" />
-            <span>@thelibrarynj</span>
+            <span className="hidden sm:inline">@thelibrarynj</span>
+            <span className="sm:hidden">IG</span>
           </a>
         </div>
       </motion.div>
@@ -140,7 +141,7 @@ export default function BookSpineNav() {
         }`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-24">
+          <div className="flex justify-between items-center h-20 sm:h-24">
             {/* Animated Logo */}
             <Link href="/" className="flex items-center group">
               <motion.div
@@ -153,7 +154,7 @@ export default function BookSpineNav() {
                 <img
                   src={getAssetPath("/the-library-logo.png")}
                   alt="The Library Cannabis Dispensary"
-                  className="h-20 w-auto object-contain relative z-10"
+                  className="h-16 sm:h-20 w-auto object-contain relative z-10"
                 />
                 <Feather className="absolute -top-2 -right-2 w-6 h-6 text-library-gold opacity-0 group-hover:opacity-100 transition-opacity rotate-12" />
               </motion.div>

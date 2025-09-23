@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import { Inter } from 'next/font/google'
 import AgeVerificationProvider from '../components/AgeVerificationProvider'
 import PromotionalBanner from '../components/PromotionalBanner'
+import FloatingPromotionalButton from '../components/FloatingPromotionalButton'
 import '../styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <main className={inter.className}>
       <AgeVerificationProvider>
         <PromotionalBanner />
+        <FloatingPromotionalButton />
         <Component {...pageProps} />
       </AgeVerificationProvider>
     </main>

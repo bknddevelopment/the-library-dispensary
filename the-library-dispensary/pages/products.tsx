@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import PageTransition from '../components/PageTransition';
 import FloatingParticles from '../components/FloatingParticles';
 import FloatingIntakeButton from '../components/FloatingIntakeButton';
+import ProductPageAlert from '../components/ProductPageAlert';
 
 interface ProductCategory {
   id: string;
@@ -174,6 +175,9 @@ const ProductsPage: NextPage = () => {
                   each product is carefully selected to ensure the highest quality and most refined experience.
                 </p>
               </motion.div>
+
+              {/* Product Page Alert - September Promotion */}
+              <ProductPageAlert />
 
               {/* Prominent Order Now Button with Enhanced Styling */}
               <motion.div

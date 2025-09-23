@@ -301,3 +301,56 @@ input, textarea, select {
   background-color: var(--library-gold);
   color: var(--library-brown-darkest);
 }
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Reduce animations on mobile for better performance */
+  .animate-shimmer {
+    animation-duration: 6s !important;
+  }
+
+  .animate-float {
+    animation: none !important;
+  }
+
+  .animate-pulse {
+    animation-duration: 3s !important;
+  }
+
+  /* Optimize shadows on mobile */
+  .shadow-book,
+  .shadow-gold,
+  .shadow-2xl,
+  .shadow-xl {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* Reduce blur effects on mobile for performance */
+  .backdrop-blur-xl,
+  .backdrop-blur-lg,
+  .backdrop-blur-md {
+    backdrop-filter: blur(8px) !important;
+  }
+
+  /* Optimize transform performance */
+  * {
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+  }
+
+  /* Disable hover effects on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    *:hover {
+      transform: none !important;
+      scale: none !important;
+    }
+  }
+}
+
+/* Ensure text remains readable on small screens */
+@media (max-width: 375px) {
+  html {
+    font-size: 14px;
+  }
+}

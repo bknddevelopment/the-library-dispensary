@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Sparkles, ArrowRight, Feather } from "lucide-react";
 import PremiumBackground from "./PremiumBackground";
+import ProductPageAlert from "./ProductPageAlert";
 import { useRef } from "react";
 
 export default function Hero() {
@@ -80,6 +81,9 @@ export default function Hero() {
                     and wrapped in the comfort of a grand library.
                   </p>
                 </motion.div>
+
+                {/* Product Page Alert - September Promotion */}
+                <ProductPageAlert />
 
                 {/* CTA Buttons */}
                 <motion.div

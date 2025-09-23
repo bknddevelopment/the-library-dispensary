@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Sparkles, BookOpen, Percent } from "lucide-react";
+import { X, Sparkles, BookOpen, Percent, Clock } from "lucide-react";
 
 export default function PromotionalBanner() {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [daysLeft, setDaysLeft] = useState(0);
 
   useEffect(() => {
     // Check if banner was already closed this session
@@ -17,6 +18,12 @@ export default function PromotionalBanner() {
     const currentMonth = now.getMonth(); // 8 = September (0-indexed)
     const currentYear = now.getFullYear();
 
+    // Calculate days left until September 30, 2025
+    const endDate = new Date(2025, 8, 30, 23, 59, 59); // September 30, 2025
+    const timeDiff = endDate.getTime() - now.getTime();
+    const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+    setDaysLeft(Math.max(0, daysRemaining));
+
     // Show banner if:
     // 1. It's September 2025 or later
     // 2. Banner hasn't been closed this session
@@ -24,7 +31,6 @@ export default function PromotionalBanner() {
     const shouldShow = (currentMonth === 8 || true) && !isClosed; // true for testing, remove in production
 
     // Auto-hide after September 30, 2025
-    const endDate = new Date(2025, 8, 30, 23, 59, 59); // September 30, 2025
     const isExpired = now > endDate;
 
     if (shouldShow && !isExpired) {
@@ -72,8 +78,8 @@ export default function PromotionalBanner() {
             </div>
           </div>
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between py-3 sm:py-4">
+          <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between py-2 sm:py-3 md:py-4">
               {/* Left decorative element */}
               <div className="hidden sm:flex items-center gap-2 text-library-gold-light">
                 <Sparkles className="w-5 h-5 animate-pulse" />
@@ -95,13 +101,39 @@ export default function PromotionalBanner() {
                 </motion.div>
 
                 <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
-                  <span className="font-display text-library-cream text-base sm:text-lg md:text-xl font-bold uppercase tracking-wider">
+                  <span className="font-display text-library-cream text-sm sm:text-base md:text-lg lg:text-xl font-bold uppercase tracking-wide sm:tracking-wider">
                     September Special
                   </span>
                   <span className="hidden sm:inline text-library-gold-light">•</span>
-                  <span className="text-library-gold-light text-sm sm:text-base md:text-lg font-semibold">
+                  <span className="text-library-gold-light text-xs sm:text-sm md:text-base lg:text-lg font-semibold">
                     30% Off All Products
                   </span>
+
+                  {/* Countdown Timer */}
+                  {daysLeft > 0 && (
+                    <>
+                      <span className="hidden md:inline text-library-gold-light">•</span>
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.5 }}
+                        className={`hidden sm:flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full ${
+                          daysLeft <= 5
+                            ? 'bg-red-900/30 border border-red-500/50'
+                            : 'bg-library-brown-darkest/30 border border-library-gold-light/30'
+                        }`}
+                      >
+                        <Clock className={`w-3 sm:w-4 h-3 sm:h-4 ${
+                          daysLeft <= 5 ? 'text-red-400 animate-pulse' : 'text-library-gold-light'
+                        }`} />
+                        <span className={`text-xs sm:text-sm font-bold ${
+                          daysLeft <= 5 ? 'text-red-300' : 'text-library-cream'
+                        }`}>
+                          {daysLeft === 1 ? 'Last Day!' : `Only ${daysLeft} days left!`}
+                        </span>
+                      </motion.div>
+                    </>
+                  )}
                 </div>
 
                 <motion.div
@@ -136,12 +168,25 @@ export default function PromotionalBanner() {
               </div>
             </div>
 
-            {/* Mobile-only subtext */}
-            <div className="sm:hidden text-center pb-2">
-              <span className="text-library-gold-light text-xs italic">
-                Limited time offer • In-store & online
-              </span>
-            </div>
+            {/* Mobile-only countdown */}
+            {daysLeft > 0 && (
+              <div className="sm:hidden text-center pb-1.5">
+                <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs ${
+                  daysLeft <= 5
+                    ? 'bg-red-900/30 border border-red-500/50'
+                    : 'bg-library-brown-darkest/30 border border-library-gold-light/30'
+                }`}>
+                  <Clock className={`w-3 h-3 ${
+                    daysLeft <= 5 ? 'text-red-400 animate-pulse' : 'text-library-gold-light'
+                  }`} />
+                  <span className={`font-bold ${
+                    daysLeft <= 5 ? 'text-red-300' : 'text-library-cream'
+                  }`}>
+                    {daysLeft === 1 ? 'Last Day!' : `${daysLeft} days left`}
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Bottom decorative border */}

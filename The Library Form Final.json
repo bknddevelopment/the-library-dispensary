@@ -1,0 +1,361 @@
+{
+  "name": "The Library Form",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Welcome to The Library - Join Our Community",
+        "formDescription": "Join our community for exclusive offers & updates",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Full Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email Address",
+              "fieldType": "email",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Phone Number",
+              "fieldType": "tel",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Date of Birth (Must be 21+)",
+              "fieldType": "date",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Zip Code",
+              "fieldType": "number",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Product Interests",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Flower"
+                  },
+                  {
+                    "option": "Pre-rolls"
+                  },
+                  {
+                    "option": "Edibles"
+                  },
+                  {
+                    "option": "Concentrates"
+                  },
+                  {
+                    "option": "Vapes"
+                  },
+                  {
+                    "option": "Topicals"
+                  },
+                  {
+                    "option": "Accessories"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "What would you like to hear about?",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Daily Deals"
+                  },
+                  {
+                    "option": "New Product Drops"
+                  },
+                  {
+                    "option": "Store Events"
+                  },
+                  {
+                    "option": "Educational Content"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Preferred Contact Method",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Email Only"
+                  },
+                  {
+                    "option": "SMS Only"
+                  },
+                  {
+                    "option": "Both Email & SMS"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Birthday Month (for special offers)",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "January"
+                  },
+                  {
+                    "option": "February"
+                  },
+                  {
+                    "option": "March"
+                  },
+                  {
+                    "option": "April"
+                  },
+                  {
+                    "option": "May"
+                  },
+                  {
+                    "option": "June"
+                  },
+                  {
+                    "option": "July"
+                  },
+                  {
+                    "option": "August"
+                  },
+                  {
+                    "option": "September"
+                  },
+                  {
+                    "option": "October"
+                  },
+                  {
+                    "option": "November"
+                  },
+                  {
+                    "option": "December"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Experience Level",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "First-timer"
+                  },
+                  {
+                    "option": "Occasional"
+                  },
+                  {
+                    "option": "Regular"
+                  },
+                  {
+                    "option": "Connoisseur"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Consumption Preference",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Social"
+                  },
+                  {
+                    "option": "Solo"
+                  },
+                  {
+                    "option": "Both"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Additional Interests",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Store Events"
+                  },
+                  {
+                    "option": "Loyalty Program"
+                  },
+                  {
+                    "option": "Product Launches"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "I confirm that I am 21 years of age or older",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {}
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "I agree to the Terms & Conditions",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {}
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "I consent to receive marketing communications",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {}
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "I acknowledge the data privacy policy",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {}
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "buttonLabel": "Join The Library Community"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "position": [
+        304,
+        -80
+      ],
+      "id": "b4f82957-8232-4c10-bc92-b24dbc022e30",
+      "name": "The Library Intake Form",
+      "webhookId": "2de56228-8522-485f-af34-36b282fe359d"
+    },
+    {
+      "parameters": {
+        "sendTo": "info@bknddevelopment.com, info@thelibrarynj.com",
+        "subject": "=New Library Form Submission - {{ $json['Full Name'] }}",
+        "message": "=<h2>New Customer Registration</h2>\n\n<p><strong>Submission Time:</strong> {{ $now.format('MMMM dd, yyyy - h:mm a') }}</p>\n\n<hr>\n\n<h3>Customer Information</h3>\n<ul>\n<li><strong>Full Name:</strong> {{ $json['Full Name'] }}</li>\n<li><strong>Email:</strong> {{ $json['Email Address'] }}</li>\n<li><strong>Phone:</strong> {{ $json['Phone Number'] }}</li>\n<li><strong>Date of Birth:</strong> {{ $json['Date of Birth (Must be 21+)'] }}</li>\n<li><strong>Zip Code:</strong> {{ $json['Zip Code'] }}</li>\n</ul>\n\n<h3>Marketing Preferences</h3>\n<ul>\n<li><strong>Product Interests:</strong> {{ $json['Product Interests'].join(', ') || 'None selected' }}</li>\n<li><strong>Communication Interests:</strong> {{ $json['What would you like to hear about?'].join(', ') || 'None selected' }}</li>\n<li><strong>Preferred Contact Method:</strong> {{ $json['Preferred Contact Method'] }}</li>\n</ul>\n\n<h3>Additional Information</h3>\n<ul>\n<li><strong>Birthday Month:</strong> {{ $json['Birthday Month (for special offers)'] || 'Not provided' }}</li>\n<li><strong>Experience Level:</strong> {{ $json['Experience Level'] || 'Not provided' }}</li>\n<li><strong>Consumption Preference:</strong> {{ $json['Consumption Preference'] || 'Not provided' }}</li>\n<li><strong>Additional Interests:</strong> {{ $json['Additional Interests'].join(', ') || 'None selected' }}</li>\n</ul>\n\n<h3>Legal Confirmations</h3>\n<ul>\n<li><strong>Age Verification (21+):</strong> {{ $json['I confirm that I am 21 years of age or older'] ? 'Confirmed' : 'Not confirmed' }}</li>\n<li><strong>Terms & Conditions:</strong> {{ $json['I agree to the Terms & Conditions'] ? 'Agreed' : 'Not agreed' }}</li>\n<li><strong>Marketing Consent:</strong> {{ $json['I consent to receive marketing communications'] ? 'Consented' : 'Not consented' }}</li>\n<li><strong>Data Privacy:</strong> {{ $json['I acknowledge the data privacy policy'] ? 'Acknowledged' : 'Not acknowledged' }}</li>\n</ul>\n\n<hr>\n\n<p><em>This is an automated notification from The Library intake form.</em></p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        560,
+        -80
+      ],
+      "id": "3291cc13-668f-487f-95dd-aae8481e00a9",
+      "name": "Send Form Data Email",
+      "webhookId": "26c953f6-3263-4b5f-bd42-6c73b45a99fd",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "HGyN03tPRS5m0eFi",
+          "name": "Info BKND Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1z_JfYmYYqhWfGHErxB-84I4Mb9NldmZt_t9yrQ19qMQ",
+          "mode": "list",
+          "cachedResultName": "The Library Form ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1z_JfYmYYqhWfGHErxB-84I4Mb9NldmZt_t9yrQ19qMQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet 1",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $now.format('yyyy-MM-dd HH:mm:ss') }}",
+            "Full Name": "={{ $json['Full Name'] }}",
+            "Email Address": "={{ $json['Email Address'] }}",
+            "Phone Number": "={{ $json['Phone Number'] }}",
+            "Date of Birth": "={{ $json['Date of Birth (Must be 21+)'] }}",
+            "Zip Code": "={{ $json['Zip Code'] }}",
+            "Product Interests": "={{ $json['Product Interests'] ? $json['Product Interests'].join(', ') : '' }}",
+            "Communication Interests": "={{ $json['What would you like to hear about?'] ? $json['What would you like to hear about?'].join(', ') : '' }}",
+            "Preferred Contact Method": "={{ $json['Preferred Contact Method'] }}",
+            "Birthday Month": "={{ $json['Birthday Month (for special offers)'] || '' }}",
+            "Experience Level": "={{ $json['Experience Level'] || '' }}",
+            "Consumption Preference": "={{ $json['Consumption Preference'] || '' }}",
+            "Additional Interests": "={{ $json['Additional Interests'] ? $json['Additional Interests'].join(', ') : '' }}",
+            "Age Verified": "={{ $json['I confirm that I am 21 years of age or older'] ? 'Yes' : 'No' }}",
+            "Terms Agreed": "={{ $json['I agree to the Terms & Conditions'] ? 'Yes' : 'No' }}",
+            "Marketing Consent": "={{ $json['I consent to receive marketing communications'] ? 'Yes' : 'No' }}",
+            "Privacy Acknowledged": "={{ $json['I acknowledge the data privacy policy'] ? 'Yes' : 'No' }}"
+          }
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED",
+          "upsert": true
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        560,
+        112
+      ],
+      "id": "ca017969-08a2-41b4-a378-fc8c1ce44fc0",
+      "name": "Add to Google Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "d3gQiKngS1m4tGtO",
+          "name": "Info BKND"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "The Library Intake Form": {
+      "main": [
+        [
+          {
+            "node": "Send Form Data Email",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Add to Google Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b4f4ca56df192f0a8f7b6391b13083f9a9dd1fc85cedfda4f66bb4ca6e46863f"
+  },
+  "id": "g6OiuhRnRRcKRDhj",
+  "tags": []
+}
