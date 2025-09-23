@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobile Button Test - The Library Dispensary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #2C1F16;
+            color: #F5F2E8;
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #D4A574;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .test-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .test-section {
+            background: rgba(44, 31, 22, 0.8);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .test-section h2 {
+            color: #D4A574;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .test-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #967126, #D4A574);
+            color: #2C1F16;
+            font-weight: 600;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            margin: 10px 0;
+            width: 100%;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .test-button:active {
+            transform: scale(0.95);
+            background: linear-gradient(to right, #806020, #B08560);
+        }
+
+        .test-button:hover {
+            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
+        }
+
+        .status {
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            background: rgba(62, 93, 88, 0.2);
+            border: 1px solid rgba(62, 93, 88, 0.3);
+        }
+
+        .success {
+            background: rgba(62, 93, 88, 0.3);
+            border-color: #3E5D58;
+            color: #8FD4C8;
+        }
+
+        .error {
+            background: rgba(91, 48, 67, 0.3);
+            border-color: #5B3043;
+            color: #E8A0B8;
+        }
+
+        .info {
+            background: rgba(150, 113, 38, 0.2);
+            border-color: #967126;
+            color: #D4A574;
+        }
+
+        .test-log {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .arrow-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px;
+            }
+
+            .test-button {
+                padding: 14px 28px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Mobile Button Test Suite</h1>
+
+        <!-- Test 1: Direct Link -->
+        <div class="test-section">
+            <h2>Test 1: Direct Link (Like ProductPageAlert)</h2>
+            <p style="margin-bottom: 10px; font-size: 14px; opacity: 0.8;">
+                This simulates the September promotion "Shop Now" button
+            </p>
+            <a
+                href="https://dutchie.com/dispensary/the-library"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="test-button"
+                onclick="logEvent('Direct link clicked', this); event.stopPropagation();"
+            >
+                Shop Now
+                <svg class="arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <div id="test1-status" class="status info">Tap the button to test</div>
+        </div>
+
+        <!-- Test 2: JavaScript Navigation -->
+        <div class="test-section">
+            <h2>Test 2: JavaScript Navigation (Like Products Page)</h2>
+            <p style="margin-bottom: 10px; font-size: 14px; opacity: 0.8;">
+                This simulates the main "Order Now" button
+            </p>
+            <button
+                class="test-button"
+                onclick="handleOrderNow()"
+            >
+                Order Now
+                <svg class="arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+            <div id="test2-status" class="status info">Tap the button to test</div>
+        </div>
+
+        <!-- Test 3: Touch Events -->
+        <div class="test-section">
+            <h2>Test 3: Touch Event Handling</h2>
+            <p style="margin-bottom: 10px; font-size: 14px; opacity: 0.8;">
+                Testing touch-specific events for mobile devices
+            </p>
+            <button
+                id="touch-test-button"
+                class="test-button"
+            >
+                Touch Test Button
+            </button>
+            <div id="test3-status" class="status info">Touch the button to test events</div>
+            <div id="touch-log" class="test-log"></div>
+        </div>
+
+        <!-- Test 4: Event Propagation -->
+        <div class="test-section">
+            <h2>Test 4: Event Propagation Test</h2>
+            <p style="margin-bottom: 10px; font-size: 14px; opacity: 0.8;">
+                Testing if parent elements interfere with clicks
+            </p>
+            <div onclick="logEvent('Parent clicked!', null, 'test4-status')">
+                <a
+                    href="https://dutchie.com/dispensary/the-library"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="test-button"
+                    onclick="event.stopPropagation(); logEvent('Button clicked successfully!', this, 'test4-status');"
+                >
+                    Test Propagation
+                </a>
+            </div>
+            <div id="test4-status" class="status info">Tap to test event bubbling</div>
+        </div>
+
+        <!-- Device Info -->
+        <div class="test-section">
+            <h2>Device Information</h2>
+            <div id="device-info" style="font-size: 12px; opacity: 0.8;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Log function for testing
+        function logEvent(message, element, statusId = 'test1-status') {
+            console.log(message);
+            const statusDiv = document.getElementById(statusId);
+            if (statusDiv) {
+                statusDiv.className = 'status success';
+                statusDiv.textContent = message + ' ✓';
+            }
+
+            // If it's a link, let it navigate after logging
+            if (element && element.tagName === 'A') {
+                setTimeout(() => {
+                    statusDiv.textContent += ' - Redirecting to Dutchie...';
+                }, 100);
+            }
+        }
+
+        // Simulate the products page Order Now handler
+        function handleOrderNow() {
+            const statusDiv = document.getElementById('test2-status');
+            statusDiv.className = 'status success';
+            statusDiv.textContent = 'Button clicked! Redirecting to Dutchie... ✓';
+
+            // Simulate redirect
+            setTimeout(() => {
+                window.location.href = 'https://dutchie.com/dispensary/the-library';
+            }, 500);
+        }
+
+        // Touch event testing
+        document.addEventListener('DOMContentLoaded', function() {
+            const touchButton = document.getElementById('touch-test-button');
+            const touchLog = document.getElementById('touch-log');
+            const test3Status = document.getElementById('test3-status');
+
+            let eventLog = [];
+
+            function logTouchEvent(eventType) {
+                const timestamp = new Date().toLocaleTimeString();
+                const logEntry = `[${timestamp}] ${eventType}`;
+                eventLog.push(logEntry);
+
+                // Keep only last 5 events
+                if (eventLog.length > 5) {
+                    eventLog.shift();
+                }
+
+                touchLog.innerHTML = eventLog.join('<br>');
+                test3Status.className = 'status success';
+                test3Status.textContent = `Last event: ${eventType} ✓`;
+            }
+
+            // Add all touch and click listeners
+            touchButton.addEventListener('touchstart', () => logTouchEvent('touchstart'), { passive: true });
+            touchButton.addEventListener('touchend', () => logTouchEvent('touchend'), { passive: true });
+            touchButton.addEventListener('click', () => {
+                logTouchEvent('click');
+                window.location.href = 'https://dutchie.com/dispensary/the-library';
+            });
+
+            // Prevent double-tap zoom
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function(event) {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+
+            // Display device info
+            const deviceInfo = document.getElementById('device-info');
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            const isAndroid = /Android/.test(navigator.userAgent);
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            const pixelRatio = window.devicePixelRatio || 1;
+
+            deviceInfo.innerHTML = `
+                <strong>User Agent:</strong> ${isMobile ? 'Mobile' : 'Desktop'}<br>
+                <strong>Platform:</strong> ${isIOS ? 'iOS' : isAndroid ? 'Android' : 'Other'}<br>
+                <strong>Screen:</strong> ${screenWidth} x ${screenHeight}<br>
+                <strong>Pixel Ratio:</strong> ${pixelRatio}<br>
+                <strong>Touch Support:</strong> ${('ontouchstart' in window) ? 'Yes' : 'No'}
+            `;
+        });
+    </script>
+</body>
+</html>
