@@ -15,13 +15,13 @@ export default {
           "brown-dark": "#3E2E23",
           "brown": "#473729",
           "brown-light": "#5A4A3F",
-          
+
           // Luxurious golds - metallic accents
           "gold-light": "#F4E4C1",
           "gold": "#D4A574",
           "gold-dark": "#B8935F",
           "gold-shimmer": "#FFD700",
-          
+
           // Rich accent colors
           "emerald": "#2C5530",
           "emerald-light": "#3A6B40",
@@ -29,7 +29,11 @@ export default {
           "burgundy-light": "#8A3447",
           "copper": "#B87333",
           "copper-light": "#D4844A",
-          
+
+          // SEO page colors - added for new pages
+          "teal": "#3E5D58",  // A muted teal for text
+          "tan": "#E8D7C6",   // A light tan for backgrounds
+
           // Neutrals
           "cream": "#FAF8F3",
           "parchment": "#F5E6D3",

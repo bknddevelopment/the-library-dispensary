@@ -49,19 +49,19 @@ export default function Hero() {
                   <div className="h-px bg-gradient-to-r from-transparent via-library-gold to-transparent flex-1" />
                 </motion.div>
 
-                {/* Main Title */}
+                {/* Main Title - SEO Optimized */}
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 1 }}
                   className="text-5xl lg:text-7xl font-display mb-6 leading-tight"
                 >
-                  <span className="text-library-cream block" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7), 0px 0px 20px rgba(0,0,0,0.5)' }}>Welcome to</span>
+                  <span className="text-library-cream block" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7), 0px 0px 20px rgba(0,0,0,0.5)' }}>West Orange's Premier</span>
                   <span className="text-gold-foil text-6xl lg:text-8xl mt-3 block font-bold gpu-accelerated" style={{ textShadow: '3px 3px 10px rgba(0,0,0,0.8), 0px 0px 30px rgba(0,0,0,0.6), 0px 0px 60px rgba(212, 165, 116, 0.3)' }}>
-                    The Library
+                    Cannabis Dispensary
                   </span>
                   <span className="text-library-gold-light text-2xl lg:text-3xl mt-2 block font-serif italic">
-                    Cannabis Dispensary
+                    The Library - Essex County NJ
                   </span>
                 </motion.h1>
 
@@ -72,30 +72,31 @@ export default function Hero() {
                   transition={{ delay: 0.7, duration: 1 }}
                   className="mb-10"
                 >
+                  <h2 className="text-2xl lg:text-3xl text-library-gold mb-4 font-display">Your Local Cannabis Store in West Orange, New Jersey</h2>
                   <p className="text-lg lg:text-xl text-library-cream leading-relaxed mb-4 font-normal" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.8), 0px 0px 15px rgba(0,0,0,0.6)' }}>
-                    Step into West Orange&apos;s most distinguished cannabis dispensary, where 
-                    knowledge meets quality in an atmosphere of timeless elegance.
+                    Located at <strong>1-3 Washington Street in West Orange, Essex County</strong>, The Library is your trusted
+                    cannabis dispensary near me. We offer premium marijuana flower, edibles, vapes, and concentrates
+                    with expert budtender guidance.
                   </p>
                   <p className="text-base lg:text-lg text-library-cream/90 leading-relaxed italic" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.8), 0px 0px 10px rgba(0,0,0,0.5)' }}>
-                    Every visit is a journey through curated excellence, guided by expertise 
-                    and wrapped in the comfort of a grand library.
+                    Serving West Orange, Livingston, Montclair, Maplewood, and all of Essex County NJ.
+                    Order cannabis online for same-day pickup or visit our welcoming dispensary today.
                   </p>
                 </motion.div>
 
                 {/* Product Page Alert - September Promotion */}
                 <ProductPageAlert />
 
-                {/* CTA Buttons */}
+                {/* CTA Buttons - Enhanced for SEO */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.9, duration: 0.8 }}
                   className="flex flex-col sm:flex-row gap-4 mb-12"
                 >
+                  {/* Primary CTA: Order Online */}
                   <motion.a
-                    href="https://thelibrary.app.n8n.cloud/form/2de56228-8522-485f-af34-36b282fe359d"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/products"
                     whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(212, 165, 116, 0.6)" }}
                     whileTap={{ scale: 0.98 }}
                     className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full overflow-hidden"
@@ -103,22 +104,36 @@ export default function Hero() {
                     <div className="absolute inset-0 bg-gradient-to-r from-library-gold via-library-gold-light to-library-gold animate-shimmer bg-[length:200%_100%]" />
                     <span className="relative flex items-center gap-2 text-library-brown-darkest font-semibold tracking-wide">
                       <Sparkles className="w-5 h-5" />
-                      Join Early Access
+                      Order Cannabis Online
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                     <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-library-gold-light whitespace-nowrap opacity-75">
-                      Now Open - Visit Us Today
+                      Same-Day Pickup Available
                     </span>
                   </motion.a>
 
+                  {/* Secondary CTA: View Menu */}
                   <motion.a
-                    href="/about"
+                    href="/products"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                     className="group glass px-8 py-4 rounded-full font-semibold border border-library-gold/30 hover:border-library-gold/60 transition-all"
                   >
                     <span className="flex items-center gap-2 text-library-cream">
-                      Explore Our Story
+                      View Cannabis Menu
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </motion.a>
+
+                  {/* Third CTA: Visit Location */}
+                  <motion.a
+                    href="/location"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group glass px-8 py-4 rounded-full font-semibold border border-library-gold/30 hover:border-library-gold/60 transition-all"
+                  >
+                    <span className="flex items-center gap-2 text-library-cream">
+                      Visit Us Today
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </motion.a>

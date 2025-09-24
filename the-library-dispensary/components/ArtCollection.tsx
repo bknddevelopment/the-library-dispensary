@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Palette, Frame, Sparkles, Eye, ChevronLeft, ChevronRight, X } from "lucide-react";
+import dynamic from 'next/dynamic';
+
+// Lazy load the image component for better performance
+const LazyImage = dynamic(() => import('./LazyImage'), {
+  loading: () => <div className="w-full h-full bg-library-brown-dark animate-pulse" />
+});
 
 interface ArtworkItem {
   id: number;
@@ -625,10 +631,13 @@ export default function ArtCollection() {
                           {/* Floating image container */}
                           <div className="relative h-80 flex items-center justify-center mb-4">
                             {artwork.image ? (
-                              <img 
-                                src={artwork.image} 
+                              <LazyImage
+                                src={artwork.image}
                                 alt={artwork.title}
                                 className="max-w-full max-h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)] transition-transform duration-500"
+                                priority={position === 0}
+                                width={600}
+                                height={400}
                               />
                             ) : (
                               <div className="flex items-center justify-center h-full">
@@ -717,10 +726,12 @@ export default function ArtCollection() {
               {/* Floating image */}
               <div className="relative h-48 flex items-center justify-center mb-3">
                 {artwork.image ? (
-                  <img 
-                    src={artwork.image} 
+                  <LazyImage
+                    src={artwork.image}
                     alt={artwork.title}
                     className="max-w-full max-h-full object-contain drop-shadow-[0_8px_30px_rgba(0,0,0,0.4)] transition-transform duration-300 group-hover:scale-105"
+                    width={400}
+                    height={300}
                   />
                 ) : (
                   <div className="flex items-center justify-center">
@@ -850,10 +861,13 @@ export default function ArtCollection() {
             <div className="p-8">
               <div className="relative h-96 mb-6 flex items-center justify-center overflow-hidden">
                 {selectedArtwork.image ? (
-                  <img 
-                    src={selectedArtwork.image} 
+                  <LazyImage
+                    src={selectedArtwork.image}
                     alt={selectedArtwork.title}
                     className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                    priority={true}
+                    width={1200}
+                    height={800}
                   />
                 ) : (
                   <Palette className="w-24 h-24 text-library-gold/30" />

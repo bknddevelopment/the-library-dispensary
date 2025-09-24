@@ -1,4 +1,33 @@
+# Robots.txt for The Library Dispensary
+# https://thelibrarynj.com/
+
+# Allow all crawlers
 User-agent: *
 Allow: /
+Disallow: /test-*
+Disallow: /*.js$
+Disallow: /*.css$
 
+# Google Bot specific rules
+User-agent: Googlebot
+Allow: /
+Allow: /*.js$
+Allow: /*.css$
+Crawl-delay: 0
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Important pages to crawl frequently
+Allow: /products/
+Allow: /first-visit/
+Allow: /location/
+Allow: /about/
+
+# Sitemap location
 Sitemap: https://thelibrarynj.com/sitemap.xml
+
+# Host directive (for Yandex)
+Host: https://thelibrarynj.com

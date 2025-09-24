@@ -11,13 +11,13 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({
   title = 'The Library Dispensary - West Orange\'s Premier Cannabis Destination',
-  description = 'Experience premium cannabis products in West Orange\'s most sophisticated dispensary. Expert guidance, curated selection, and unmatched service.',
-  keywords = 'cannabis dispensary West Orange, medical marijuana, CBD products, THC products, cannabis education',
+  description = 'West Orange\'s premier cannabis dispensary offering premium flower, edibles, vapes & concentrates. Expert budtenders, online ordering, and convenient pickup. Open daily at 1-3 Washington St.',
+  keywords = 'cannabis dispensary West Orange NJ, marijuana dispensary near me, weed dispensary West Orange, recreational cannabis New Jersey, THC products, CBD products, cannabis flower, edibles, vapes, pre-rolls, The Library Dispensary',
   ogImage = '/images/og-image.jpg',
   ogType = 'website',
   canonicalUrl
 }) => {
-  const siteUrl = 'https://thelibrarydispensary.com'
+  const siteUrl = 'https://thelibrarynj.com'
   const fullTitle = title.includes('The Library Dispensary') ? title : `${title} - The Library Dispensary`
 
   return (
