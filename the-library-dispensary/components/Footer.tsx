@@ -161,7 +161,7 @@ export default function Footer() {
       <div className="bg-library-black/50 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-library-white/60">
-            <p>© {currentYear} The Library Cannabis Dispensary. All rights reserved.</p>
+            <p>© {currentYear} The Library of New Jersey. All rights reserved.</p>
             <div className="flex gap-4 mt-2 sm:mt-0">
               <Link href="/privacy" className="hover:text-library-gold transition-colors">
                 Privacy Policy

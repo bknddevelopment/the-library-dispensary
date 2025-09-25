@@ -86,7 +86,7 @@ export default function AgeVerification({ onVerified }: AgeVerificationProps) {
           <div className="flex items-center justify-center mb-4">
             <img
               src={getAssetPath("/the-library-logo.png")}
-              alt="The Library Dispensary"
+              alt="The Library of New Jersey"
               className="h-15 w-auto object-contain"
             />
           </div>

@@ -13,7 +13,7 @@ const KiwiBerryStrain: NextPage = () => {
     <>
       <SEO
         title="Kiwi Berry Strain Review | Effects, THC Content & More | The Library"
-        description="Discover Kiwi Berry strain - a tropical hybrid with fruity flavors. Learn about effects, THC levels, growing info & user reviews. Available at The Library Dispensary West Orange NJ."
+        description="Discover Kiwi Berry strain - a tropical hybrid with fruity flavors. Learn about effects, THC levels, growing info & user reviews. Available at The Library of New Jersey West Orange NJ."
         keywords="kiwi berry strain, kiwi berry weed, kiwi berry cannabis strain, kiwi berry strain effects, kiwi berry strain thc, kiwi berry strain review, kiwi berry hybrid strain, kiwi berry marijuana"
         canonicalUrl="https://thelibrarynj.com/strains/kiwi-berry/"
       />
@@ -446,7 +446,7 @@ const KiwiBerryStrain: NextPage = () => {
                     Where can I find Kiwi Berry strain in New Jersey?
                   </h3>
                   <p className="text-gray-700">
-                    Kiwi Berry strain is available at The Library Dispensary in West Orange, NJ. Check our online menu for current availability and pricing. We offer convenient online ordering with same-day pickup for customers 21+ and medical patients.
+                    Kiwi Berry strain is available at The Library of New Jersey in West Orange, NJ. Check our online menu for current availability and pricing. We offer convenient online ordering with same-day pickup for customers 21+ and medical patients.
                   </p>
                 </div>
               </div>

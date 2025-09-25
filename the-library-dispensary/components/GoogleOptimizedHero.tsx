@@ -11,7 +11,7 @@ export default function GoogleOptimizedHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isGoogleBot, setIsGoogleBot] = useState(false);
   const [headings, setHeadings] = useState({
-    h1: "The Library Dispensary",
+    h1: "The Library of New Jersey",
     h2: "West Orange's Premier Cannabis Store",
     subheading: "Premium flower, edibles, vapes & concentrates"
   });

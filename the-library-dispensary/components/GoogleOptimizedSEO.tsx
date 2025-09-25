@@ -80,7 +80,7 @@ const GoogleOptimizedSEO: React.FC<GoogleOptimizedSEOProps> = ({
       <meta property="og:description" content={optimizedMeta.description} />
       <meta property="og:image" content={`${siteUrl}${ogImage}`} />
       <meta property="og:url" content={canonicalUrl || siteUrl} />
-      <meta property="og:site_name" content={isGoogleBot ? "The Library Information Center" : "The Library Dispensary"} />
+      <meta property="og:site_name" content="The Library of New Jersey" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
@@ -95,8 +95,8 @@ const GoogleOptimizedSEO: React.FC<GoogleOptimizedSEOProps> = ({
       <meta name="google-site-verification" content="google9de1b0284bbffacf" />
 
       {/* Additional Meta Tags */}
-      <meta name="author" content={isGoogleBot ? "The Library Information Center" : "The Library Dispensary"} />
-      <meta name="publisher" content={isGoogleBot ? "The Library Information Center" : "The Library Dispensary"} />
+      <meta name="author" content="The Library of New Jersey" />
+      <meta name="publisher" content="The Library of New Jersey" />
 
       {/* Business Information for Google - Platform Style */}
       <meta name="business:contact_data:street_address" content="1-3 Washington Street" />

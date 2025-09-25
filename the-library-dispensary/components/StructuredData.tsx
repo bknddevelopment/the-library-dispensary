@@ -11,7 +11,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
     "@type": "Store",
     "@id": "https://thelibrarynj.com/#dispensary",
     "name": "The Library of New Jersey",
-    "alternateName": ["The Library Dispensary", "The Library Cannabis Store", "The Library West Orange", "The Library NJ"],
+    "alternateName": ["The Library of New Jersey", "The Library Cannabis Store", "The Library West Orange", "The Library NJ"],
     "description": "West Orange NJ cannabis dispensary near me. Premium marijuana flower, edibles, vapes & concentrates. Same-day pickup, expert budtenders. Serving Essex County since 2025.",
     "url": "https://thelibrarynj.com/",
     "telephone": "+1-973-731-1199",
@@ -125,7 +125,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
     "@type": "Organization",
     "@id": "https://thelibrarynj.com/#organization",
     "name": "The Library of New Jersey",
-    "alternateName": "The Library Dispensary",
+    "alternateName": "The Library of New Jersey",
     "url": "https://thelibrarynj.com/",
     "logo": "https://thelibrarynj.com/the-library-logo.png",
     "contactPoint": {
@@ -201,7 +201,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What are The Library Dispensary's hours?",
+        "name": "What are The Library of New Jersey's hours?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "We're open Monday-Wednesday 9am-8pm, Thursday-Friday 9am-9pm, Saturday 9am-9pm, and Sunday 10am-5pm."
@@ -209,15 +209,15 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
       },
       {
         "@type": "Question",
-        "name": "Do I need a medical card to shop at The Library?",
+        "name": "Do I need a medical card to shop at The Library of New Jersey?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No, The Library Dispensary is a recreational cannabis dispensary. You must be 21+ with valid ID to purchase."
+          "text": "No, The Library of New Jersey is a recreational cannabis dispensary. You must be 21+ with valid ID to purchase."
         }
       },
       {
         "@type": "Question",
-        "name": "Where is The Library Dispensary located?",
+        "name": "Where is The Library of New Jersey located?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "We're located at 1-3 Washington Street, West Orange, NJ 07052. Convenient parking is available."

@@ -103,7 +103,7 @@ export function getGoogleOptimizedMeta(
 
   // For regular users, use standard dispensary content
   return {
-    title: 'The Library Dispensary | West Orange Cannabis Store',
+    title: 'The Library of New Jersey | West Orange Cannabis Store',
     description: 'Premium cannabis dispensary in West Orange, NJ. Shop flower, edibles, vapes & more. Expert budtenders, online ordering, convenient pickup.',
     keywords: 'dispensary west orange, cannabis store nj, marijuana dispensary',
     ogType: 'business.business'
@@ -118,7 +118,7 @@ export function getGoogleOptimizedSchema(isGoogleBot: boolean = false) {
   const baseSchema = {
     "@context": "https://schema.org",
     "@type": isGoogleBot ? "LocalBusiness" : "Store",
-    "name": isGoogleBot ? "The Library Cannabis Information Center" : "The Library Dispensary",
+    "name": isGoogleBot ? "The Library Cannabis Information Center" : "The Library of New Jersey",
     "description": isGoogleBot
       ? GOOGLE_FRIENDLY_CONTENT.platformDescription
       : "West Orange's premier cannabis dispensary",
@@ -212,7 +212,7 @@ export function getGoogleOptimizedHeadings(isGoogleBot: boolean = false): {
   }
 
   return {
-    h1: "The Library Dispensary",
+    h1: "The Library of New Jersey",
     h2: "West Orange's Premier Cannabis Store",
     subheading: "Premium flower, edibles, vapes & concentrates"
   };

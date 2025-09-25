@@ -133,7 +133,7 @@ const GoogleOptimizedStructuredData: React.FC<GoogleOptimizedStructuredDataProps
       "@context": "https://schema.org",
       "@type": "Store",
       "@id": "https://thelibrarynj.com/#dispensary",
-      "name": "The Library Dispensary",
+      "name": "The Library of New Jersey",
       "description": "West Orange's premier cannabis dispensary offering premium flower, edibles, vapes & concentrates.",
       "url": "https://thelibrarynj.com/",
       "telephone": "+1-973-731-1199",
@@ -185,7 +185,7 @@ const GoogleOptimizedStructuredData: React.FC<GoogleOptimizedStructuredDataProps
       "@context": "https://schema.org",
       "@type": "Organization",
       "@id": "https://thelibrarynj.com/#organization",
-      "name": "The Library Dispensary",
+      "name": "The Library of New Jersey",
       "url": "https://thelibrarynj.com/",
       "logo": "https://thelibrarynj.com/the-library-logo.png"
     };
@@ -197,7 +197,7 @@ const GoogleOptimizedStructuredData: React.FC<GoogleOptimizedStructuredDataProps
     "@type": "WebSite",
     "@id": "https://thelibrarynj.com/#website",
     "url": "https://thelibrarynj.com/",
-    "name": isGoogleBot ? "The Library Information Platform" : "The Library Dispensary",
+    "name": isGoogleBot ? "The Library Information Platform" : "The Library of New Jersey",
     "description": isGoogleBot
       ? "Cannabis information and education platform for West Orange, New Jersey"
       : "West Orange's premier cannabis dispensary",
@@ -254,7 +254,7 @@ const GoogleOptimizedStructuredData: React.FC<GoogleOptimizedStructuredDataProps
     ] : [
       {
         "@type": "Question",
-        "name": "What are The Library Dispensary's hours?",
+        "name": "What are The Library of New Jersey's hours?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "We're open Monday-Wednesday 9am-8pm, Thursday-Friday 9am-9pm, Saturday 9am-9pm, and Sunday 10am-5pm."
@@ -262,10 +262,10 @@ const GoogleOptimizedStructuredData: React.FC<GoogleOptimizedStructuredDataProps
       },
       {
         "@type": "Question",
-        "name": "Do I need a medical card to shop at The Library?",
+        "name": "Do I need a medical card to shop at The Library of New Jersey?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No, The Library is a recreational cannabis dispensary. You must be 21+ with valid ID."
+          "text": "No, The Library of New Jersey is a recreational cannabis dispensary. You must be 21+ with valid ID."
         }
       }
     ];

@@ -11,8 +11,8 @@ const ServicesPage: NextPage = () => {
   return (
     <>
       <SEO
-        title="Services - The Library Dispensary"
-        description="Discover our premium cannabis services, curated selections, and expert guidance at The Library Dispensary."
+        title="Services - The Library of New Jersey"
+        description="Discover our premium cannabis services, curated selections, and expert guidance at The Library of New Jersey."
       />
       <FloatingParticles />
       <FloatingIntakeButton />

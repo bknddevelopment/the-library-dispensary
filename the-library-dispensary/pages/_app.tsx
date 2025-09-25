@@ -12,6 +12,12 @@ const PerformanceMonitor = dynamic(
   { ssr: false }
 )
 
+// Lazy load cookie consent (not critical for initial render)
+const CookieConsent = dynamic(
+  () => import('../components/CookieConsent'),
+  { ssr: false }
+)
+
 const inter = Inter({ subsets: ['latin'] })
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -21,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <PromotionalBanner />
         <FloatingPromotionalButton />
         <Component {...pageProps} />
+        <CookieConsent />
         <PerformanceMonitor />
       </AgeVerificationProvider>
     </main>

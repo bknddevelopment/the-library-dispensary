@@ -88,7 +88,7 @@ const ProductsPage: NextPage = () => {
   const router = useRouter();
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
 
-  // External Dutchie URL for The Library Dispensary
+  // External Dutchie URL for The Library of New Jersey
   const DUTCHIE_EXTERNAL_URL = 'https://dutchie.com/dispensary/the-library';
 
   const handleOrderNow = () => {
@@ -99,7 +99,7 @@ const ProductsPage: NextPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-library-brown-darkest via-library-brown-dark to-library-brown-darkest">
       <SEO
-        title="Browse Our Collection | The Library Dispensary"
+        title="Browse Our Collection | The Library of New Jersey"
         description="Explore our curated selection of premium cannabis products. From classic flower to modern concentrates, discover your perfect match at The Library."
         keywords="cannabis products, dispensary menu, West Orange dispensary, NJ marijuana, cannabis flower, edibles, concentrates, vapes, CBD products, order online"
         ogImage="/og-products.jpg"
@@ -112,7 +112,7 @@ const ProductsPage: NextPage = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Store",
-            "name": "The Library Dispensary",
+            "name": "The Library of New Jersey",
             "description": "Premium cannabis dispensary in West Orange, NJ",
             "url": "https://thelibrarydispensary.com/products",
             "telephone": "973-731-1199",

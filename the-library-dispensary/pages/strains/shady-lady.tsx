@@ -13,7 +13,7 @@ const ShadyLadyStrain: NextPage = () => {
     <>
       <SEO
         title="Shady Lady Strain Guide | Effects, THC & Reviews | The Library"
-        description="Complete guide to Shady Lady strain. Learn about effects, THC levels, terpenes, and user reviews. Available at The Library Dispensary in West Orange, NJ. Order online for pickup."
+        description="Complete guide to Shady Lady strain. Learn about effects, THC levels, terpenes, and user reviews. Available at The Library of New Jersey in West Orange, NJ. Order online for pickup."
         keywords="shady lady strain, shady lady weed strain, shady lady cannabis, shady lady strain effects, shady lady strain review, shady lady thc level, shady lady terpenes, shady lady strain indica or sativa"
         canonicalUrl="https://thelibrarynj.com/strains/shady-lady/"
       />
@@ -375,7 +375,7 @@ const ShadyLadyStrain: NextPage = () => {
                     Where can I buy Shady Lady strain in New Jersey?
                   </h3>
                   <p className="text-gray-700">
-                    Shady Lady strain is available at The Library Dispensary in West Orange, NJ. Check our online menu for current availability and pricing. We offer convenient online ordering with in-store pickup for all customers 21+ or medical patients with valid cards.
+                    Shady Lady strain is available at The Library of New Jersey in West Orange, NJ. Check our online menu for current availability and pricing. We offer convenient online ordering with in-store pickup for all customers 21+ or medical patients with valid cards.
                   </p>
                 </div>
                 <div className="bg-library-cream p-6 rounded-lg">
@@ -397,7 +397,7 @@ const ShadyLadyStrain: NextPage = () => {
                 Experience Shady Lady Strain at The Library
               </h2>
               <p className="text-xl text-white mb-8 opacity-90">
-                Ready to discover why Shady Lady is becoming one of New Jersey's most sought-after strains? Visit The Library Dispensary today.
+                Ready to discover why Shady Lady is becoming one of New Jersey's most sought-after strains? Visit The Library of New Jersey today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/products" className="bg-white text-library-teal px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors inline-block">

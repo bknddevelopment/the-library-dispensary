@@ -45,10 +45,10 @@ export default function About() {
               <div className="h-px bg-gradient-to-r from-transparent via-library-gold to-transparent w-24" />
             </div>
             <h2 className="text-5xl lg:text-6xl font-display text-gold-foil mb-6">
-              About The Library
+              About The Library of New Jersey
             </h2>
             <p className="text-lg text-library-cream/80 max-w-3xl mx-auto leading-relaxed">
-              More than just a dispensary, The Library is your trusted resource for cannabis education 
+              More than just a dispensary, The Library of New Jersey is your trusted resource for cannabis education 
               and premium products. We believe in empowering our community with knowledge while providing 
               access to the finest cannabis New Jersey has to offer.
             </p>
@@ -87,7 +87,7 @@ export default function About() {
               </h3>
               <div className="space-y-4 text-library-cream/80">
                 <p>
-                  The Library is more than a name – it&apos;s our philosophy. Just as a traditional library 
+                  The Library of New Jersey is more than a name – it&apos;s our philosophy. Just as a traditional library 
                   serves as a repository of knowledge and a community gathering space, we&apos;re creating a 
                   dispensary that prioritizes education, quality, and community connection.
                 </p>
@@ -97,7 +97,7 @@ export default function About() {
                   our shelves has been chosen with care and expertise.
                 </p>
                 <p>
-                  When you visit The Library, you&apos;re not just a customer – you&apos;re a member of our 
+                  When you visit The Library of New Jersey, you&apos;re not just a customer – you&apos;re a member of our 
                   community. Our knowledgeable staff is here to guide you, whether you&apos;re a cannabis 
                   connoisseur or just beginning your journey.
                 </p>
@@ -126,14 +126,14 @@ export default function About() {
               <blockquote className="text-lg italic text-library-cream/90 mb-4 font-serif">
                 &ldquo;We&apos;re building something special in West Orange – a dispensary that honors the 
                 rich tradition of cannabis culture while embracing innovation and education. 
-                The Library will be your trusted guide in exploring the world of cannabis.&rdquo;
+                The Library of New Jersey will be your trusted guide in exploring the world of cannabis.&rdquo;
               </blockquote>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-gradient-to-br from-library-gold to-library-gold-dark rounded-full flex items-center justify-center shadow-gold">
                   <span className="text-library-brown-darkest font-bold font-display">TL</span>
                 </div>
                 <div>
-                  <p className="font-semibold text-library-cream font-display">The Library Team</p>
+                  <p className="font-semibold text-library-cream font-display">The Library of New Jersey Team</p>
                   <p className="text-sm text-library-cream/60">West Orange, New Jersey</p>
                 </div>
               </div>

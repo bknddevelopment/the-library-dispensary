@@ -31,7 +31,7 @@ const CannabisStoreMontclair: NextPage = () => {
                   Montclair's Closest Premium Cannabis Store
                 </h1>
                 <p className="text-xl md:text-2xl text-library-teal max-w-3xl mx-auto mb-8">
-                  The Library Dispensary - Just 10 minutes from downtown Montclair, serving the community with exceptional cannabis products and expert guidance
+                  The Library of New Jersey - Just 10 minutes from downtown Montclair, serving the community with exceptional cannabis products and expert guidance
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/products" className="bg-library-gold text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-colors inline-block">
@@ -98,7 +98,7 @@ const CannabisStoreMontclair: NextPage = () => {
           <section className="py-16 px-4 sm:px-6 lg:px-8 bg-library-cream">
             <div className="max-w-7xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-library-brown mb-12 text-center">
-                Why Montclair Residents Choose The Library Dispensary
+                Why Montclair Residents Choose The Library of New Jersey
               </h2>
               <div className="prose prose-lg max-w-none text-gray-700 mb-12">
                 <p>
@@ -213,7 +213,7 @@ const CannabisStoreMontclair: NextPage = () => {
               </h2>
               <div className="prose prose-lg max-w-none text-gray-700">
                 <p>
-                  The Library Dispensary recognizes Montclair as more than just a neighboring town – it's a vibrant community with its own unique character. From the Montclair Art Museum to the Wellmont Theater, from Watchung Plaza to the farmers market, Montclair represents the best of North Jersey's cultural life.
+                  The Library of New Jersey recognizes Montclair as more than just a neighboring town – it's a vibrant community with its own unique character. From the Montclair Art Museum to the Wellmont Theater, from Watchung Plaza to the farmers market, Montclair represents the best of North Jersey's cultural life.
                 </p>
                 <p>
                   We're proud to serve Montclair residents who value quality, creativity, and community. Our cannabis store may be located in West Orange, but our heart extends to all of Essex County. We support local Montclair artists, partner with area nonprofits, and participate in regional events that bring our communities together.
@@ -237,7 +237,7 @@ const CannabisStoreMontclair: NextPage = () => {
                     How far is The Library from downtown Montclair?
                   </h3>
                   <p className="text-gray-700">
-                    The Library Dispensary is located just 3.2 miles from downtown Montclair, typically a 10-minute drive via Valley Road. We're the closest dispensary to Montclair, making us the most convenient option for cannabis shopping.
+                    The Library of New Jersey is located just 3.2 miles from downtown Montclair, typically a 10-minute drive via Valley Road. We're the closest dispensary to Montclair, making us the most convenient option for cannabis shopping.
                   </p>
                 </div>
                 <div className="bg-library-cream p-6 rounded-lg">

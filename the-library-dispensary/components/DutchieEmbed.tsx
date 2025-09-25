@@ -342,11 +342,11 @@ export default function DutchieEmbed({
       {/* SEO Fallback Content */}
       {enableSEO && (
         <div className="sr-only">
-          <h2>Cannabis Products Available at The Library Dispensary</h2>
+          <h2>Cannabis Products Available at The Library of New Jersey</h2>
           <p>
             Browse our curated selection of premium cannabis products including flowers,
             pre-rolls, edibles, concentrates, vapes, and accessories. Located in
-            West Orange, NJ, The Library Dispensary offers carefully selected products
+            West Orange, NJ, The Library of New Jersey offers carefully selected products
             from trusted brands, with expert guidance to help you find the perfect
             match for your needs.
           </p>

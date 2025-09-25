@@ -11,8 +11,8 @@ const FirstVisitPage: NextPage = () => {
   return (
     <>
       <SEO
-        title="First Visit - The Library Dispensary"
-        description="Everything you need to know for your first visit to The Library Dispensary."
+        title="First Visit - The Library of New Jersey"
+        description="Everything you need to know for your first visit to The Library of New Jersey."
       />
       <FloatingParticles />
       <FloatingIntakeButton />

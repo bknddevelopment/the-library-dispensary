@@ -49,11 +49,11 @@ const DispensaryWestOrangeNJ: NextPage = () => {
           <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
             <div className="max-w-7xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-library-brown mb-8 text-center">
-                Why Choose The Library Dispensary in West Orange NJ?
+                Why Choose The Library of New Jersey in West Orange NJ?
               </h2>
               <div className="prose prose-lg max-w-none text-gray-700">
                 <p>
-                  Located in the heart of West Orange, New Jersey, The Library Dispensary stands as Essex County's premier destination for both recreational and medical cannabis. Our dispensary in West Orange NJ combines the warmth of a neighborhood bookstore with the professionalism of a modern cannabis retail experience.
+                  Located in the heart of West Orange, New Jersey, The Library of New Jersey stands as Essex County's premier destination for both recreational and medical cannabis. Our dispensary in West Orange NJ combines the warmth of a neighborhood bookstore with the professionalism of a modern cannabis retail experience.
                 </p>
                 <p>
                   As West Orange's newest and most innovative cannabis dispensary, we've carefully curated our selection to meet the diverse needs of our community. Whether you're a seasoned cannabis connoisseur or exploring cannabis for the first time, our knowledgeable budtenders are here to guide you through our extensive collection of premium products.
@@ -124,7 +124,7 @@ const DispensaryWestOrangeNJ: NextPage = () => {
                     Your Local West Orange Cannabis Experts
                   </h3>
                   <p className="text-gray-700 mb-4">
-                    The Library Dispensary is proud to be part of the West Orange community. Our location at 1-3 Washington Street puts us at the center of Essex County's cannabis scene, making us the go-to dispensary for residents throughout the region.
+                    The Library of New Jersey is proud to be part of the West Orange community. Our location at 1-3 Washington Street puts us at the center of Essex County's cannabis scene, making us the go-to dispensary for residents throughout the region.
                   </p>
                   <p className="text-gray-700 mb-4">
                     West Orange, known for its diverse neighborhoods and rich history, is the perfect home for our dispensary. From the bustling downtown district to the quiet residential areas, we serve all of West Orange with pride and dedication to quality cannabis products and education.
@@ -223,7 +223,7 @@ const DispensaryWestOrangeNJ: NextPage = () => {
                     What are the hours for your dispensary in West Orange NJ?
                   </h3>
                   <p className="text-gray-700">
-                    The Library Dispensary in West Orange is open Monday through Thursday from 10:00 AM to 9:00 PM, Friday and Saturday from 10:00 AM to 10:00 PM, and Sunday from 10:00 AM to 8:00 PM. We recommend checking our website for holiday hours or special events.
+                    The Library of New Jersey in West Orange is open Monday through Thursday from 10:00 AM to 9:00 PM, Friday and Saturday from 10:00 AM to 10:00 PM, and Sunday from 10:00 AM to 8:00 PM. We recommend checking our website for holiday hours or special events.
                   </p>
                 </div>
                 <div className="bg-library-cream p-6 rounded-lg">
@@ -263,7 +263,7 @@ const DispensaryWestOrangeNJ: NextPage = () => {
                     What makes The Library different from other dispensaries in West Orange NJ?
                   </h3>
                   <p className="text-gray-700">
-                    The Library Dispensary stands out in West Orange for our curated selection, knowledgeable staff, and commitment to education. We combine the cozy atmosphere of a neighborhood bookstore with premium cannabis products and exceptional customer service. Our focus on community engagement and cannabis education sets us apart.
+                    The Library of New Jersey stands out in West Orange for our curated selection, knowledgeable staff, and commitment to education. We combine the cozy atmosphere of a neighborhood bookstore with premium cannabis products and exceptional customer service. Our focus on community engagement and cannabis education sets us apart.
                   </p>
                 </div>
                 <div className="bg-library-cream p-6 rounded-lg">
@@ -293,7 +293,7 @@ const DispensaryWestOrangeNJ: NextPage = () => {
                 Visit West Orange's Premier Cannabis Dispensary Today
               </h2>
               <p className="text-xl text-white mb-8 opacity-90">
-                Experience the difference at The Library Dispensary. Expert guidance, premium products, and exceptional service await you at our West Orange NJ location.
+                Experience the difference at The Library of New Jersey. Expert guidance, premium products, and exceptional service await you at our West Orange NJ location.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/products" className="bg-white text-library-teal px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors inline-block">

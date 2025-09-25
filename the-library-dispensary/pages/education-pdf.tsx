@@ -11,8 +11,8 @@ const EducationPDFPage: NextPage = () => {
   return (
     <>
       <SEO
-        title="Education Resources - The Library Dispensary"
-        description="Download cannabis education resources and guides from The Library Dispensary."
+        title="Education Resources - The Library of New Jersey"
+        description="Download cannabis education resources and guides from The Library of New Jersey."
       />
       <FloatingParticles />
       <FloatingIntakeButton />

@@ -12,7 +12,7 @@ interface SEOProps {
 const SEO: React.FC<SEOProps> = ({
   title = 'The Library of New Jersey - West Orange\'s Premier Cannabis Destination',
   description = 'West Orange\'s premier cannabis dispensary offering premium flower, edibles, vapes & concentrates. Expert budtenders, online ordering, and convenient pickup. Open daily at 1-3 Washington Street.',
-  keywords = 'cannabis dispensary West Orange NJ, marijuana dispensary near me, weed dispensary West Orange, recreational cannabis New Jersey, THC products, CBD products, cannabis flower, edibles, vapes, pre-rolls, The Library Dispensary',
+  keywords = 'cannabis dispensary West Orange NJ, marijuana dispensary near me, weed dispensary West Orange, recreational cannabis New Jersey, THC products, CBD products, cannabis flower, edibles, vapes, pre-rolls, The Library of New Jersey',
   ogImage = '/images/og-image.jpg',
   ogType = 'website',
   canonicalUrl

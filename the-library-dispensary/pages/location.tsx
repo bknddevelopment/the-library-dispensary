@@ -11,8 +11,8 @@ const LocationPage: NextPage = () => {
   return (
     <>
       <SEO
-        title="Location - The Library Dispensary"
-        description="Find The Library Dispensary in West Orange - directions, hours, and contact information."
+        title="Location - The Library of New Jersey"
+        description="Find The Library of New Jersey in West Orange - directions, hours, and contact information."
       />
       <FloatingParticles />
       <FloatingIntakeButton />

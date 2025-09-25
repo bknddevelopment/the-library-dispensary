@@ -13,7 +13,7 @@ const NanoBitesProduct: NextPage = () => {
     <>
       <SEO
         title="Nano Bites Cannabis Edibles | Fast-Acting THC Gummies | The Library"
-        description="Discover Nano Bites - revolutionary fast-acting cannabis edibles with nano-enhanced THC. Feel effects in 15-30 minutes. Available at The Library Dispensary in West Orange, NJ."
+        description="Discover Nano Bites - revolutionary fast-acting cannabis edibles with nano-enhanced THC. Feel effects in 15-30 minutes. Available at The Library of New Jersey in West Orange, NJ."
         keywords="nano bites, nano bites edibles, nano bites thc, fast acting edibles, nano enhanced cannabis, nano thc gummies, quick onset edibles, nano bites weed"
         canonicalUrl="https://thelibrarynj.com/products/nano-bites/"
       />
@@ -471,7 +471,7 @@ const NanoBitesProduct: NextPage = () => {
                     Where can I buy Nano Bites in New Jersey?
                   </h3>
                   <p className="text-gray-700">
-                    Nano Bites are available at The Library Dispensary in West Orange, NJ. Check our online menu for current flavors and availability. We offer convenient online ordering with same-day pickup for adults 21+ and medical patients.
+                    Nano Bites are available at The Library of New Jersey in West Orange, NJ. Check our online menu for current flavors and availability. We offer convenient online ordering with same-day pickup for adults 21+ and medical patients.
                   </p>
                 </div>
               </div>
@@ -485,7 +485,7 @@ const NanoBitesProduct: NextPage = () => {
                 Experience the Future of Edibles with Nano Bites
               </h2>
               <p className="text-xl text-white mb-8 opacity-90">
-                Fast-acting, precisely-dosed, and delicious. Try Nano Bites today at The Library Dispensary.
+                Fast-acting, precisely-dosed, and delicious. Try Nano Bites today at The Library of New Jersey.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/products" className="bg-white text-library-teal px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors inline-block">

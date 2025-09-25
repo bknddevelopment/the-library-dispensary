@@ -42,7 +42,7 @@ export default function Document() {
         {/* Critical SEO meta tags - MUST be in static HTML for crawlers */}
         <title>West Orange Dispensary | Cannabis Near Me | The Library NJ</title>
         <meta name="description" content="The Library: West Orange's #1 cannabis dispensary. Premium flower, edibles, vapes in Essex County NJ. Order online, same-day pickup. Open daily 1-3 Washington St." />
-        <meta name="keywords" content="dispensary west orange nj, cannabis near me, marijuana west orange, weed dispensary essex county, cannabis store west orange new jersey, recreational marijuana nj, The Library Dispensary" />
+        <meta name="keywords" content="dispensary west orange nj, cannabis near me, marijuana west orange, weed dispensary essex county, cannabis store west orange new jersey, recreational marijuana nj, The Library of New Jersey" />
         <link rel="canonical" href="https://thelibrarynj.com/" />
 
         {/* Open Graph tags for better social sharing and crawler recognition */}
@@ -79,7 +79,7 @@ export default function Document() {
               "@type": "Store",
               "@id": "https://thelibrarynj.com/#dispensary",
               "name": "The Library of New Jersey",
-              "alternateName": ["The Library Dispensary", "The Library Cannabis Store", "The Library West Orange", "The Library NJ"],
+              "alternateName": ["The Library of New Jersey", "The Library Cannabis Store", "The Library West Orange", "The Library NJ"],
               "description": "West Orange NJ cannabis dispensary near me. Premium marijuana flower, edibles, vapes & concentrates. Same-day pickup, expert budtenders. Serving Essex County since 2025.",
               "url": "https://thelibrarynj.com/",
               "telephone": "+1-973-731-1199",
@@ -152,7 +152,7 @@ export default function Document() {
 
             {/* Business Information with Schema.org microdata */}
             <div itemScope itemType="https://schema.org/CannabisStore">
-              <h2 itemProp="name">The Library Dispensary</h2>
+              <h2 itemProp="name">The Library of New Jersey</h2>
               <p><strong>West Orange's Premier Cannabis Dispensary</strong></p>
 
               {/* Address with proper schema */}
@@ -225,7 +225,7 @@ export default function Document() {
 
               {/* Social Media */}
               <p><strong>Follow Us:</strong></p>
-              <p>Instagram: @thelibrarynj | Facebook: The Library Dispensary</p>
+              <p>Instagram: @thelibrarynj | Facebook: The Library of New Jersey</p>
             </div>
           </div>
         </noscript>

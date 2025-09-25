@@ -1,5 +1,5 @@
 /**
- * Service Worker for The Library Dispensary
+ * Service Worker for The Library of New Jersey
  * Implements offline caching and performance optimizations
  */
 
