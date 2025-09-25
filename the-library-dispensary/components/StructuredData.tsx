@@ -10,8 +10,8 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
     "@context": "https://schema.org",
     "@type": "Store",
     "@id": "https://thelibrarynj.com/#dispensary",
-    "name": "The Library Dispensary",
-    "alternateName": ["The Library Cannabis Store", "The Library West Orange", "The Library NJ"],
+    "name": "The Library of New Jersey",
+    "alternateName": ["The Library Dispensary", "The Library Cannabis Store", "The Library West Orange", "The Library NJ"],
     "description": "West Orange NJ cannabis dispensary near me. Premium marijuana flower, edibles, vapes & concentrates. Same-day pickup, expert budtenders. Serving Essex County since 2025.",
     "url": "https://thelibrarynj.com/",
     "telephone": "+1-973-731-1199",
@@ -23,7 +23,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
     "logo": "https://thelibrarynj.com/the-library-logo.png",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1-3 Washington St",
+      "streetAddress": "1-3 Washington Street",
       "addressLocality": "West Orange",
       "addressRegion": "NJ",
       "postalCode": "07052",
@@ -37,21 +37,27 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-        "opens": "10:00",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Thursday", "Friday"],
+        "opens": "09:00",
         "closes": "21:00"
       },
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Friday", "Saturday"],
-        "opens": "10:00",
-        "closes": "22:00"
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "21:00"
       },
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": "Sunday",
         "opens": "10:00",
-        "closes": "20:00"
+        "closes": "17:00"
       }
     ],
     "sameAs": [
@@ -118,8 +124,8 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": "https://thelibrarynj.com/#organization",
-    "name": "The Library Dispensary",
-    "alternateName": "The Library NJ",
+    "name": "The Library of New Jersey",
+    "alternateName": "The Library Dispensary",
     "url": "https://thelibrarynj.com/",
     "logo": "https://thelibrarynj.com/the-library-logo.png",
     "contactPoint": {
@@ -140,7 +146,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
     "@type": "WebSite",
     "@id": "https://thelibrarynj.com/#website",
     "url": "https://thelibrarynj.com/",
-    "name": "The Library Dispensary",
+    "name": "The Library of New Jersey",
     "description": "West Orange's premier cannabis dispensary",
     "publisher": {
       "@id": "https://thelibrarynj.com/#organization"
@@ -198,7 +204,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
         "name": "What are The Library Dispensary's hours?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We're open Monday-Thursday 10am-9pm, Friday-Saturday 10am-10pm, and Sunday 10am-8pm."
+          "text": "We're open Monday-Wednesday 9am-8pm, Thursday-Friday 9am-9pm, Saturday 9am-9pm, and Sunday 10am-5pm."
         }
       },
       {
@@ -214,7 +220,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
         "name": "Where is The Library Dispensary located?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We're located at 1-3 Washington St, West Orange, NJ 07052. Convenient parking is available."
+          "text": "We're located at 1-3 Washington Street, West Orange, NJ 07052. Convenient parking is available."
         }
       },
       {

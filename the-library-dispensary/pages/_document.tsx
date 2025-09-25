@@ -40,18 +40,18 @@ export default function Document() {
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=yes" />
 
         {/* Critical Business Information for Google Business Profile Verification */}
-        {/* These meta tags ensure Google can always see the business info, even if JavaScript fails */}
-        <meta name="business:name" content="The Library Dispensary" />
-        <meta name="business:address" content="1-3 Washington St, West Orange, NJ 07052" />
+        {/* MUST MATCH EXACTLY with Google Business Profile - DO NOT CHANGE */}
+        <meta name="business:name" content="The Library of New Jersey" />
+        <meta name="business:address" content="1-3 Washington Street, West Orange, NJ 07052" />
         <meta name="business:phone" content="+1-973-731-1199" />
-        <meta name="business:hours" content="Mon-Thu: 10am-9pm, Fri-Sat: 10am-10pm, Sun: 10am-8pm" />
+        <meta name="business:hours" content="Mon-Wed: 9am-8pm, Thu-Fri: 9am-9pm, Sat: 9am-9pm, Sun: 10am-5pm" />
         <meta name="business:type" content="Cannabis Dispensary" />
         <meta name="business:url" content="https://thelibrarynj.com" />
 
         {/* Open Graph tags for social media and crawlers */}
-        <meta property="og:site_name" content="The Library Dispensary" />
+        <meta property="og:site_name" content="The Library of New Jersey" />
         <meta property="og:locale" content="en_US" />
-        <meta property="business:contact_data:street_address" content="1-3 Washington St" />
+        <meta property="business:contact_data:street_address" content="1-3 Washington Street" />
         <meta property="business:contact_data:locality" content="West Orange" />
         <meta property="business:contact_data:region" content="NJ" />
         <meta property="business:contact_data:postal_code" content="07052" />
