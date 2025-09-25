@@ -1,19 +1,34 @@
 # Robots.txt for The Library Dispensary
 # https://thelibrarynj.com/
+# Business: The Library of New Jersey - Cannabis Dispensary
 
-# Allow all crawlers
+# Google Bot - FULL ACCESS GRANTED
+User-agent: Googlebot
+Allow: /
+Allow: /business.html
+Allow: /google-business-info.html
+Allow: /google-site-verification.html
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.html$
+Allow: /images/
+Allow: /public/
+Crawl-delay: 0
+
+# Google Business Bot
+User-agent: Googlebot-Business
+Allow: /
+
+# Google AdsBot
+User-agent: AdsBot-Google
+Allow: /
+
+# All other crawlers
 User-agent: *
 Allow: /
 Disallow: /test-*
-Disallow: /*.js$
-Disallow: /*.css$
-
-# Google Bot specific rules
-User-agent: Googlebot
-Allow: /
-Allow: /*.js$
-Allow: /*.css$
-Crawl-delay: 0
+Disallow: /_next/
+Disallow: /node_modules/
 
 # Bing Bot
 User-agent: Bingbot

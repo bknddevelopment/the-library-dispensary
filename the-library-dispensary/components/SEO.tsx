@@ -44,11 +44,22 @@ const SEO: React.FC<SEOProps> = ({
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
+      {/* Google Verification */}
+      <meta name="google-site-verification" content="google9de1b0284bbffacf" />
+
       {/* Additional Meta Tags */}
       <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow" />
+      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       <meta name="author" content="The Library of New Jersey" />
       <meta name="publisher" content="The Library of New Jersey" />
+
+      {/* Business Information for Google */}
+      <meta name="business:contact_data:street_address" content="1-3 Washington Street" />
+      <meta name="business:contact_data:locality" content="West Orange" />
+      <meta name="business:contact_data:region" content="NJ" />
+      <meta name="business:contact_data:postal_code" content="07052" />
+      <meta name="business:contact_data:country_name" content="United States" />
+      <meta name="business:contact_data:phone_number" content="+19737311199" />
     </Head>
   )
 }
