@@ -145,16 +145,88 @@ export default function Document() {
       </Head>
       <body>
         {/* Critical Business Information for crawlers and noscript users */}
+        {/* ENHANCED FOR GOOGLE BUSINESS PROFILE VERIFICATION */}
         <noscript>
           <div style={{ padding: '20px', fontFamily: 'system-ui, sans-serif' }}>
             <h1>The Library of New Jersey - Cannabis Dispensary</h1>
-            <p><strong>West Orange's Premier Cannabis Dispensary</strong></p>
-            <p>Address: 1-3 Washington Street, West Orange, NJ 07052</p>
-            <p>Phone: (973) 731-1199</p>
-            <p>Hours: Mon-Wed 9am-8pm, Thu-Fri 9am-9pm, Sat 9am-9pm, Sun 10am-5pm</p>
-            <p>Visit us for premium cannabis flower, edibles, vapes, and concentrates.</p>
-            <p>Order online at https://thelibrarynj.com</p>
-            <p>Must be 21+ with valid ID. New Jersey licensed cannabis dispensary.</p>
+
+            {/* Business Information with Schema.org microdata */}
+            <div itemScope itemType="https://schema.org/CannabisStore">
+              <h2 itemProp="name">The Library Dispensary</h2>
+              <p><strong>West Orange's Premier Cannabis Dispensary</strong></p>
+
+              {/* Address with proper schema */}
+              <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                <p>
+                  <strong>Address:</strong>
+                  <span itemProp="streetAddress">1-3 Washington Street</span>,
+                  <span itemProp="addressLocality">West Orange</span>,
+                  <span itemProp="addressRegion">NJ</span>
+                  <span itemProp="postalCode">07052</span>
+                </p>
+              </div>
+
+              <p><strong>Phone:</strong> <span itemProp="telephone">(973) 731-1199</span></p>
+              <p><strong>Website:</strong> <span itemProp="url">https://thelibrarynj.com</span></p>
+
+              {/* Store Hours with proper schema */}
+              <h3>Store Hours</h3>
+              <meta itemProp="openingHours" content="Mo-We 09:00-20:00" />
+              <meta itemProp="openingHours" content="Th-Fr 09:00-21:00" />
+              <meta itemProp="openingHours" content="Sa 09:00-21:00" />
+              <meta itemProp="openingHours" content="Su 10:00-17:00" />
+              <ul>
+                <li>Monday-Wednesday: 9:00 AM - 8:00 PM</li>
+                <li>Thursday-Friday: 9:00 AM - 9:00 PM</li>
+                <li>Saturday: 9:00 AM - 9:00 PM</li>
+                <li>Sunday: 10:00 AM - 5:00 PM</li>
+              </ul>
+
+              {/* About the Business */}
+              <h3>About Us</h3>
+              <p itemProp="description">
+                West Orange's premier cannabis dispensary offering premium flower,
+                edibles, vapes, and concentrates. Expert budtenders, same-day pickup,
+                and a curated experience for both medical and recreational customers.
+                Black-owned business focused on community, education, equality, and equity.
+              </p>
+
+              {/* Services */}
+              <h3>Services</h3>
+              <ul>
+                <li>In-Store Shopping</li>
+                <li>Curbside Pickup</li>
+                <li>Online Ordering</li>
+                <li>Cannabis Education</li>
+                <li>First-Time Patient Consultations</li>
+              </ul>
+
+              {/* Products */}
+              <h3>Products Available</h3>
+              <ul>
+                <li>Premium Cannabis Flower</li>
+                <li>Pre-Rolls</li>
+                <li>Edibles & Gummies</li>
+                <li>Vape Cartridges</li>
+                <li>Concentrates</li>
+                <li>Tinctures & Topicals</li>
+              </ul>
+
+              {/* Legal Compliance */}
+              <p><strong>Legal Requirements:</strong></p>
+              <p>Must be 21+ with valid government-issued ID for recreational purchases.</p>
+              <p>Medical patients 18+ with valid NJ medical marijuana card.</p>
+              <p>New Jersey Licensed Cannabis Dispensary - Class 5 Retail License</p>
+
+              {/* Contact Methods */}
+              <p><strong>Order Online:</strong> <a href="https://thelibrarynj.com">www.thelibrarynj.com</a></p>
+              <p><strong>Call Us:</strong> <a href="tel:+19737311199">(973) 731-1199</a></p>
+              <p><strong>Visit Us:</strong> 1-3 Washington Street, West Orange, NJ 07052</p>
+
+              {/* Social Media */}
+              <p><strong>Follow Us:</strong></p>
+              <p>Instagram: @thelibrarynj | Facebook: The Library Dispensary</p>
+            </div>
           </div>
         </noscript>
         <Main />

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AgeVerification from "./AgeVerification";
 import { useAgeVerification } from "@/hooks/useAgeVerification";
 import { shouldBypassAgeVerification, logCrawlerDetection } from "@/lib/crawlerDetection";
+import { isGoogleService } from "@/lib/googleOptimization";
 
 interface AgeVerificationProviderProps {
   children: React.ReactNode;
@@ -19,11 +20,19 @@ export default function AgeVerificationProvider({
   // Check for search engine crawlers on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const shouldBypass = shouldBypassAgeVerification();
+      const userAgent = navigator.userAgent || '';
+
+      // Enhanced Google detection
+      const isGoogle = isGoogleService(userAgent);
+      const shouldBypass = shouldBypassAgeVerification() || isGoogle;
+
       setIsCrawler(shouldBypass);
 
       if (shouldBypass) {
         logCrawlerDetection();
+        if (isGoogle) {
+          console.log('🤖 Google service detected - bypassing age verification for platform content');
+        }
       }
     }
   }, []);
@@ -54,8 +63,8 @@ export default function AgeVerificationProvider({
       <>
         {children}
         {/* Hidden indicator for testing */}
-        <div style={{ display: 'none' }} data-crawler-bypass="true">
-          Crawler detected - age verification bypassed
+        <div style={{ display: 'none' }} data-crawler-bypass="true" data-google-optimized="true">
+          Crawler detected - age verification bypassed - Platform mode active
         </div>
       </>
     );

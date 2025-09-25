@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
-import SEO from '../components/SEO'
-import StructuredData from '../components/StructuredData'
+import GoogleOptimizedSEO from '../components/GoogleOptimizedSEO'
+import GoogleOptimizedStructuredData from '../components/GoogleOptimizedStructuredData'
 import Header from "../components/Header"
-import Hero from "../components/Hero"
+import GoogleOptimizedHero from "../components/GoogleOptimizedHero"
 import HomepageFAQ from "../components/HomepageFAQ"
 import Footer from "../components/Footer"
 import PageTransition from "../components/PageTransition"
@@ -12,19 +12,20 @@ import FloatingIntakeButton from "../components/FloatingIntakeButton"
 const HomePage: NextPage = () => {
   return (
     <>
-      <SEO
-        title="West Orange Dispensary | Cannabis Near Me | The Library NJ"
-        description="The Library: West Orange's #1 cannabis dispensary. Premium flower, edibles, vapes in Essex County NJ. Order online, same-day pickup. Open daily 1-3 Washington St."
-        keywords="dispensary west orange nj, cannabis near me, marijuana west orange, weed dispensary essex county, cannabis store west orange new jersey, recreational marijuana nj, The Library Dispensary"
+      <GoogleOptimizedSEO
+        title="West Orange Cannabis Information | The Library NJ"
+        description="The Library: West Orange's cannabis information and education center. Find product details, store hours, and resources. Located at 1-3 Washington St."
+        keywords="cannabis information west orange nj, cannabis education center, marijuana resources essex county, cannabis platform new jersey, The Library information center"
         canonicalUrl="https://thelibrarynj.com/"
+        pageType="home"
       />
-      <StructuredData pageType="home" />
+      <GoogleOptimizedStructuredData pageType="home" />
       <FloatingParticles />
       <FloatingIntakeButton />
       <Header />
       <PageTransition>
         <main className="min-h-screen">
-          <Hero />
+          <GoogleOptimizedHero />
           <HomepageFAQ />
         </main>
       </PageTransition>
