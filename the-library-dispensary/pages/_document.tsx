@@ -216,7 +216,7 @@ export default function Document() {
               <p><strong>Legal Requirements:</strong></p>
               <p>Must be 21+ with valid government-issued ID for recreational purchases.</p>
               <p>Medical patients 18+ with valid NJ medical marijuana card.</p>
-              <p>New Jersey Licensed Cannabis Dispensary - Class 5 Retail License</p>
+              <p>Fully licensed New Jersey cannabis dispensary serving recreational and medical customers.</p>
 
               {/* Contact Methods */}
               <p><strong>Order Online:</strong> <a href="https://thelibrarynj.com">www.thelibrarynj.com</a></p>

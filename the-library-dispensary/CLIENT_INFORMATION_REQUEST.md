@@ -6,7 +6,7 @@ Thank you for reviewing your pre-launch landing page. To ensure all information 
 
 1. **Legal Business Name**: _________________________________
 2. **DBA Name (if different)**: _________________________________
-3. **New Jersey Cannabis License Number**: _________________ (Currently shows: NJ-RC-000123)
+3. **New Jersey Cannabis License Number**: _________________ (Currently not displayed)
 4. **Business Entity Type**: ☐ LLC ☐ Corporation ☐ Other: _____________
 
 ## 📅 Opening Information

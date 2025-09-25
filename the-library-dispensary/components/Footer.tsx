@@ -119,11 +119,6 @@ export default function Footer() {
               <p><span className="font-medium">Thursday:</span> 9 AM–9 PM</p>
               <p><span className="font-medium">Friday:</span> 9 AM–9 PM</p>
             </div>
-            <div className="mt-4 p-3 bg-library-gold/20 rounded">
-              <p className="text-xs">
-                <strong>License:</strong> NJ-RC-000123
-              </p>
-            </div>
           </div>
         </div>
       </div>
