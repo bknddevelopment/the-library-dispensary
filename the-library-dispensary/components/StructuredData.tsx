@@ -234,26 +234,26 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
         id="schema-local-business"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
       <Script
         id="schema-organization"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
       <Script
         id="schema-website"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
       {breadcrumbSchema && (
         <Script
           id="schema-breadcrumb"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
       )}
       {faqSchema && (
@@ -261,7 +261,7 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
           id="schema-faq"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
       )}
     </>
