@@ -13,8 +13,8 @@ const CannabisStoreMontclair: NextPage = () => {
     <>
       <SEO
         title="Cannabis Store Near Montclair | Dispensary Montclair NJ | The Library"
-        description="Looking for a cannabis store near Montclair? The Library in West Orange is your closest dispensary to Montclair NJ. Premium flower, edibles, vapes. Just 10 minutes from downtown Montclair."
-        keywords="montclair dispensary, cannabis store montclair, marijuana dispensary near montclair nj, weed store montclair, recreational cannabis montclair, medical marijuana montclair nj, dispensary near montclair"
+        description="Looking for a cannabis store near Montclair? The Library in West Orange is your closest dispensary to Montclair NJ. Premium cannabis products, edibles, vapes. Just 10 minutes from downtown Montclair."
+        keywords="montclair dispensary, cannabis store montclair, cannabis dispensary near montclair nj, marijuana store montclair, recreational cannabis montclair, medical cannabis montclair nj, dispensary near montclair"
         canonicalUrl="https://thelibrarynj.com/cannabis-store-montclair/"
       />
       <StructuredData pageType="home" />
@@ -197,7 +197,7 @@ const CannabisStoreMontclair: NextPage = () => {
                   <div className="bg-library-cream p-6 rounded-lg mt-4">
                     <h4 className="font-semibold text-library-brown mb-4">Personalized Consultations</h4>
                     <p className="text-gray-700">
-                      Our budtenders take time to understand your needs, whether you're a Montclair parent seeking stress relief, an artist looking for creative inspiration, or a senior exploring cannabis for wellness.
+                      Our budtenders take time to understand your needs, whether you're a Montclair parent seeking stress relief, an artist looking for creative inspiration, or a senior exploring cannabis products for wellness.
                     </p>
                   </div>
                 </div>
@@ -219,7 +219,7 @@ const CannabisStoreMontclair: NextPage = () => {
                   We're proud to serve Montclair residents who value quality, creativity, and community. Our cannabis store may be located in West Orange, but our heart extends to all of Essex County. We support local Montclair artists, partner with area nonprofits, and participate in regional events that bring our communities together.
                 </p>
                 <p>
-                  As Montclair continues to explore its own cannabis retail options, The Library stands ready to share our expertise and support responsible cannabis access throughout the region. We believe in collaboration over competition and look forward to a future where every community has safe, legal access to cannabis products.
+                  As Montclair continues to explore its own cannabis retail options, The Library stands ready to share our expertise and support responsible cannabis product access throughout the region. We believe in collaboration over competition and look forward to a future where every community has safe, legal access to cannabis products.
                 </p>
               </div>
             </div>
@@ -237,7 +237,7 @@ const CannabisStoreMontclair: NextPage = () => {
                     How far is The Library from downtown Montclair?
                   </h3>
                   <p className="text-gray-700">
-                    The Library of New Jersey is located just 3.2 miles from downtown Montclair, typically a 10-minute drive via Valley Road. We're the closest dispensary to Montclair, making us the most convenient option for cannabis shopping.
+                    The Library of New Jersey is located just 3.2 miles from downtown Montclair, typically a 10-minute drive via Valley Road. We're the closest dispensary to Montclair, making us the most convenient option for cannabis product shopping.
                   </p>
                 </div>
                 <div className="bg-library-cream p-6 rounded-lg">
@@ -245,7 +245,7 @@ const CannabisStoreMontclair: NextPage = () => {
                     When will Montclair get its own dispensary?
                   </h3>
                   <p className="text-gray-700">
-                    While Montclair has approved cannabis retail, no dispensaries have opened yet. Until then, The Library in West Orange remains your closest and best option for legal cannabis. We're just a short drive away and proudly serve the Montclair community.
+                    While Montclair has approved cannabis retail, no dispensaries have opened yet. Until then, The Library in West Orange remains your closest and best option for legal cannabis products. We're just a short drive away and proudly serve the Montclair community.
                   </p>
                 </div>
                 <div className="bg-library-cream p-6 rounded-lg">
@@ -307,7 +307,7 @@ const CannabisStoreMontclair: NextPage = () => {
                 Montclair's Premier Cannabis Destination is Just Minutes Away
               </h2>
               <p className="text-xl text-white mb-8 opacity-90">
-                Join your Montclair neighbors who've discovered The Library – where quality cannabis meets exceptional service, just 10 minutes from downtown.
+                Join your Montclair neighbors who've discovered The Library – where quality cannabis products meet exceptional service, just 10 minutes from downtown.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/products" className="bg-white text-library-teal px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors inline-block">
@@ -318,7 +318,7 @@ const CannabisStoreMontclair: NextPage = () => {
                 </Link>
               </div>
               <p className="text-white mt-8 opacity-75">
-                📍 Only 3.2 miles from downtown Montclair • 📞 (973) 731-1199
+                📍 Only 3.2 miles from downtown Montclair
               </p>
             </div>
           </section>

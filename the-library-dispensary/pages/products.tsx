@@ -115,7 +115,8 @@ const ProductsPage: NextPage = () => {
             "name": "The Library of New Jersey",
             "description": "Premium cannabis dispensary in West Orange, NJ",
             "url": "https://thelibrarydispensary.com/products",
-            "telephone": "973-731-1199",
+            // Phone number removed - business doesn't have one yet
+            // "telephone": "973-731-1199",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "1-3 Washington St",
@@ -414,7 +415,8 @@ const ProductsPage: NextPage = () => {
                     <p className="text-library-gold/80 font-serif">
                       1-3 Washington St, West Orange, NJ 07052
                     </p>
-                    <a
+                    {/* Phone number removed - business doesn't have one yet */}
+                    {/* <a
                       href="tel:973-731-1199"
                       className="inline-flex items-center gap-2 mt-3 text-library-gold hover:text-library-gold-light transition-colors"
                     >
@@ -422,7 +424,7 @@ const ProductsPage: NextPage = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
                       <span className="font-semibold">(973) 731-1199</span>
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </motion.div>

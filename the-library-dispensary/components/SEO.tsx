@@ -59,7 +59,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="business:contact_data:region" content="NJ" />
       <meta name="business:contact_data:postal_code" content="07052" />
       <meta name="business:contact_data:country_name" content="United States" />
-      <meta name="business:contact_data:phone_number" content="+19737311199" />
+      {/* Phone number removed - business doesn't have one yet */}
+      {/* <meta name="business:contact_data:phone_number" content="+19737311199" /> */}
     </Head>
   )
 }

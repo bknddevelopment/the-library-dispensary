@@ -1,6 +1,6 @@
 # Robots.txt for The Library Dispensary
 # https://thelibrarynj.com/
-# Business: The Library of New Jersey - Cannabis Dispensary
+# Business: The Library of New Jersey - Wellness Center
 
 # Google Bot - FULL ACCESS GRANTED
 User-agent: Googlebot

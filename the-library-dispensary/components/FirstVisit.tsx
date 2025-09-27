@@ -177,12 +177,13 @@ export default function FirstVisit() {
             >
               Get Notified
             </a>
-            <a
+            {/* Phone number removed - business doesn't have one yet */}
+            {/* <a
               href="tel:973-731-1199"
               className="inline-flex items-center justify-center bg-library-white text-library-brown px-6 py-3 rounded-full font-semibold hover:bg-library-white/90 transition-colors"
             >
               Call for Info: (973) 731-1199
-            </a>
+            </a> */}
           </div>
         </motion.div>
       </div>

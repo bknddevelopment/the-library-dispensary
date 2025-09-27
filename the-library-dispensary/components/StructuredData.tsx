@@ -12,9 +12,15 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
     "@id": "https://thelibrarynj.com/#dispensary",
     "name": "The Library of New Jersey",
     "alternateName": ["The Library of New Jersey", "The Library Cannabis Store", "The Library West Orange", "The Library NJ"],
-    "description": "West Orange NJ cannabis dispensary near me. Premium marijuana flower, edibles, vapes & concentrates. Same-day pickup, expert budtenders. Serving Essex County since 2025.",
+    "description": "West Orange NJ cannabis dispensary near me. Premium marijuana flower, edibles, vapes & concentrates. Same-day pickup, expert budtenders. Serving Essex County since 2025. NJ Cannabis Retail License: RE000228.",
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "NJ Cannabis Retail License",
+      "value": "RE000228"
+    },
     "url": "https://thelibrarynj.com/",
-    "telephone": "+1-973-731-1199",
+    // Phone number removed - business doesn't have one yet
+    // "telephone": "+1-973-731-1199",
     "priceRange": "$$",
     "image": [
       "https://thelibrarynj.com/the-library-logo.png",
@@ -128,13 +134,14 @@ const StructuredData: React.FC<StructuredDataProps> = ({ pageType = 'home' }) =>
     "alternateName": "The Library of New Jersey",
     "url": "https://thelibrarynj.com/",
     "logo": "https://thelibrarynj.com/the-library-logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-973-731-1199",
-      "contactType": "customer service",
-      "areaServed": "US",
-      "availableLanguage": ["en"]
-    },
+    // Phone number removed - business doesn't have one yet
+    // "contactPoint": {
+    //   "@type": "ContactPoint",
+    //   "telephone": "+1-973-731-1199",
+    //   "contactType": "customer service",
+    //   "areaServed": "US",
+    //   "availableLanguage": ["en"]
+    // },
     "sameAs": [
       "https://www.instagram.com/thelibrarynj/"
     ]

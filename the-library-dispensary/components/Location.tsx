@@ -128,13 +128,14 @@ export default function Location() {
                 <h3 className="text-xl font-serif text-library-brown">Contact Us</h3>
               </div>
               <div className="space-y-3">
-                <a
+                {/* Phone number removed - business doesn't have one yet */}
+                {/* <a
                   href="tel:973-731-1199"
                   className="flex items-center gap-2 text-library-black/70 hover:text-library-gold transition-colors"
                 >
                   <Phone className="w-4 h-4" />
                   <span>(973) 731-1199</span>
-                </a>
+                </a> */}
                 <a
                   href="mailto:info@thelibrarynj.com"
                   className="flex items-center gap-2 text-library-black/70 hover:text-library-gold transition-colors"

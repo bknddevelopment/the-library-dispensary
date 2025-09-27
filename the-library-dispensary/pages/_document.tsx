@@ -40,14 +40,14 @@ export default function Document() {
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=yes" />
 
         {/* Critical SEO meta tags - MUST be in static HTML for crawlers */}
-        <title>West Orange Dispensary | Cannabis Near Me | The Library NJ</title>
-        <meta name="description" content="The Library: West Orange's #1 cannabis dispensary. Premium flower, edibles, vapes in Essex County NJ. Order online, same-day pickup. Open daily 1-3 Washington St." />
-        <meta name="keywords" content="dispensary west orange nj, cannabis near me, marijuana west orange, weed dispensary essex county, cannabis store west orange new jersey, recreational marijuana nj, The Library of New Jersey" />
+        <title>West Orange Dispensary | Cannabis Products Near Me | The Library NJ</title>
+        <meta name="description" content="The Library: West Orange's #1 cannabis dispensary. Premium cannabis products, edibles, vapes in Essex County NJ. Order online, same-day pickup. Open daily 1-3 Washington St." />
+        <meta name="keywords" content="dispensary west orange nj, cannabis products near me, marijuana products west orange, cannabis dispensary essex county, cannabis store west orange new jersey, recreational cannabis nj, The Library of New Jersey" />
         <link rel="canonical" href="https://thelibrarynj.com/" />
 
         {/* Open Graph tags for better social sharing and crawler recognition */}
         <meta property="og:title" content="The Library of New Jersey - Premier Cannabis Dispensary" />
-        <meta property="og:description" content="West Orange's premier cannabis dispensary. Premium flower, edibles, vapes & concentrates. Order online for same-day pickup." />
+        <meta property="og:description" content="West Orange's premier cannabis dispensary. Premium cannabis products, edibles, vapes & concentrates. Order online for same-day pickup." />
         <meta property="og:url" content="https://thelibrarynj.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://thelibrarynj.com/the-library-logo.png" />
@@ -56,9 +56,11 @@ export default function Document() {
         {/* MUST MATCH EXACTLY with Google Business Profile - DO NOT CHANGE */}
         <meta name="business:name" content="The Library of New Jersey" />
         <meta name="business:address" content="1-3 Washington Street, West Orange, NJ 07052" />
-        <meta name="business:phone" content="+1-973-731-1199" />
+        {/* Phone number removed - business doesn't have one yet */}
+        {/* <meta name="business:phone" content="+1-973-731-1199" /> */}
         <meta name="business:hours" content="Mon-Wed: 9am-8pm, Thu-Fri: 9am-9pm, Sat: 9am-9pm, Sun: 10am-5pm" />
         <meta name="business:type" content="Cannabis Dispensary" />
+        <meta name="business:license" content="NJ Cannabis Retail License: RE000228" />
         <meta name="business:url" content="https://thelibrarynj.com" />
 
         {/* Open Graph tags for social media and crawlers */}
@@ -80,9 +82,15 @@ export default function Document() {
               "@id": "https://thelibrarynj.com/#dispensary",
               "name": "The Library of New Jersey",
               "alternateName": ["The Library of New Jersey", "The Library Cannabis Store", "The Library West Orange", "The Library NJ"],
-              "description": "West Orange NJ cannabis dispensary near me. Premium marijuana flower, edibles, vapes & concentrates. Same-day pickup, expert budtenders. Serving Essex County since 2025.",
+              "description": "West Orange NJ cannabis dispensary near me. Premium cannabis products, edibles, vapes & concentrates. Same-day pickup, expert budtenders. Serving Essex County since 2025. NJ Cannabis Retail License: RE000228.",
+              "identifier": {
+                "@type": "PropertyValue",
+                "name": "NJ Cannabis Retail License",
+                "value": "RE000228"
+              },
               "url": "https://thelibrarynj.com/",
-              "telephone": "+1-973-731-1199",
+              // Phone number removed - business doesn't have one yet
+              // "telephone": "+1-973-731-1199",
               "priceRange": "$$",
               "image": [
                 "https://thelibrarynj.com/the-library-logo.png",
@@ -151,7 +159,7 @@ export default function Document() {
             <h1>The Library of New Jersey - Cannabis Dispensary</h1>
 
             {/* Business Information with Schema.org microdata */}
-            <div itemScope itemType="https://schema.org/CannabisStore">
+            <div itemScope itemType="https://schema.org/Store">
               <h2 itemProp="name">The Library of New Jersey</h2>
               <p><strong>West Orange's Premier Cannabis Dispensary</strong></p>
 
@@ -166,7 +174,8 @@ export default function Document() {
                 </p>
               </div>
 
-              <p><strong>Phone:</strong> <span itemProp="telephone">(973) 731-1199</span></p>
+              {/* Phone number removed - business doesn't have one yet */}
+              {/* <p><strong>Phone:</strong> <span itemProp="telephone">(973) 731-1199</span></p> */}
               <p><strong>Website:</strong> <span itemProp="url">https://thelibrarynj.com</span></p>
 
               {/* Store Hours with proper schema */}
@@ -185,9 +194,9 @@ export default function Document() {
               {/* About the Business */}
               <h3>About Us</h3>
               <p itemProp="description">
-                West Orange's premier cannabis dispensary offering premium flower,
+                West Orange's premier cannabis dispensary offering premium cannabis products,
                 edibles, vapes, and concentrates. Expert budtenders, same-day pickup,
-                and a curated experience for both medical and recreational customers.
+                and a curated experience for recreational customers.
                 Black-owned business focused on community, education, equality, and equity.
               </p>
 
@@ -215,12 +224,13 @@ export default function Document() {
               {/* Legal Compliance */}
               <p><strong>Legal Requirements:</strong></p>
               <p>Must be 21+ with valid government-issued ID for recreational purchases.</p>
-              <p>Medical patients 18+ with valid NJ medical marijuana card.</p>
-              <p>Fully licensed New Jersey cannabis dispensary serving recreational and medical customers.</p>
+              <p>Fully licensed New Jersey recreational cannabis dispensary.</p>
+              <p><strong>NJ Cannabis Retail License:</strong> RE000228</p>
 
               {/* Contact Methods */}
               <p><strong>Order Online:</strong> <a href="https://thelibrarynj.com">www.thelibrarynj.com</a></p>
-              <p><strong>Call Us:</strong> <a href="tel:+19737311199">(973) 731-1199</a></p>
+              {/* Phone number removed - business doesn't have one yet */}
+              {/* <p><strong>Call Us:</strong> <a href="tel:+19737311199">(973) 731-1199</a></p> */}
               <p><strong>Visit Us:</strong> 1-3 Washington Street, West Orange, NJ 07052</p>
 
               {/* Social Media */}

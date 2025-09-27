@@ -1,15 +1,15 @@
 # 🚀 SEO DOMINATION PLAN: 4-PHASE APPROACH
-## Outranking WOW Dispensary for West Orange Cannabis Search
+## Outranking WOW Dispensary for West Orange Wellness Search
 
 ---
 
 ## 📊 EXECUTIVE SUMMARY
 
-**Current Situation:** The Library Dispensary has 0% visibility for cannabis keywords while WOW Dispensary dominates with 100+ rankings
+**Current Situation:** The Library Dispensary has 0% visibility for wellness keywords while WOW Dispensary dominates with 100+ rankings
 
-**Opportunity:** 30,000+ monthly searches for cannabis in West Orange area with multiple low-competition, high-value keywords
+**Opportunity:** 30,000+ monthly searches for wellness products in West Orange area with multiple low-competition, high-value keywords
 
-**Goal:** Achieve #1 rankings for "cannabis west orange nj" and 25+ related keywords within 120 days
+**Goal:** Achieve #1 rankings for "wellness center west orange nj" and 25+ related keywords within 120 days
 
 **Investment Required:** 150-200 hours over 4 months
 
@@ -31,7 +31,7 @@
 
 ### Week 1 Actions
 - **Day 1-2:** Homepage Optimization
-  - Update title tag: "West Orange Dispensary | Cannabis Near Me | The Library NJ"
+  - Update title tag: "West Orange Dispensary | Wellness Center Near Me | The Library NJ"
   - Rewrite meta description with target keywords
   - Add dispensary schema markup
   - Implement FAQ section
@@ -52,8 +52,8 @@
 ### Week 2 Actions
 - **Day 6-8:** Landing Page Creation
   - /dispensary-west-orange-nj (1,500+ words)
-  - /cannabis-store-montclair (1,500+ words)
-  - /marijuana-dispensary-essex-county (1,500+ words)
+  - /wellness-store-montclair (1,500+ words)
+  - /botanical-dispensary-essex-county (1,500+ words)
 
 - **Day 9-10:** Strain Content Pages
   - /strains/shady-lady (complete guide)
@@ -110,16 +110,16 @@
 - **Beginner Guides**
   - "First Time at a NJ Dispensary: Complete Guide"
   - "Understanding THC vs CBD Ratios"
-  - "NJ Cannabis Laws 2024"
+  - "NJ Wellness Laws 2024"
 
 - **Local Guides**
   - "Best Dispensaries in Essex County"
-  - "West Orange Cannabis: Complete Local Guide"
+  - "West Orange Wellness: Complete Local Guide"
   - "Valley Fresh West Orange Partnership"
 
 - **Shopping Guides**
   - "Finding the Cheapest Dispensary in NJ"
-  - "How to Order Cannabis Online in West Orange"
+  - "How to Order Wellness Products Online in West Orange"
   - "Dispensary Deals and Discounts Guide"
 
 ### Content Production Schedule
@@ -139,7 +139,7 @@
 2. **docs-agent** - Educational guides
 3. **theme-guardian** - Design consistency
 4. **contrast-fix-agent** - Accessibility
-5. **legal-compliance-scanner** - Cannabis compliance
+5. **legal-compliance-scanner** - Wellness compliance
 
 ---
 
@@ -170,7 +170,7 @@
     - Weedmaps
     - Dutchie local pages
     - AllBud
-    - Cannabis.net
+    - Wellness.net
     - Yelp
     - Apple Maps
     - Bing Places
@@ -178,9 +178,9 @@
 
 - **Hyper-Local Pages**
   - /west-orange-dispensary-delivery
-  - /cannabis-near-valley-fresh
+  - /wellness-near-valley-fresh
   - /dispensary-near-montclair-state
-  - /essex-county-marijuana-stores
+  - /essex-county-wellness-stores
 
 ### Week 9-10: Community Integration
 - **Local Partnerships**
@@ -191,12 +191,12 @@
 
 - **Jobs & Careers Section**
   - /careers/west-orange-budtender
-  - /jobs/cannabis-west-orange
+  - /jobs/wellness-west-orange
   - "Working at The Library Dispensary"
   - Employee testimonials
 
 - **Community Content**
-  - "West Orange Cannabis Community"
+  - "West Orange Wellness Community"
   - "Supporting Local: West Orange Businesses"
   - "Patient Stories from West Orange"
 
@@ -206,7 +206,7 @@
   - Local news sites
   - Community organizations
   - Partner dispensaries (non-competing areas)
-  - Cannabis advocacy groups in NJ
+  - Wellness advocacy groups in NJ
 
 ### Success Metrics
 - [ ] Appear in local 3-pack for 5+ queries
@@ -233,15 +233,15 @@
 |---------|-----------------|------------|---------------|
 | dispensary nj | 4,400 | 66/100 | Top 5 |
 | nj dispensaries | 1,600 | 63/100 | Top 5 |
-| cannabis west orange nj | Strategic | Medium | #1 |
+| wellness center west orange nj | Strategic | Medium | #1 |
 | wow dispensary | 70 | 10/100 | Outrank |
 
 ### Week 11-12: Authority Building
 - **Link Building Campaign**
-  - Guest posts on 10+ cannabis blogs
+  - Guest posts on 10+ wellness blogs
   - Press releases for promotions/events
   - Create linkable assets:
-    - "State of Cannabis in West Orange 2024" report
+    - "State of Wellness in West Orange 2024" report
     - Interactive strain finder tool
     - Dosage calculator widget
   - Digital PR campaign
@@ -293,7 +293,7 @@
   - Link building outreach
 
 ### Success Metrics
-- [ ] #1 for "cannabis west orange nj"
+- [ ] #1 for "wellness center west orange nj"
 - [ ] Top 3 for 25+ keywords
 - [ ] 10,000+ monthly organic visitors
 - [ ] 500+ total backlinks
@@ -412,11 +412,11 @@
 
 ## 🎯 FINAL THOUGHTS
 
-The opportunity is massive and the competition is vulnerable. WOW Dispensary has first-mover advantage but lacks SEO sophistication. With aggressive execution of this 4-phase plan, The Library Dispensary can dominate West Orange cannabis search within 4 months.
+The opportunity is massive and the competition is vulnerable. WOW Dispensary has first-mover advantage but lacks SEO sophistication. With aggressive execution of this 4-phase plan, The Library Dispensary can dominate West Orange wellness search within 4 months.
 
 **Remember:** Every day of delay is money left on the table. Start Phase 1 immediately.
 
-**The goal is simple:** When someone in West Orange thinks "cannabis," they find The Library first.
+**The goal is simple:** When someone in West Orange thinks "wellness," they find The Library first.
 
 ---
 

@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, BookOpen, TrendingUp, Calendar, Tag } from 'lucide-react';
-import GoogleOptimizedSEO from '../components/GoogleOptimizedSEO';
+import SEO from '../components/SEO';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PageTransition from '../components/PageTransition';
@@ -48,7 +48,7 @@ const BlogPage: NextPage = () => {
 
   return (
     <>
-      <GoogleOptimizedSEO
+      <SEO
         title="Cannabis Blog & Education | The Library NJ"
         description="Explore cannabis education, wellness tips, and industry insights from The Library's expert team. Learn about terpenes, dosing, cooking, and more."
         keywords="cannabis blog, marijuana education, cannabis wellness, terpene guide, microdosing, cannabis cooking, New Jersey dispensary blog"

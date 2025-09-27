@@ -13,8 +13,8 @@ const DispensaryWestOrangeNJ: NextPage = () => {
     <>
       <SEO
         title="Dispensary West Orange NJ | Premium Cannabis Store | The Library"
-        description="Looking for a dispensary in West Orange NJ? The Library offers premium cannabis flower, edibles, vapes & concentrates. Same-day pickup, expert budtenders. Open daily at 1-3 Washington St."
-        keywords="dispensary west orange nj, cannabis dispensary west orange, marijuana dispensary west orange new jersey, weed store west orange, recreational cannabis west orange nj, medical marijuana west orange, the library dispensary west orange"
+        description="Looking for a dispensary in West Orange NJ? The Library offers premium cannabis products, edibles, vapes & concentrates. Same-day pickup, expert budtenders. Open daily at 1-3 Washington St."
+        keywords="dispensary west orange nj, cannabis dispensary west orange, marijuana dispensary west orange new jersey, cannabis store west orange, recreational cannabis west orange nj, medical cannabis west orange, the library dispensary west orange"
         canonicalUrl="https://thelibrarynj.com/dispensary-west-orange-nj/"
       />
       <StructuredData pageType="home" />
@@ -31,7 +31,7 @@ const DispensaryWestOrangeNJ: NextPage = () => {
                   West Orange's Premier Cannabis Dispensary
                 </h1>
                 <p className="text-xl md:text-2xl text-library-teal max-w-3xl mx-auto mb-8">
-                  Your trusted dispensary in West Orange NJ for premium cannabis products, expert guidance, and exceptional service
+                  Your trusted dispensary in West Orange NJ for premium cannabis products, expert guidance, and exceptional service"
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/products" className="bg-library-gold text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-colors inline-block">
@@ -53,10 +53,10 @@ const DispensaryWestOrangeNJ: NextPage = () => {
               </h2>
               <div className="prose prose-lg max-w-none text-gray-700">
                 <p>
-                  Located in the heart of West Orange, New Jersey, The Library of New Jersey stands as Essex County's premier destination for both recreational and medical cannabis. Our dispensary in West Orange NJ combines the warmth of a neighborhood bookstore with the professionalism of a modern cannabis retail experience.
+                  Located in the heart of West Orange, New Jersey, The Library of New Jersey stands as Essex County's premier destination for both recreational and medical cannabis products. Our dispensary in West Orange NJ combines the warmth of a neighborhood bookstore with the professionalism of a modern cannabis retail experience.
                 </p>
                 <p>
-                  As West Orange's newest and most innovative cannabis dispensary, we've carefully curated our selection to meet the diverse needs of our community. Whether you're a seasoned cannabis connoisseur or exploring cannabis for the first time, our knowledgeable budtenders are here to guide you through our extensive collection of premium products.
+                  As West Orange's newest and most innovative cannabis dispensary, we've carefully curated our selection to meet the diverse needs of our community. Whether you're a seasoned cannabis enthusiast or exploring cannabis products for the first time, our knowledgeable budtenders are here to guide you through our extensive collection of premium products.
                 </p>
                 <p>
                   Conveniently located at 1-3 Washington Street, our West Orange dispensary is easily accessible from all major highways and public transportation routes. We proudly serve not just West Orange, but the entire Essex County region including Montclair, South Orange, Maplewood, Livingston, and surrounding communities.
@@ -179,7 +179,7 @@ const DispensaryWestOrangeNJ: NextPage = () => {
                     Expert Cannabis Consultations
                   </h3>
                   <p className="text-gray-700 mb-4">
-                    New to cannabis or looking for something specific? Our West Orange budtenders are certified cannabis experts ready to guide you. We offer personalized consultations to help you find the perfect products for your needs and preferences.
+                    New to cannabis products or looking for something specific? Our West Orange budtenders are certified experts ready to guide you. We offer personalized consultations to help you find the perfect products for your needs and preferences.
                   </p>
                   <Link href="/first-visit" className="text-library-teal hover:text-library-gold font-semibold">
                     Plan Your Visit →
@@ -190,7 +190,7 @@ const DispensaryWestOrangeNJ: NextPage = () => {
                     Educational Resources
                   </h3>
                   <p className="text-gray-700 mb-4">
-                    Knowledge is power, especially when it comes to cannabis. Our West Orange NJ dispensary provides comprehensive educational resources, from strain guides to consumption methods, helping you make informed decisions about your cannabis journey.
+                    Knowledge is power, especially when it comes to cannabis. Our West Orange NJ dispensary provides comprehensive educational resources, from product guides to consumption methods, helping you make informed decisions about your cannabis journey.
                   </p>
                   <Link href="/education" className="text-library-teal hover:text-library-gold font-semibold">
                     Learn More →
@@ -228,10 +228,10 @@ const DispensaryWestOrangeNJ: NextPage = () => {
                 </div>
                 <div className="bg-library-cream p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-library-brown mb-3">
-                    Do I need a medical marijuana card to shop at your West Orange dispensary?
+                    Do I need a medical cannabis card to shop at your West Orange dispensary?
                   </h3>
                   <p className="text-gray-700">
-                    No, you don't need a medical marijuana card to shop at our West Orange NJ dispensary. We serve both recreational customers (21+) and medical patients. However, medical patients with valid NJ medical marijuana cards receive special discounts and tax benefits.
+                    No, you don't need a medical cannabis card to shop at our West Orange NJ dispensary. We serve both recreational customers (21+) and medical patients. However, medical patients with valid NJ medical cannabis cards receive special discounts and tax benefits.
                   </p>
                 </div>
                 <div className="bg-library-cream p-6 rounded-lg">

@@ -70,8 +70,8 @@ const PrivacyPage: NextPage = () => {
     <>
       <SEO
         title="Privacy Policy"
-        description="Privacy Policy for The Library of New Jersey. Learn how we collect, use, and protect your personal information in compliance with HIPAA, CCPA, and New Jersey cannabis regulations."
-        keywords="privacy policy, data protection, HIPAA compliance, cannabis dispensary privacy, The Library NJ, personal information, data security"
+        description="Privacy Policy for The Library of New Jersey. Learn how we collect, use, and protect your personal information in compliance with CCPA and New Jersey cannabis regulations."
+        keywords="privacy policy, data protection, cannabis dispensary privacy, The Library NJ, personal information, data security"
         canonicalUrl="https://thelibrarynj.com/privacy"
       />
 
@@ -104,7 +104,7 @@ const PrivacyPage: NextPage = () => {
               <h3 className="text-lg font-semibold text-library-brown mb-4">Quick Navigation</h3>
               <div className="grid md:grid-cols-2 gap-3">
                 <a href="#information-collection" className="text-library-teal hover:text-library-gold transition-colors">→ Information We Collect</a>
-                <a href="#hipaa-compliance" className="text-library-teal hover:text-library-gold transition-colors">→ HIPAA Compliance</a>
+                <a href="#age-verification" className="text-library-teal hover:text-library-gold transition-colors">→ Age Verification</a>
                 <a href="#age-verification" className="text-library-teal hover:text-library-gold transition-colors">→ Age Verification</a>
                 <a href="#data-usage" className="text-library-teal hover:text-library-gold transition-colors">→ How We Use Your Information</a>
                 <a href="#cookies" className="text-library-teal hover:text-library-gold transition-colors">→ Cookies & Tracking</a>
@@ -120,7 +120,7 @@ const PrivacyPage: NextPage = () => {
                 The Library of New Jersey ("The Library," "we," "our," or "us") is committed to protecting the privacy and security of our customers' personal information. This Privacy Policy describes how we collect, use, disclose, and safeguard your information when you visit our dispensary, use our website at thelibrarynj.com, or interact with our services.
               </p>
               <p>
-                As a licensed cannabis dispensary in New Jersey, we are subject to specific state regulations regarding the handling of customer information. We take our legal obligations seriously and maintain strict protocols to ensure your privacy is protected in accordance with all applicable laws, including HIPAA for medical cannabis patients, the California Consumer Privacy Act (CCPA), and the General Data Protection Regulation (GDPR) where applicable.
+                As a licensed recreational cannabis dispensary in New Jersey, we are subject to specific state regulations regarding the handling of customer information. We take our legal obligations seriously and maintain strict protocols to ensure your privacy is protected in accordance with all applicable laws, including the California Consumer Privacy Act (CCPA), and the General Data Protection Regulation (GDPR) where applicable.
               </p>
               <p className="font-semibold">
                 By accessing our website or services, you consent to the data practices described in this Privacy Policy. If you do not agree with our policies and practices, please do not use our services.
@@ -134,7 +134,6 @@ const PrivacyPage: NextPage = () => {
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Identity Information:</strong> Full name, date of birth, government-issued ID details, and photograph (for age and identity verification)</li>
                 <li><strong>Contact Information:</strong> Email address, phone number, and mailing address</li>
-                <li><strong>Medical Information:</strong> For medical cannabis patients only - medical recommendations, qualifying conditions, and physician information (protected under HIPAA)</li>
                 <li><strong>Transaction Information:</strong> Purchase history, product preferences, and payment information (credit/debit card details are processed by secure third-party providers)</li>
                 <li><strong>Compliance Information:</strong> Records required by New Jersey Cannabis Regulatory Commission (NJCRC) regulations</li>
                 <li><strong>Communication Records:</strong> Customer service inquiries, feedback, and correspondence</li>
@@ -150,26 +149,7 @@ const PrivacyPage: NextPage = () => {
               </ul>
             </Section>
 
-            {/* HIPAA Compliance */}
-            <Section title="HIPAA Compliance for Medical Cannabis" icon={<Shield className="w-6 h-6" />} id="hipaa-compliance">
-              <p>
-                For medical cannabis patients, we maintain strict HIPAA (Health Insurance Portability and Accountability Act) compliance to protect your Protected Health Information (PHI). This includes:
-              </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Medical recommendations and physician information are stored in HIPAA-compliant systems with encryption</li>
-                <li>Access to medical information is restricted to authorized personnel only on a need-to-know basis</li>
-                <li>We will never share your medical information without your explicit written consent, except as required by law</li>
-                <li>Medical records are retained for the minimum period required by law and securely destroyed thereafter</li>
-                <li>You have the right to request access to, amendment of, or accounting of disclosures of your PHI</li>
-              </ul>
-              <div className="bg-library-cream/50 p-4 rounded-lg mt-4">
-                <p className="text-sm font-semibold">
-                  Important: Even for recreational customers, any health-related information voluntarily shared with our staff is treated with the same confidentiality standards.
-                </p>
-              </div>
-            </Section>
-
-            {/* Age Verification */}
+{/* Age Verification */}
             <Section title="Age Verification Data Handling" icon={<CheckCircle className="w-6 h-6" />} id="age-verification">
               <p>
                 In compliance with New Jersey law, we are required to verify that all customers are 21 years of age or older. Our age verification process involves:
@@ -313,7 +293,6 @@ const PrivacyPage: NextPage = () => {
               <p>We retain personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required by law:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Transaction Records:</strong> 5 years as required by NJCRC regulations</li>
-                <li><strong>Medical Records:</strong> 7 years for medical cannabis patients</li>
                 <li><strong>Marketing Data:</strong> Until you opt-out or request deletion</li>
                 <li><strong>Website Analytics:</strong> 26 months (Google Analytics default)</li>
                 <li><strong>Security Footage:</strong> 90 days unless required for investigation</li>
@@ -358,22 +337,18 @@ const PrivacyPage: NextPage = () => {
                 <div className="space-y-2 text-library-brown/80">
                   <p><strong>Privacy Officer</strong></p>
                   <p>Address: 1-3 Washington Street, West Orange, NJ 07052</p>
-                  <p>Phone: (973) 731-1199</p>
+                  {/* Phone number removed - business doesn't have one yet */}
+                  {/* <p>Phone: (973) 731-1199</p> */}
                   <p>Email: privacy@thelibrarynj.com</p>
                   <p>Website: https://thelibrarynj.com</p>
                 </div>
                 <div className="mt-4 pt-4 border-t border-library-brown/10">
                   <p className="text-sm text-library-brown/70">
-                    <strong>Response Time:</strong> We aim to respond to all privacy-related inquiries within 30 days. For urgent matters, please call us directly.
+                    <strong>Response Time:</strong> We aim to respond to all privacy-related inquiries within 30 days.
                   </p>
                 </div>
               </div>
 
-              <div className="mt-8 p-4 bg-library-teal/10 rounded-lg">
-                <p className="text-sm text-library-teal font-semibold">
-                  For HIPAA-related concerns or to exercise your rights regarding Protected Health Information, please specifically mention "HIPAA Request" in your communication.
-                </p>
-              </div>
             </Section>
 
             {/* Legal Compliance Notice */}
@@ -384,7 +359,6 @@ const PrivacyPage: NextPage = () => {
               </p>
               <ul className="list-disc pl-6 space-y-1 mt-3 text-library-brown/80">
                 <li>New Jersey Cannabis Regulatory Commission (NJCRC) regulations</li>
-                <li>Health Insurance Portability and Accountability Act (HIPAA)</li>
                 <li>California Consumer Privacy Act (CCPA)</li>
                 <li>General Data Protection Regulation (GDPR)</li>
                 <li>Children's Online Privacy Protection Act (COPPA)</li>

@@ -408,7 +408,7 @@ const ShadyLadyStrain: NextPage = () => {
                 </Link>
               </div>
               <p className="text-white mt-8 opacity-75">
-                📍 1-3 Washington St, West Orange, NJ | 📞 (973) 731-1199
+                📍 1-3 Washington St, West Orange, NJ
               </p>
             </div>
           </section>

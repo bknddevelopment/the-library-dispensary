@@ -533,7 +533,8 @@ const TermsPage: NextPage = () => {
                     <p><strong>The Library of New Jersey</strong></p>
                     <p>1-3 Washington Street</p>
                     <p>West Orange, NJ 07052</p>
-                    <p>Phone: (973) 731-1199</p>
+                    {/* Phone number removed - business doesn't have one yet */}
+                    {/* <p>Phone: (973) 731-1199</p> */}
                     <p>Email: info@thelibrarynj.com</p>
                   </div>
                 </div>

@@ -9,7 +9,7 @@ export default function About() {
     {
       icon: Award,
       title: "Licensed & Compliant",
-      description: "Fully licensed by the State of New Jersey Cannabis Regulatory Commission"
+      description: "Fully licensed by the State of New Jersey Cannabis Regulatory Commission (License: RE000228)"
     },
     {
       icon: Users,
@@ -85,6 +85,11 @@ export default function About() {
               <h3 className="text-3xl font-display text-library-gold-light mb-6">
                 Your Cannabis Journey Starts Here
               </h3>
+              <div className="mb-6 p-4 bg-library-gold/10 border border-library-gold/30 rounded-lg">
+                <p className="text-library-gold font-semibold">
+                  NJ Cannabis Retail License: RE000228
+                </p>
+              </div>
               <div className="space-y-4 text-library-cream/80">
                 <p>
                   The Library of New Jersey is more than a name – it&apos;s our philosophy. Just as a traditional library 

@@ -899,7 +899,8 @@ export default function EducationFlipbookHTML() {
                   <Phone className="w-4 h-4 text-library-gold" />
                   <div>
                     <p className="text-xs font-bold">Contact</p>
-                    <p className="text-xs opacity-80">(973) 731-1199<br/>info@thelibraryNJ.com</p>
+                    {/* Phone number removed - business doesn't have one yet */}
+                    <p className="text-xs opacity-80">info@thelibraryNJ.com</p>
                   </div>
                 </div>
               </div>

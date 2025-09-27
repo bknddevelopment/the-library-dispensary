@@ -9,7 +9,7 @@
 
 ### Overall Verdict: **⚠️ NEEDS CRITICAL FIXES**
 
-The website has strong foundational SEO but is **missing critical compliance elements** that would prevent Google Business Profile acceptance and potentially impact legal compliance for a cannabis dispensary.
+The website has strong foundational SEO but is **missing critical compliance elements** that would prevent Google Business Profile acceptance and potentially impact legal compliance for a wellness center.
 
 ---
 
@@ -55,7 +55,7 @@ The website has strong foundational SEO but is **missing critical compliance ele
 
 ### 6. ✅ Meta Tags & Schema Markup
 - **Status:** COMPREHENSIVE
-- **Schema Type:** Store (Cannabis Dispensary)
+- **Schema Type:** Store (Wellness Center)
 - **Open Graph:** Complete
 - **Business meta tags:** Present
 
@@ -85,7 +85,7 @@ Create `/pages/privacy.tsx` with comprehensive privacy policy covering:
 - Cookie usage
 - Third-party integrations (Dutchie, Google Analytics)
 - User rights under CCPA/GDPR
-- Cannabis-specific data handling
+- Wellness-specific data handling
 
 ### 2. ❌ MISSING: Terms of Service Page
 **Impact:** BLOCKS Google Business Profile | Legal Risk
@@ -93,7 +93,7 @@ Create `/pages/privacy.tsx` with comprehensive privacy policy covering:
 **Required Fix:**
 Create `/pages/terms.tsx` with terms covering:
 - Age verification requirements
-- Cannabis purchase regulations
+- Wellness product purchase regulations
 - Delivery/pickup policies
 - Product disclaimers
 - Liability limitations
@@ -157,7 +157,7 @@ export default function PrivacyPolicy() {
     <>
       <SEO
         title="Privacy Policy | The Library of New Jersey"
-        description="Privacy policy for The Library cannabis dispensary. Learn how we collect, use, and protect your personal information."
+        description="Privacy policy for The Library wellness center. Learn how we collect, use, and protect your personal information."
       />
       <Header />
       <PageTransition>
@@ -189,7 +189,7 @@ export default function TermsOfService() {
     <>
       <SEO
         title="Terms of Service | The Library of New Jersey"
-        description="Terms of service for The Library cannabis dispensary. Purchase requirements, policies, and legal information."
+        description="Terms of service for The Library wellness center. Purchase requirements, policies, and legal information."
       />
       <Header />
       <PageTransition>
@@ -348,7 +348,7 @@ export default function CookieConsent() {
 
 ## 📋 COMPLIANCE CHECKLIST
 
-### Cannabis Industry Requirements
+### Wellness Industry Requirements
 - ✅ Age verification (21+)
 - ✅ FDA disclaimers
 - ✅ Health warnings
@@ -422,7 +422,7 @@ export default function CookieConsent() {
 
 ## 📞 NEXT STEPS
 
-1. Review this audit with legal counsel for cannabis-specific requirements
+1. Review this audit with legal counsel for wellness-specific requirements
 2. Implement Priority 1 fixes immediately
 3. Schedule Google Business Profile verification after fixes
 4. Set up monthly SEO monitoring and reporting

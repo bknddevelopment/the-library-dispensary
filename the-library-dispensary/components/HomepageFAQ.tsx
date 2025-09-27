@@ -121,6 +121,25 @@ export default function HomepageFAQ() {
           })}
         </div>
 
+        {/* License Display Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <div className="inline-block px-8 py-4 rounded-lg glass-gold border border-library-gold/30"
+               style={{ backgroundColor: 'rgba(212, 165, 116, 0.1)', backdropFilter: 'blur(10px)' }}>
+            <p className="text-library-gold font-semibold text-lg">
+              NJ Cannabis Retail License: RE000228
+            </p>
+            <p className="text-library-cream/70 text-sm mt-1">
+              Fully licensed and compliant with New Jersey Cannabis Regulatory Commission
+            </p>
+          </div>
+        </motion.div>
+
         {/* Schema Markup for FAQ */}
         <script
           type="application/ld+json"

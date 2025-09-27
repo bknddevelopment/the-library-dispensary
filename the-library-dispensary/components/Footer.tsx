@@ -25,6 +25,11 @@ export default function Footer() {
             <p className="text-library-white/80 text-sm mb-4">
               West Orange&apos;s premier cannabis dispensary - committed to education, quality, and community.
             </p>
+            <div className="mb-4 p-3 bg-library-gold/10 border border-library-gold/30 rounded">
+              <p className="text-library-gold font-semibold text-sm">
+                NJ Cannabis Retail License: RE000228
+              </p>
+            </div>
             <div className="flex gap-3">
               <a
                 href="https://instagram.com/thelibrarynj"
@@ -79,7 +84,8 @@ export default function Footer() {
           <div>
             <h4 className="text-library-gold font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-3">
-              <li>
+              {/* Phone number removed - business doesn't have one yet */}
+              {/* <li>
                 <a
                   href="tel:973-731-1199"
                   className="flex items-center gap-2 text-library-white/80 hover:text-library-gold transition-colors text-sm"
@@ -87,7 +93,7 @@ export default function Footer() {
                   <Phone className="w-4 h-4" />
                   <span>(973) 731-1199</span>
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="mailto:info@thelibrarynj.com"

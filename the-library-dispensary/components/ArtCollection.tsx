@@ -809,7 +809,8 @@ export default function ArtCollection() {
               <div className="glass p-4 rounded-lg">
                 <h4 className="font-semibold text-library-gold mb-2">Art Inquiries</h4>
                 <p className="text-library-cream/70">art@thelibraryNJ.com</p>
-                <p className="text-library-cream/70">(973) 731-1199</p>
+                {/* Phone number removed - business doesn't have one yet */}
+                {/* <p className="text-library-cream/70">(973) 731-1199</p> */}
               </div>
             </div>
             <button className="mt-6 glass px-8 py-3 rounded-full text-library-cream hover:glass-gold transition-all border border-library-gold/30">

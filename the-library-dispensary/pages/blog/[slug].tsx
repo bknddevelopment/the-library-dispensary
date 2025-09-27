@@ -13,7 +13,7 @@ import {
   BookOpen,
   Tag
 } from 'lucide-react';
-import GoogleOptimizedSEO from '../../components/GoogleOptimizedSEO';
+import SEO from '../../components/SEO';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import PageTransition from '../../components/PageTransition';
@@ -232,7 +232,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post, relatedPosts }) => {
 
   return (
     <>
-      <GoogleOptimizedSEO
+      <SEO
         title={`${post.title} | The Library Blog`}
         description={post.excerpt}
         keywords={post.tags.join(', ')}

@@ -104,13 +104,14 @@ export default function BookSpineNav() {
       >
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-xs sm:text-sm">
           <div className="flex items-center gap-2 sm:gap-6">
-            <div className="flex items-center gap-1 sm:gap-2">
+            {/* Phone number removed - business doesn't have one yet */}
+            {/* <div className="flex items-center gap-1 sm:gap-2">
               <Phone className="w-3 h-3 text-library-gold" />
               <span className="hidden sm:inline text-library-gold-light font-display text-xs uppercase tracking-wider">For Inquiries:</span>
               <a href="tel:973-731-1199" className="text-library-cream hover:text-library-gold transition-colors">
                 (973) 731-1199
               </a>
-            </div>
+            </div> */}
             <span className="hidden sm:flex items-center gap-2">
               <MapPin className="w-3 h-3 text-library-gold" />
               <span className="text-library-cream/80">1-3 Washington St, West Orange, NJ</span>

@@ -12,7 +12,7 @@ const EducationPage: NextPage = () => {
     <>
       <SEO
         title="Cannabis Education - The Library Dispensary"
-        description="Learn about cannabis strains, effects, and responsible use at The Library Dispensary."
+        description="Learn about cannabis products, effects, and responsible use at The Library Dispensary."
       />
       <FloatingParticles />
       <FloatingIntakeButton />

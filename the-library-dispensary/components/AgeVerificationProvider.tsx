@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import AgeVerification from "./AgeVerification";
 import { useAgeVerification } from "@/hooks/useAgeVerification";
-import { shouldBypassAgeVerification, logCrawlerDetection } from "@/lib/crawlerDetection";
-import { isGoogleService } from "@/lib/googleOptimization";
 
 interface AgeVerificationProviderProps {
   children: React.ReactNode;
@@ -15,27 +13,6 @@ export default function AgeVerificationProvider({
 }: AgeVerificationProviderProps) {
   const { isVerified, isLoading, verify, storageInfo } = useAgeVerification();
   const [showDebug, setShowDebug] = useState(false);
-  const [isCrawler, setIsCrawler] = useState(false);
-
-  // Check for search engine crawlers on mount
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const userAgent = navigator.userAgent || '';
-
-      // Enhanced Google detection
-      const isGoogle = isGoogleService(userAgent);
-      const shouldBypass = shouldBypassAgeVerification() || isGoogle;
-
-      setIsCrawler(shouldBypass);
-
-      if (shouldBypass) {
-        logCrawlerDetection();
-        if (isGoogle) {
-          console.log('🤖 Google service detected - bypassing age verification for platform content');
-        }
-      }
-    }
-  }, []);
 
   // Enable debug mode in development or when explicitly enabled
   useEffect(() => {
@@ -57,19 +34,7 @@ export default function AgeVerificationProvider({
     await verify();
   };
 
-  // If it's a crawler, bypass age verification and show content directly
-  if (isCrawler) {
-    return (
-      <>
-        {children}
-        {/* Hidden indicator for testing */}
-        <div style={{ display: 'none' }} data-crawler-bypass="true" data-google-optimized="true">
-          Crawler detected - age verification bypassed - Platform mode active
-        </div>
-      </>
-    );
-  }
-
+  // Show loading state while checking verification status
   if (isLoading) {
     return (
       <div className="min-h-screen bg-library-brown flex items-center justify-center">
@@ -88,6 +53,7 @@ export default function AgeVerificationProvider({
     );
   }
 
+  // Show age verification gate if not verified
   if (!isVerified) {
     return (
       <>
@@ -137,5 +103,6 @@ export default function AgeVerificationProvider({
     );
   }
 
+  // User is verified - show the application
   return <>{children}</>;
 }

@@ -2,79 +2,13 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 /**
- * Middleware to detect search engine crawlers and bypass age verification
- * This runs BEFORE the page loads, allowing crawlers to see full content
+ * Simple middleware - no longer performs any crawler detection or special routing
+ * All visitors see the same content
  */
 
-// List of known search engine bot user agents (lowercase)
-const SEARCH_ENGINE_BOTS = [
-  // Google
-  'googlebot',
-  'google-site-verification',
-  'google-inspectiontool',
-  'google-structured-data-testing-tool',
-  'google-richsnippets',
-  'google page speed insights',
-  'lighthouse',
-  'apis-google',
-  'adsbot-google',
-  'mediapartners-google',
-
-  // Bing
-  'bingbot',
-  'bingpreview',
-
-  // Other search engines
-  'slurp', // Yahoo
-  'duckduckbot', // DuckDuckGo
-  'baiduspider', // Baidu
-  'yandexbot', // Yandex
-
-  // SEO tools
-  'ahrefsbot',
-  'semrushbot',
-  'screaming frog',
-  'moz.com',
-  'seokicks',
-  'sistrix',
-
-  // Social media crawlers (for Open Graph)
-  'facebookexternalhit',
-  'linkedinbot',
-  'twitterbot',
-  'whatsapp',
-  'pinterest',
-  'tumblr',
-
-  // Schema/structured data validators
-  'structured-data',
-  'schema.org',
-];
-
-function isSearchEngineCrawler(userAgent: string): boolean {
-  const lowerUserAgent = userAgent.toLowerCase();
-  return SEARCH_ENGINE_BOTS.some(bot => lowerUserAgent.includes(bot));
-}
-
 export function middleware(request: NextRequest) {
-  const userAgent = request.headers.get('user-agent') || '';
-  const isCrawler = isSearchEngineCrawler(userAgent);
-
-  // Log crawler detection for monitoring
-  if (isCrawler) {
-    console.log(`🤖 Crawler detected in middleware: ${userAgent.substring(0, 100)}...`);
-  }
-
-  // Create response with crawler detection header
-  const response = NextResponse.next();
-
-  // Add custom header that our app can check
-  if (isCrawler) {
-    response.headers.set('X-Is-Crawler', 'true');
-    response.headers.set('X-Crawler-Type', userAgent.split('/')[0] || 'unknown');
-  }
-
-  return response;
+  // Simply pass through all requests without modification
+  return NextResponse.next();
 }
 
 // Only run middleware on actual pages, not on static assets

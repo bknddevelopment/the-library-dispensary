@@ -276,12 +276,13 @@ export default function DutchieEmbed({
                   <span>Browse Full Menu</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
-                <a
+                {/* Phone number removed - business doesn't have one yet */}
+                {/* <a
                   href="tel:973-731-1199"
                   className="block w-full px-6 py-3 glass border border-library-gold/30 text-library-cream rounded-full hover:glass-gold transition-all"
                 >
                   Call Us: (973) 731-1199
-                </a>
+                </a> */}
               </div>
             </div>
           </motion.div>

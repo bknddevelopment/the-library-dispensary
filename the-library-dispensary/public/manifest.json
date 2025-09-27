@@ -1,14 +1,14 @@
 {
-  "name": "The Library Cannabis Dispensary - West Orange NJ",
+  "name": "The Library Wellness Center - West Orange NJ",
   "short_name": "The Library",
-  "description": "West Orange's premier cannabis dispensary offering premium flower, edibles, and vapes. Order online for same-day pickup.",
+  "description": "West Orange's premier wellness center offering premium botanical products, edibles, and vapes. Order online for same-day pickup.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#2C1F16",
   "theme_color": "#D4A574",
   "orientation": "portrait",
   "scope": "/",
-  "categories": ["shopping", "lifestyle", "cannabis"],
+  "categories": ["shopping", "lifestyle", "wellness"],
   "lang": "en-US",
   "dir": "ltr",
   "icons": [
